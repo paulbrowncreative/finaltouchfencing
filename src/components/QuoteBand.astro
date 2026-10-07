@@ -1,0 +1,27 @@
+---
+import QuoteForm from './QuoteForm.astro';
+import Icon from './Icon.astro';
+import { site } from '../data/site.js';
+interface Props { heading?: string; text?: string; formHeading?: string; defaultService?: string }
+const {
+  heading = 'Get a free, no-obligation fence quote',
+  text = 'Send a few details and we’ll follow up to set a time to measure and price your project. No pressure, no obligation.',
+  formHeading = 'Request a free quote',
+  defaultService,
+} = Astro.props;
+---
+<section class="section quote-band on-dark" id="quote" aria-labelledby="quote-band-h">
+  <div class="container quote-band__grid">
+    <div>
+      <span class="eyebrow">Free estimates</span>
+      <h2 id="quote-band-h">{heading}</h2>
+      <p>{text}</p>
+      <ul class="quote-band__contact">
+        <li><Icon name="phone" /><div><a href={site.phoneHref} data-track="phone">{site.phone}</a><small>Free estimates, no obligation</small></div></li>
+        <li><Icon name="clock" /><div>{site.hours[0].days}, {site.hours[0].open} – {site.hours[0].close}<small>Quote requests are accepted any time</small></div></li>
+        <li><Icon name="pin" /><div>Based in {site.address.city}, MI<small>Serving Macomb, St. Clair &amp; Wayne counties</small></div></li>
+      </ul>
+    </div>
+    <QuoteForm heading={formHeading} defaultService={defaultService} />
+  </div>
+</section>

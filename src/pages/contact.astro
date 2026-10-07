@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/site.js';
+import { areas } from '../data/areas.js';
+
+const title = 'Get a Free Fence Quote | Contact Final Touch Fencing | (810) 614-4181';
+const description = 'Request a free, no-obligation fence estimate from Final Touch Fencing in St. Clair Shores, MI. Call (810) 614-4181 or send the quote form. We’ll follow up to schedule.';
+const crumbs = [{ label: 'Home', href: '/' }, { label: 'Get a Quote', href: '/contact/' }];
+---
+<Base title={title} description={description} breadcrumbs={crumbs}>
+  <section class="section quote-band on-dark" style="padding-top: var(--sp-5)">
+    <div class="container">
+      <Breadcrumbs items={crumbs} />
+      <div class="quote-band__grid mt-6">
+        <div>
+          <h1 style="color:#fff">Get a free fence quote</h1>
+          <p class="lede" style="color:#d5dade">Send the form or call. We’ll follow up to set a time to measure and give you a written price. It’s free and there’s no obligation.</p>
+          <ul class="quote-band__contact">
+            <li><Icon name="phone" /><div><a href={site.phoneHref} data-track="phone">{site.phone}</a><small>Call for a free estimate</small></div></li>
+            <li><Icon name="mail" /><div><a href={`mailto:${site.email}`} data-track="email">{site.email}</a><small>For photos, documents or general questions</small></div></li>
+            <li><Icon name="clock" /><div>{site.hours[0].days}, {site.hours[0].open} – {site.hours[0].close}<small>Quote requests accepted any time</small></div></li>
+            <li><Icon name="pin" /><div>{site.address.city}, {site.address.region} {site.address.postalCode}<small>Serving {areas.map((a) => a.name).join(', ')}</small></div></li>
+          </ul>
+          <h2 class="mt-7" style="font-size:var(--fs-lg)">What happens next</h2>
+          <ol class="steps" style="color:#d5dade">
+            <li>We review your request and reach out to schedule a visit.</li>
+            <li>We measure on site and give you a written estimate.</li>
+            <li>You decide. No pressure, no obligation.</li>
+          </ol>
+        </div>
+        <QuoteForm id="contact-quote" heading="Tell us about your project" headingLevel="h2" />
+      </div>
+    </div>
+  </section>
+</Base>

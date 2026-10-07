@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Photo from '../../components/Photo.astro';
+import Faq from '../../components/Faq.astro';
+import QuoteBand from '../../components/QuoteBand.astro';
+import { services } from '../../data/services.js';
+import { areas } from '../../data/areas.js';
+import { photos } from '../../data/photos.js';
+import { site } from '../../data/site.js';
+import { serviceNode, faqNode } from '../../lib/schema.js';
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
+}
+const { service: s } = Astro.props;
+const path = `/services/${s.slug}/`;
+const crumbs = [{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: s.name, href: path }];
+const heroPhoto = s.hero ? photos[s.hero] : null;
+const gallery = s.gallery.map((k) => photos[k]).filter((p) => p && p !== heroPhoto);
+const servedAreas = areas.filter((a) => a.services.includes(s.slug));
+const listedAreas = servedAreas.length ? servedAreas : areas;
+const related = services.filter((o) => o.slug !== s.slug).slice(0, 8);
+const defaultService = { 'fence-installation': 'New fence', 'fence-repair': 'Fence repair', gates: 'Gate', 'fence-staining': 'Staining / power washing' }[s.slug] ?? '';
+const schema = [
+  serviceNode({ name: s.name, path, description: s.description, areaNames: listedAreas.map((a) => a.name) }),
+  faqNode(s.faqs),
+];
+---
+<Base title={s.title} description={s.description} breadcrumbs={crumbs} schema={schema}>
+  <PageHero eyebrow="Final Touch Fencing · Services" title={s.h1} lede={s.lede} crumbs={crumbs} photo={heroPhoto} />
+
+  <section class="section" data-track-scroll>
+    <div class="container content-grid">
+      <div class="prose">
+        {s.sections.map((sec) => (
+          <>
+            <h2>{sec.h2}</h2>
+            <Fragment set:html={sec.html} />
+          </>
+        ))}
+
+        {gallery.length > 0 && (
+          <>
+            <h2>Recent {s.name.toLowerCase()} projects</h2>
+            <div class:list={['gallery', { 'gallery--small': gallery.some((g) => g.lowres) }]}>
+              {gallery.map((g) => (
+                <figure>
+                  <Photo photo={g} sizes={g.lowres ? `${g.src.width}px` : '(min-width: 64rem) 22rem, (min-width: 36rem) 50vw, 100vw'} />
+                  <figcaption>{g.alt}</figcaption>
+                </figure>
+              ))}
+            </div>
+            <p class="mt-6"><a class="text-link" href="/our-work/">See all our work</a></p>
+          </>
+        )}
+
+        <h2>{s.name} near you</h2>
+        <p>We provide {s.name.toLowerCase()} in these communities. Each page covers local permit and placement rules:</p>
+        <ul class="chip-list">
+          {listedAreas.map((a) => <li><a href={`/service-areas/${a.slug}/`}>{s.name} in {a.name}</a></li>)}
+        </ul>
+      </div>
+
+      <aside class="content-grid__aside" aria-label="Get a quote">
+        <div class="aside-card">
+          <h2>Free {s.name.toLowerCase()} estimate</h2>
+          <p>Tell us about the project and we’ll set up a time to measure and price it. No obligation.</p>
+          <a class="btn btn--lg" href="#quote" data-cta="aside_quote">Request a Quote</a>
+          <a class="btn btn--ghost btn--lg" href={site.phoneHref} data-track="phone">{site.phone}</a>
+          <ul>
+            <li>Family-owned, based in St. Clair Shores</li>
+            <li>5.0 stars on <a href={site.profiles.yelp} rel="noopener" target="_blank">Yelp<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+            <li>Cash, check, card, Venmo, Cash App</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <Faq faqs={s.faqs} heading={`${s.name}: common questions`} />
+
+  <section class="section section--tight" aria-labelledby="related-h">
+    <div class="container">
+      <h2 id="related-h">Other fence services</h2>
+      <ul class="chip-list mt-6">
+        {related.map((o) => <li><a href={`/services/${o.slug}/`}>{o.name}</a></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <QuoteBand heading={`Get a free ${s.name.toLowerCase()} quote`} formHeading="Request a free quote" defaultService={defaultService} />
+</Base>

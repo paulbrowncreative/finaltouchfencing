@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Photo from '../components/Photo.astro';
+import QuoteBand from '../components/QuoteBand.astro';
+import { photos } from '../data/photos.js';
+
+const title = 'Fence Project Photos | Our Work | Final Touch Fencing';
+const description = 'Photos of Final Touch Fencing projects: wood privacy, shadow box, picket and split rail fences, gates, vinyl and aluminum across Macomb County.';
+const crumbs = [{ label: 'Home', href: '/' }, { label: 'Our Work', href: '/our-work/' }];
+const groups = [
+  { id: 'privacy', title: 'Wood privacy fences', link: '/services/privacy-fencing/', items: ['deckSunset', 'panorama', 'brickHouse', 'backyardTree', 'betweenHouses', 'woodedSide', 'sideYardDog', 'railSide'] },
+  { id: 'shadow-box', title: 'Shadow box fences', link: '/services/wood-fencing/', items: ['shadowWide', 'shadowCorner', 'shadowLong'] },
+  { id: 'gates', title: 'Gates', link: '/services/gates/', items: ['doubleGate', 'shadowGate'] },
+  { id: 'picket-split-rail', title: 'Picket & split rail', link: '/services/wood-fencing/', items: ['picket', 'splitRail'] },
+  { id: 'vinyl', title: 'Vinyl', link: '/services/vinyl-fencing/', items: ['vinylDouble', 'vinylSingle'] },
+  { id: 'aluminum', title: 'Aluminum', link: '/services/aluminum-fencing/', items: ['aluWater', 'aluYard'] },
+  { id: 'staining', title: 'Staining', link: '/services/fence-staining/', items: ['stained'] },
+];
+---
+<Base title={title} description={description} breadcrumbs={crumbs}>
+  <PageHero
+    eyebrow="Our work"
+    title="Fence projects by Final Touch Fencing"
+    lede="Every photo here is a fence our crew built. Browse by type, then get a quote for something like it."
+    crumbs={crumbs}
+    ctaHref="/contact/"
+  />
+  <section class="section">
+    <div class="container">
+      <nav class="filter-bar" aria-label="Jump to project type">
+        {groups.map((g) => <a href={`#${g.id}`}>{g.title}</a>)}
+      </nav>
+      {groups.map((g) => {
+        const list = g.items.map((k) => photos[k]);
+        const small = list.some((p) => p.lowres);
+        return (
+          <section id={g.id} aria-labelledby={`${g.id}-h`} style="margin-bottom: var(--sp-8)">
+            <h2 id={`${g.id}-h`}>{g.title}</h2>
+            <div class:list={['gallery', { 'gallery--small': small }]}>
+              {list.map((p) => (
+                <figure>
+                  <Photo photo={p} sizes={p.lowres ? `${p.src.width}px` : '(min-width: 76rem) 24rem, (min-width: 36rem) 50vw, 100vw'} />
+                  <figcaption>{p.alt}</figcaption>
+                </figure>
+              ))}
+            </div>
+            <p class="mt-6"><a class="text-link" href={g.link}>More about {g.title.toLowerCase()}</a></p>
+          </section>
+        );
+      })}
+    </div>
+  </section>
+  <QuoteBand heading="Want a fence like one of these?" />
+</Base>

@@ -1,0 +1,9 @@
+---
+import Simple from '../layouts/Simple.astro';
+import { site } from '../data/site.js';
+---
+<Simple title="Accessibility Statement | Final Touch Fencing" h1="Accessibility statement" label="Accessibility" path="/accessibility/" description="Final Touch Fencing’s commitment to an accessible website, and how to reach us if something doesn’t work for you.">
+  <p>We want everyone to be able to use this website. It is designed to meet the Web Content Accessibility Guidelines (WCAG) 2.2, Level AA: it uses semantic headings and landmarks, labeled form fields with text error messages, visible keyboard focus, sufficient color contrast, descriptive image text, and it respects reduced-motion settings.</p>
+  <h2>Need help?</h2>
+  <p>If any part of this site doesn’t work for you, call us at <a href={site.phoneHref}>{site.phone}</a> or email <a href={`mailto:${site.email}`}>{site.email}</a>. We’ll take your quote request by phone and work to fix the problem.</p>
+</Simple>

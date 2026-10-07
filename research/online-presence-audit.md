@@ -84,14 +84,14 @@ Do not publish full review text on the website without checking the complete ori
 
 ## 4. Brand assets found
 
-- **Logo:** `assets/source/logo/final-touch-fencing-logo.jpg` (1125×1125 JPG, white background, from Thumbtack). The mark is a roofline and fence-picket icon with "FINALTOUCH / FENCING LLC". Colors: **red ≈ #E12C35** and **cool gray**. Ask the owner for a vector version (SVG/AI/EPS) or a transparent PNG.
+- **Logo:** `src/assets/images/logo/final-touch-fencing-logo.jpg` (1125×1125 JPG, white background, from Thumbtack). The mark is a roofline and fence-picket icon with "FINALTOUCH / FENCING LLC". Colors: **red ≈ #E12C35** and **cool gray**. Ask the owner for a vector version (SVG/AI/EPS) or a transparent PNG.
 - **Crew uniform:** red shirts, which match the logo red (seen in the crew photo).
 
 ## 5. Photos collected
 
-`assets/source/projects/`: 15 usable project photos at 750–1600 px (from Yelp and Thumbtack). Nearly all are wood: privacy, shadow-box, picket, split-rail and gates.
+`src/assets/images/projects/`: 15 usable project photos at 750–1600 px (from Yelp and Thumbtack). Nearly all are wood: privacy, shadow-box, picket, split-rail and gates.
 
-`assets/source/projects-lowres/`: 8 Angi thumbnails, 185–332 px. **Too small for the website.** They are the only examples of the **aluminum**, **vinyl**, **staining** and **crew** work, so request the originals:
+`src/assets/images/projects-lowres/`: 8 Angi thumbnails, 185–332 px. **Too small for the website.** They are the only examples of the **aluminum**, **vinyl**, **staining** and **crew** work, so request the originals:
 
 | File | Shows |
 |---|---|

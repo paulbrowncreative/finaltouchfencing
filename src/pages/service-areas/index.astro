@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import QuoteBand from '../../components/QuoteBand.astro';
+import { areas } from '../../data/areas.js';
+import { photos } from '../../data/photos.js';
+
+const title = 'Service Areas: St. Clair Shores, Macomb & Detroit | Final Touch';
+const description = 'Fence installation in St. Clair Shores, Harper Woods, Chesterfield, Macomb Twp., Clay Twp./Algonac and Detroit, with each city’s fence rules.';
+const crumbs = [{ label: 'Home', href: '/' }, { label: 'Service Areas', href: '/service-areas/' }];
+const byCounty = Object.entries(Object.groupBy ? Object.groupBy(areas, (a) => a.county) : areas.reduce((m, a) => ((m[a.county] ||= []).push(a), m), {}));
+---
+<Base title={title} description={description} breadcrumbs={crumbs}>
+  <PageHero
+    eyebrow="Service areas"
+    title="Where we build fences"
+    lede="We’re based in St. Clair Shores and work across Macomb County, into St. Clair County around Algonac, and west into Harper Woods and Detroit. Each community has its own fence ordinance, and each page below explains it."
+    crumbs={crumbs}
+    photo={photos.shadowLong}
+  />
+  <section class="section">
+    <div class="container">
+      {byCounty.map(([county, list]) => (
+        <div class="mt-7" style="margin-top:0;margin-bottom:var(--sp-8)">
+          <h2>{county}</h2>
+          <ul class="area-list area-list--light">
+            {list.map((a) => (
+              <li><a href={`/service-areas/${a.slug}/`}><strong>{a.name}</strong><span>{a.lede}</span></a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      <div class="notice">
+        <p style="margin:0"><strong>Don’t see your city?</strong> We also take jobs in neighboring communities. Call <a href="tel:+18106144181" data-track="phone">(810) 614-4181</a> or <a href="/contact/">send a quote request</a> with your ZIP code and we’ll let you know.</p>
+      </div>
+    </div>
+  </section>
+  <QuoteBand />
+</Base>

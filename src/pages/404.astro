@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site.js';
+---
+<Base title="Page Not Found | Final Touch Fencing" description="The page you were looking for doesn’t exist." noindex>
+  <section class="section">
+    <div class="container container--narrow">
+      <span class="eyebrow">404</span>
+      <h1>This page went over the fence.</h1>
+      <p class="lede">The page you’re looking for doesn’t exist or has moved. Try one of these instead:</p>
+      <ul class="link-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/">Fence services</a></li>
+        <li><a href="/service-areas/">Service areas</a></li>
+        <li><a href="/our-work/">Our work</a></li>
+        <li><a href="/contact/">Get a free quote</a></li>
+      </ul>
+      <p class="mt-6">Or call <a href={site.phoneHref} data-track="phone">{site.phone}</a>.</p>
+    </div>
+  </section>
+</Base>

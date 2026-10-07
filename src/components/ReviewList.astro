@@ -1,0 +1,19 @@
+---
+import { reviews, formatReviewDate } from '../data/reviews.js';
+import { site } from '../data/site.js';
+interface Props { limit?: number }
+const { limit } = Astro.props;
+const list = limit ? reviews.slice(0, limit) : reviews;
+---
+<div class="reviews">
+  {list.map((r) => (
+    <figure class="review">
+      <p class="stars" aria-label={`${r.rating} out of 5 stars`}>★★★★★</p>
+      <blockquote cite={site.profiles.yelp}><p>&ldquo;{r.text}&rdquo;</p></blockquote>
+      <figcaption>
+        <strong>{r.name}</strong>
+        <span>{r.platform} · {formatReviewDate(r.date)}</span>
+      </figcaption>
+    </figure>
+  ))}
+</div>

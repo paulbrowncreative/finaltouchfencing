@@ -1,0 +1,92 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Photo from '../../components/Photo.astro';
+import Faq from '../../components/Faq.astro';
+import QuoteBand from '../../components/QuoteBand.astro';
+import ReviewList from '../../components/ReviewList.astro';
+import { areas, areaBySlug } from '../../data/areas.js';
+import { serviceBySlug } from '../../data/services.js';
+import { photos } from '../../data/photos.js';
+import { site } from '../../data/site.js';
+import { serviceNode, faqNode } from '../../lib/schema.js';
+
+export function getStaticPaths() {
+  return areas.map((a) => ({ params: { slug: a.slug }, props: { area: a } }));
+}
+const { area: a } = Astro.props;
+const path = `/service-areas/${a.slug}/`;
+const crumbs = [{ label: 'Home', href: '/' }, { label: 'Service Areas', href: '/service-areas/' }, { label: a.name, href: path }];
+const heroPhoto = photos[a.hero];
+const gallery = a.gallery.map((k) => photos[k]).filter(Boolean);
+const svc = a.services.map((slug) => serviceBySlug[slug]);
+const nearby = a.nearby.map((slug) => areaBySlug[slug]);
+const schema = [
+  serviceNode({ name: `Fence installation and repair in ${a.name}`, path, description: a.description, areaNames: [a.name] }),
+  faqNode(a.faqs),
+];
+---
+<Base title={a.title} description={a.description} breadcrumbs={crumbs} schema={schema}>
+  <PageHero eyebrow={`${a.name} · ${a.county}`} title={a.h1} lede={a.lede} crumbs={crumbs} photo={heroPhoto} />
+
+  <section class="section" data-track-scroll>
+    <div class="container content-grid">
+      <div class="prose">
+        {a.sections.map((sec) => (
+          <>
+            <h2>{sec.h2}</h2>
+            <Fragment set:html={sec.html} />
+          </>
+        ))}
+
+        <h2>Fence services in {a.name}</h2>
+        <ul class="link-list">
+          {svc.map((s) => (
+            <li><a href={`/services/${s.slug}/`}><strong>{s.name}</strong></a> — {s.short}</li>
+          ))}
+        </ul>
+
+        <h2>Fences we’ve built</h2>
+        <p>A few recent Final Touch Fencing projects from around our service area:</p>
+        <div class:list={['gallery', { 'gallery--small': gallery.some((g) => g.lowres) }]}>
+          {gallery.map((g) => (
+            <figure>
+              <Photo photo={g} sizes={g.lowres ? `${g.src.width}px` : '(min-width: 64rem) 22rem, (min-width: 36rem) 50vw, 100vw'} />
+              <figcaption>{g.alt}</figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <h2>Nearby communities we serve</h2>
+        <ul class="chip-list">
+          {nearby.map((n) => <li><a href={`/service-areas/${n.slug}/`}>Fence company in {n.name}</a></li>)}
+        </ul>
+      </div>
+
+      <aside class="content-grid__aside" aria-label="Get a quote">
+        <div class="aside-card">
+          <h2>Fence estimate in {a.name}</h2>
+          <p>Free, no-obligation estimates. We’ll check the {a.name} rules for your lot before we price it.</p>
+          <a class="btn btn--lg" href="#quote" data-cta="aside_quote">Request a Quote</a>
+          <a class="btn btn--ghost btn--lg" href={site.phoneHref} data-track="phone">{site.phone}</a>
+          <ul>
+            <li>Based in St. Clair Shores</li>
+            <li>Wood, vinyl, aluminum, chain link</li>
+            <li>Cash, check, card, Venmo, Cash App</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--paper" aria-labelledby="area-reviews-h">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">Reviews</span><h2 id="area-reviews-h">What our customers say</h2></div>
+      <ReviewList limit={3} />
+      <p class="mt-6"><a class="text-link" href="/reviews/">Read all reviews</a></p>
+    </div>
+  </section>
+
+  <Faq faqs={a.faqs} heading={`Fences in ${a.name}: common questions`} />
+  <QuoteBand heading={`Get a free fence quote in ${a.name}`} />
+</Base>

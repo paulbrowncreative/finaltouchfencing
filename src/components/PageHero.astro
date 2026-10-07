@@ -1,0 +1,31 @@
+---
+import Breadcrumbs from './Breadcrumbs.astro';
+import Photo from './Photo.astro';
+import { site } from '../data/site.js';
+interface Props { eyebrow?: string; title: string; lede?: string; crumbs: { label: string; href: string }[]; photo?: any; ctaLabel?: string; ctaHref?: string; showCtas?: boolean }
+const { eyebrow, title, lede, crumbs, photo, ctaLabel = 'Get a Free Quote', ctaHref = '#quote', showCtas = true } = Astro.props;
+const small = photo?.lowres;
+---
+<section class:list={['page-hero on-dark', { 'page-hero--plain': !photo }]}>
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <div class="page-hero__grid">
+      <div>
+        <h1>{eyebrow && <span class="eyebrow">{eyebrow}</span>}{title}</h1>
+        {lede && <p class="lede">{lede}</p>}
+        <slot />
+        {showCtas && (
+          <div class="btn-row mt-6">
+            <a class="btn btn--lg" href={ctaHref} data-cta="page_hero_quote">{ctaLabel}</a>
+            <a class="btn btn--ghost btn--lg" href={site.phoneHref} data-track="phone">Call {site.phone}</a>
+          </div>
+        )}
+      </div>
+      {photo && (
+        <div class="page-hero__media" style={small ? `max-width:${photo.src.width}px` : undefined}>
+          <Photo photo={photo} eager sizes={small ? `${photo.src.width}px` : '(min-width: 60rem) 46vw, 100vw'} />
+        </div>
+      )}
+    </div>
+  </div>
+</section>

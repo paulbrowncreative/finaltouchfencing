@@ -1,0 +1,19 @@
+---
+// Responsive project photo (AVIF/WebP/JPEG). Low-res Angi thumbnails are never upscaled.
+import { Picture } from 'astro:assets';
+interface Props { photo: any; sizes?: string; eager?: boolean; class?: string; alt?: string }
+const { photo, sizes = '(min-width: 60rem) 50vw, 100vw', eager = false, class: cls, alt } = Astro.props;
+const w = photo.src.width;
+const widths = [400, 640, 800, 1000, 1280, 1600].filter((x) => x < w).concat(w);
+---
+<Picture
+  src={photo.src}
+  alt={alt ?? photo.alt}
+  formats={['avif', 'webp']}
+  widths={widths}
+  sizes={sizes}
+  loading={eager ? 'eager' : 'lazy'}
+  fetchpriority={eager ? 'high' : undefined}
+  decoding={eager ? 'sync' : 'async'}
+  class={cls}
+/>

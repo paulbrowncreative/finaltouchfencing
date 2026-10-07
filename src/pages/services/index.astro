@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Photo from '../../components/Photo.astro';
+import QuoteBand from '../../components/QuoteBand.astro';
+import { services } from '../../data/services.js';
+import { photos } from '../../data/photos.js';
+
+const title = 'Fence Services: Install, Gates, Repair & Staining | Final Touch';
+const description = 'Fence installation in wood, vinyl, aluminum and chain link, plus gates, fence repair, staining and power washing. Family-owned, based in St. Clair Shores, MI.';
+const crumbs = [{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }];
+const materials = services.filter((s) => s.slug.endsWith('-fencing') && s.slug !== 'privacy-fencing');
+const work = services.filter((s) => !materials.includes(s));
+---
+<Base title={title} description={description} breadcrumbs={crumbs}>
+  <PageHero
+    eyebrow="Services"
+    title="Fence installation, gates, repair and staining"
+    lede="One local crew for the whole job: new fences in every common material, the gates that go with them, and the repairs and upkeep that keep them looking right."
+    crumbs={crumbs}
+    photo={photos.panorama}
+  />
+  <section class="section" aria-labelledby="mat-h">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">By material</span><h2 id="mat-h">Fence materials</h2></div>
+      <div class="materials">
+        {materials.map((m) => {
+          const ph = m.hero ? photos[m.hero] : null;
+          return (
+            <a class:list={['material', { 'material--noimg': !ph }]} href={`/services/${m.slug}/`}>
+              {ph && <Photo photo={ph} alt="" sizes="(min-width: 60rem) 25vw, (min-width: 36rem) 50vw, 100vw" />}
+              <div class="material__body"><h3>{m.name}</h3><p>{m.short}</p></div>
+            </a>
+          );
+        })}
+      </div>
+      <div class="section-head mt-7"><span class="eyebrow">By job</span><h2>Installation, gates and upkeep</h2></div>
+      <div class="service-index" style="margin-top:0">
+        {work.map((s) => (
+          <a href={`/services/${s.slug}/`}><h3>{s.name}</h3><p>{s.short}</p><span aria-hidden="true">→</span></a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <QuoteBand />
+</Base>

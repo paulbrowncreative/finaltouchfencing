@@ -1,0 +1,154 @@
+---
+// Quote request form. Posts to /api/quote (Netlify Function → email to the business).
+// Works without JavaScript (server responds with a redirect); with JS it submits in place.
+import Icon from './Icon.astro';
+import { site } from '../data/site.js';
+
+interface Props { id?: string; heading?: string; note?: string; headingLevel?: 'h2' | 'h3'; defaultService?: string }
+const {
+  id = 'quote',
+  heading = 'Request a free quote',
+  note = 'Tell us a little about the job. We’ll follow up to schedule a free, no-obligation estimate.',
+  headingLevel = 'h3',
+  defaultService = '',
+} = Astro.props;
+const H = headingLevel;
+const f = (name: string) => `${id}-${name}`;
+const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+
+const projectTypes = ['New fence', 'Replace a fence', 'Fence repair', 'Gate', 'Staining / power washing'];
+const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rail', 'Vinyl', 'Aluminum', 'Chain link', 'Not sure yet'];
+---
+<div class="form-card" data-quote-form-wrap>
+  <form
+    class="quote-form"
+    id={id}
+    action="/api/quote"
+    method="post"
+    novalidate
+    data-quote-form
+    aria-labelledby={f('heading')}
+  >
+    <H id={f('heading')}>{heading}</H>
+    <p class="form-note">{note} Fields marked <span class="req" aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required.</p>
+
+    <div class="form-grid">
+      <div class="field">
+        <label for={f('name')}>Full name <span class="req" aria-hidden="true">*</span></label>
+        <input id={f('name')} name="name" type="text" autocomplete="name" required maxlength="100" aria-describedby={f('name-error')} />
+        <p class="error" id={f('name-error')} aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label for={f('phone')}>Phone <span class="req" aria-hidden="true">*</span></label>
+        <input id={f('phone')} name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="30" aria-describedby={f('phone-error')} />
+        <p class="error" id={f('phone-error')} aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label for={f('email')}>Email <span class="hint">(optional)</span></label>
+        <input id={f('email')} name="email" type="email" autocomplete="email" maxlength="200" aria-describedby={f('email-error')} />
+        <p class="error" id={f('email-error')} aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label for={f('zip')}>Project ZIP code <span class="req" aria-hidden="true">*</span></label>
+        <input id={f('zip')} name="zip" type="text" autocomplete="postal-code" inputmode="numeric" required maxlength="10" aria-describedby={f('zip-error')} />
+        <p class="error" id={f('zip-error')} aria-live="polite"></p>
+      </div>
+
+      <fieldset class="field choice-group span-2">
+        <legend>What do you need?</legend>
+        <div class="choices">
+          {projectTypes.map((t) => (
+            <label><input type="radio" name="project_type" value={t} checked={t === defaultService} /><span>{t}</span></label>
+          ))}
+        </div>
+      </fieldset>
+
+      <div class="field span-2">
+        <label for={f('fence_type')}>Fence type</label>
+        <select id={f('fence_type')} name="fence_type">
+          <option value="">Select one (optional)</option>
+          {fenceTypes.map((t) => <option value={t}>{t}</option>)}
+        </select>
+      </div>
+
+      <div class="field span-2">
+        <label for={f('details')}>Project details <span class="hint">(optional)</span></label>
+        <textarea id={f('details')} name="details" rows="4" maxlength="3000" placeholder="E.g. about 150 ft of 6 ft privacy fence around the backyard, one walk gate, old chain link to remove."></textarea>
+      </div>
+
+      <details class="more-details span-2">
+        <summary>Add more details <span>(address, length, gate, timeline)</span></summary>
+        <div class="form-grid">
+          <div class="field span-2">
+            <label for={f('address')}>Property address</label>
+            <input id={f('address')} name="address" type="text" autocomplete="street-address" maxlength="200" />
+          </div>
+          <div class="field">
+            <label for={f('city')}>City</label>
+            <input id={f('city')} name="city" type="text" autocomplete="address-level2" maxlength="80" />
+          </div>
+          <div class="field">
+            <label for={f('length')}>Approximate length</label>
+            <input id={f('length')} name="length" type="text" maxlength="60" placeholder="e.g. 120 ft" />
+          </div>
+          <div class="field">
+            <label for={f('gate')}>Gate needed?</label>
+            <select id={f('gate')} name="gate">
+              <option value="">Select</option>
+              <option>Yes, walk gate</option>
+              <option>Yes, double / drive gate</option>
+              <option>More than one gate</option>
+              <option>No</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for={f('timeline')}>Timeline</label>
+            <select id={f('timeline')} name="timeline">
+              <option value="">Select</option>
+              <option>As soon as possible</option>
+              <option>Within 1–3 months</option>
+              <option>3+ months out</option>
+              <option>Just getting prices</option>
+            </select>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- Spam protection: honeypot + time-to-submit check (server-side) -->
+    <div class="hp-field" aria-hidden="true">
+      <label for={f('company')}>Company (leave this field empty)</label>
+      <input id={f('company')} name="company" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+    <input type="hidden" name="form_id" value={id} />
+    <input type="hidden" name="started_at" value="" />
+    <input type="hidden" name="source_page" value="" />
+    <input type="hidden" name="landing_page" value="" />
+    <input type="hidden" name="referrer" value="" />
+    <input type="hidden" name="utm_source" value="" />
+    <input type="hidden" name="utm_medium" value="" />
+    <input type="hidden" name="utm_campaign" value="" />
+    <input type="hidden" name="utm_term" value="" />
+    <input type="hidden" name="utm_content" value="" />
+    <input type="hidden" name="gclid" value="" />
+
+    {turnstileKey && <div class="cf-turnstile" data-sitekey={turnstileKey} data-size="flexible"></div>}
+
+    <div class="form-actions">
+      <p class="form-status" role="alert" data-form-status></p>
+      <button class="btn btn--lg btn--block" type="submit" data-cta={`${id}_submit`}>Request My Free Quote</button>
+      <p class="fine">
+        Prefer to talk? Call <a href={site.phoneHref} data-track="phone">{site.phone}</a>. We use your information only to respond to this request. <a href="/privacy/">Privacy policy</a>.
+      </p>
+    </div>
+  </form>
+
+  <div class="form-success" data-form-success tabindex="-1" aria-live="polite">
+    <Icon name="checkCircle" class="form-success__icon" />
+    <H>Thank you! Your quote request has been received.</H>
+    <p>Final Touch Fencing will be in touch soon. If your project is time-sensitive, call us at <a href={site.phoneHref} data-track="phone">{site.phone}</a>.</p>
+    <p class="form-note">While you wait: check whether your city requires a fence permit in our <a href="/resources/fence-permits-st-clair-shores-macomb-county/">local fence permit guide</a>.</p>
+  </div>
+</div>
+{turnstileKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}

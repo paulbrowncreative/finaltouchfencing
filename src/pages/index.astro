@@ -1,0 +1,228 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import ReviewList from '../components/ReviewList.astro';
+import Faq from '../components/Faq.astro';
+import QuoteBand from '../components/QuoteBand.astro';
+import { site } from '../data/site.js';
+import { photos } from '../data/photos.js';
+import { services } from '../data/services.js';
+import { areas } from '../data/areas.js';
+import { reviewSummary } from '../data/reviews.js';
+import { faqNode } from '../lib/schema.js';
+import { getImage } from 'astro:assets';
+
+const heroSizes = '(min-width: 60rem) 48vw, 100vw';
+const heroW = photos.deckSunset.src.width;
+const heroAvif = await getImage({ src: photos.deckSunset.src, format: 'avif', widths: [400, 640, 800, heroW].filter((w) => w <= heroW), sizes: heroSizes });
+const title = 'Fence Company in St. Clair Shores, MI | Final Touch Fencing LLC';
+const description =
+  'Family-owned fence company in St. Clair Shores, MI. Wood, vinyl, aluminum and chain link fences, gates and repair. Free estimates: (810) 614-4181.';
+
+const materials = [
+  { slug: 'wood-fencing', name: 'Wood', text: 'Privacy, shadow box, picket and split rail.', photo: photos.shadowWide },
+  { slug: 'vinyl-fencing', name: 'Vinyl', text: 'Clean privacy panels. Never needs stain.', photo: photos.vinylDouble },
+  { slug: 'aluminum-fencing', name: 'Aluminum', text: 'Open, rust-free and allowed on waterfront lots.', photo: photos.aluWater },
+  { slug: 'chain-link-fencing', name: 'Chain Link', text: 'Affordable containment for pets and back lots.', photo: null },
+];
+const otherServices = services.filter((s) => ['fence-installation', 'privacy-fencing', 'gates', 'fence-repair', 'fence-staining'].includes(s.slug));
+const areaHooks = {
+  'st-clair-shores': 'Home base. Canal-lot and corner-lot rules',
+  'harper-woods': 'Six-foot privacy, ornamental front yards',
+  'chesterfield-township': 'Anchor Bay and Salt River waterfront rules',
+  'macomb-township': 'Subdivisions, HOAs and grade checks',
+  'clay-township': 'Where we got our start. Algonac area',
+  detroit: 'East side homes and historic districts',
+};
+
+const faqs = [
+  { q: 'Are estimates really free?', a: 'Yes. We come out, measure and give you a written price at no cost and with no obligation.' },
+  { q: 'What areas do you serve?', a: 'We’re based in St. Clair Shores and work throughout Macomb County, plus Harper Woods, Detroit and the Clay Township / Algonac area. See all <a href="/service-areas/">service areas</a>, or call to check your address.' },
+  { q: 'Do I need a permit for a new fence?', a: 'In most communities we serve, yes. Rules on height, front yards, corner lots and waterfront lots vary a lot from city to city. Our <a href="/resources/fence-permits-st-clair-shores-macomb-county/">fence permit guide</a> compares them.' },
+  { q: 'What types of fence do you install?', a: 'Wood (privacy, shadow box, picket, split rail), vinyl, aluminum and chain link, plus walk gates, double drive gates and driveway gates.' },
+  { q: 'How do I pay?', a: 'We accept cash, check, credit card, Venmo and Cash App.' },
+];
+---
+<Base title={title} description={description} schema={[faqNode(faqs)]} preloadImage={{ srcset: heroAvif.srcSet.attribute, sizes: heroSizes, type: 'image/avif' }}>
+  <section class="hero on-dark" aria-labelledby="hero-h">
+    <div class="hero__grid">
+      <div class="hero__media">
+        <Photo photo={photos.deckSunset} eager sizes="(min-width: 60rem) 48vw, 100vw" />
+      </div>
+      <div class="hero__copy">
+        <h1 id="hero-h">
+          <span class="eyebrow">Fence company · St. Clair Shores, MI</span>
+          Fences built right, down to the final touch.
+        </h1>
+        <p class="hero__lede">
+          Family-owned fence installation and repair for homes in St. Clair Shores, Harper Woods, Chesterfield and across Macomb County.
+          Wood, vinyl, aluminum and chain link, with free written estimates.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--lg" href="/contact/" data-cta="hero_quote">Get a Free Quote</a>
+          <a class="btn btn--ghost btn--lg" href={site.phoneHref} data-track="phone"><Icon name="phone" />{site.phone}</a>
+        </div>
+        <ul class="hero__proof">
+          <li><span class="stars" aria-hidden="true">★★★★★</span><span>{reviewSummary.average.toFixed(1)} on Yelp ({reviewSummary.count} reviews)</span></li>
+          <li><Icon name="home" />Family-owned &amp; operated</li>
+          <li><Icon name="clipboard" />Free, no-obligation estimates</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip" aria-label="Why homeowners call us">
+    <div class="container">
+      <ul>
+        <li><Icon name="checkCircle" /><div><strong>Priced to compete</strong>A reviewer who compared four quotes picked us on price.</div></li>
+        <li><Icon name="clock" /><div><strong>Quick estimates</strong>Reviewers mention estimates arriving the next day.</div></li>
+        <li><Icon name="shield" /><div><strong>Built to local code</strong>We plan every fence around your city’s height and placement rules.</div></li>
+        <li><Icon name="card" /><div><strong>Easy to pay</strong>Cash, check, card, Venmo or Cash App.</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="services-h">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Fence types</span>
+        <h2 id="services-h">Every common fence, installed by one crew</h2>
+        <p>Pick a material to see styles, photos of our work, and how it fits the rules where you live.</p>
+      </div>
+      <div class="materials">
+        {materials.map((m) => (
+          <a class:list={['material', { 'material--noimg': !m.photo }]} href={`/services/${m.slug}/`}>
+            {m.photo && <Photo photo={m.photo} sizes="(min-width: 60rem) 25vw, (min-width: 36rem) 50vw, 100vw" alt="" />}
+            <div class="material__body"><h3>{m.name}</h3><p>{m.text}</p></div>
+          </a>
+        ))}
+      </div>
+      <div class="service-index">
+        {otherServices.map((s) => (
+          <a href={`/services/${s.slug}/`}><h3>{s.name}</h3><p>{s.short}</p><span aria-hidden="true">→</span></a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper" aria-labelledby="why-h">
+    <div class="container">
+      <div class="split split--wide-left">
+        <div>
+          <span class="eyebrow">Why Final Touch</span>
+          <h2 id="why-h">A straight answer, a fair price and a fence that stays straight</h2>
+          <p class="lede">We’re a family-owned company, not a call center. Here’s what customers say they got from us, in their words:</p>
+          <div class="reasons mt-6" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));">
+            <div class="reason">
+              <h3>The best price of four</h3>
+              <p>&ldquo;I got estimates from four fencing companies. Final Touch Fencing had the best price.&rdquo; — Paul T., Yelp</p>
+            </div>
+            <div class="reason">
+              <h3>Fast, clear estimates</h3>
+              <p>&ldquo;They came out promptly and provided an estimate the next day.&rdquo; — Maria W., Yelp</p>
+            </div>
+            <div class="reason">
+              <h3>Owners who answer questions</h3>
+              <p>&ldquo;Robert and Marisa were very helpful throughout the entire process.&rdquo; — Paul T., Yelp</p>
+            </div>
+            <div class="reason">
+              <h3>Whole-yard projects</h3>
+              <p>&ldquo;A brand new shadow box privacy fence around our entire yard … a gate across our driveway and a gate on the lawn.&rdquo; — Dustin B., Yelp</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <Photo photo={photos.shadowGate} sizes="(min-width: 60rem) 40vw, 100vw" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="work-h">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Recent work</span>
+        <h2 id="work-h">Real fences, built by our crew</h2>
+        <p>Every photo on this site is a Final Touch Fencing project. No stock photos.</p>
+      </div>
+      <div class="mosaic">
+        {[photos.panorama, photos.picket, photos.doubleGate, photos.shadowCorner].map((ph, i) => (
+          <figure><Photo photo={ph} sizes={i === 0 ? '(min-width: 60rem) 50vw, 100vw' : '(min-width: 60rem) 25vw, 50vw'} /></figure>
+        ))}
+      </div>
+      <p class="mt-6"><a class="text-link" href="/our-work/">See all project photos</a></p>
+    </div>
+  </section>
+
+  <section class="section section--dark" aria-labelledby="rules-h">
+    <div class="container">
+      <div class="split">
+        <div>
+          <span class="eyebrow">Know before you build</span>
+          <h2 id="rules-h">Every city here has different fence rules</h2>
+          <p>A fence that’s fine in Harper Woods can be denied in St. Clair Shores. We read the ordinance for your address before we price the job, so the fence you approve is one the city will approve.</p>
+          <p><a class="text-link" href="/resources/fence-permits-st-clair-shores-macomb-county/">Read the local fence permit guide</a></p>
+        </div>
+        <div class="table-scroll">
+          <table class="rules-table rules-table--stack">
+            <caption>A few rules that surprise homeowners</caption>
+            <thead><tr><th scope="col">Where</th><th scope="col">Rule</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><a href="/service-areas/st-clair-shores/">St. Clair Shores</a></th><td data-label="Rule">No privacy fences on waterfront or canal lots. Posts at least 42&Prime; deep.</td></tr>
+              <tr><th scope="row"><a href="/service-areas/chesterfield-township/">Chesterfield Twp.</a></th><td data-label="Rule">Front yards: split rail only, 24–42&Prime;. Anchor Bay water side: decorative aluminum up to 48&Prime;.</td></tr>
+              <tr><th scope="row"><a href="/service-areas/harper-woods/">Harper Woods</a></th><td data-label="Rule">A fence on the lot line needs written consent from adjacent owners.</td></tr>
+              <tr><th scope="row"><a href="/service-areas/macomb-township/">Macomb Twp.</a></th><td data-label="Rule">No pointed tops, and no fence within 3½ ft of another fence.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="reviews-h">
+    <div class="container">
+      <div class="review-summary">
+        <div>
+          <span class="eyebrow">Reviews</span>
+          <h2 id="reviews-h" style="margin:0">What customers say</h2>
+        </div>
+        <p class="review-summary__meta"><span class="review-summary__score">{reviewSummary.average.toFixed(1)}</span> <span class="stars" aria-hidden="true">★★★★★</span><br /><span class="visually-hidden">Rated {reviewSummary.average} out of 5 </span>{reviewSummary.count} reviews on <a href={site.profiles.yelp} rel="noopener" target="_blank">Yelp<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+      </div>
+      <ReviewList />
+    </div>
+  </section>
+
+  <section class="section section--paper" aria-labelledby="process-h">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2 id="process-h">From first call to finished fence</h2>
+      </div>
+      <ol class="process">
+        <li><h3>Request a quote</h3><p>Call or send the form with a few details about the job.</p></li>
+        <li><h3>Free on-site estimate</h3><p>We measure, check grade, gates and existing fence, and price it in writing.</p></li>
+        <li><h3>Permit &amp; utility marking</h3><p>Your city’s permit plus MISS DIG 811 marking, at least 3 business days before digging.</p></li>
+        <li><h3>Build &amp; walkthrough</h3><p>Posts, rails, boards or panels, then gates and hardware. We walk it with you when it’s done.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--dark" aria-labelledby="areas-h">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Service areas</span>
+        <h2 id="areas-h">Based in St. Clair Shores, working across the east side</h2>
+        <p>Each area page covers that community’s fence rules, permit process and the fences that work best there.</p>
+      </div>
+      <ul class="area-list">
+        {areas.map((a) => (
+          <li><a href={`/service-areas/${a.slug}/`}><strong>{a.name}</strong><span>{areaHooks[a.slug]}</span></a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Faq faqs={faqs} heading="Common questions" />
+  <QuoteBand />
+</Base>

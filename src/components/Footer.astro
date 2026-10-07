@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/logo/logo-dark.png';
+import Icon from './Icon.astro';
+import { site } from '../data/site.js';
+import { services } from '../data/services.js';
+import { areas } from '../data/areas.js';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer on-dark">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <Image src={logo} alt={site.legalName} width={190} widths={[190, 380]} sizes="190px" />
+      <p>Family-owned fence company based in St. Clair Shores, Michigan. Fence installation, gates, repair and staining for homes in Macomb, St. Clair and Wayne counties.</p>
+      <a class="btn" href="/contact/" data-cta="footer_quote">Get a Free Quote</a>
+      <div class="social">
+        <a href={site.profiles.facebook} rel="noopener" target="_blank" ><Icon name="facebook" />Facebook<span class="visually-hidden"> (opens in a new tab)</span></a>
+        <a href={site.profiles.yelp} rel="noopener" target="_blank" ><Icon name="star" />Yelp<span class="visually-hidden"> (opens in a new tab)</span></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h2>Services</h2>
+      <ul>
+        {services.map((s) => <li><a href={`/services/${s.slug}/`}>{s.name}</a></li>)}
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h2>Service Areas</h2>
+      <ul>
+        {areas.map((a) => <li><a href={`/service-areas/${a.slug}/`}>{a.name}</a></li>)}
+      </ul>
+      <h2 class="mt-6">Company</h2>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/our-work/">Our Work</a></li>
+        <li><a href="/reviews/">Reviews</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-contact">
+      <h2>Contact</h2>
+      <p><a href={site.phoneHref} data-track="phone"><strong>{site.phone}</strong></a></p>
+      <p><a href={`mailto:${site.email}`} data-track="email">{site.email}</a></p>
+      <p>
+        {site.address.showStreet && <>{site.address.street}<br /></>}
+        {site.address.city}, {site.address.region} {site.address.postalCode}
+      </p>
+      <p>{site.hours.map((h) => <>{h.days}<br />{h.open} – {h.close}</>)}</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© {year} {site.legalName}. All rights reserved.</p>
+    <ul>
+      <li><a href="/privacy/">Privacy Policy</a></li>
+      <li><a href="/terms/">Terms of Use</a></li>
+      <li><a href="/accessibility/">Accessibility</a></li>
+    </ul>
+  </div>
+</footer>

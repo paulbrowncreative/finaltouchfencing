@@ -1,0 +1,8 @@
+---
+import Simple from '../layouts/Simple.astro';
+import { site } from '../data/site.js';
+---
+<Simple title="We Couldn’t Send Your Request | Final Touch Fencing" h1="We couldn’t send your request" label="Error" path="/quote-error/" description="There was a problem sending your quote request." noindex>
+  <p>Something was missing or went wrong. Please <a href="/contact/">go back to the form</a> and check the required fields: name, a 10-digit phone number and a 5-digit ZIP code.</p>
+  <p>Or skip the form and call <a href={site.phoneHref} data-track="phone">{site.phone}</a>.</p>
+</Simple>

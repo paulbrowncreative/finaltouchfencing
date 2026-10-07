@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/logo/logo-light.png';
+import { site, nav } from '../data/site.js';
+const current = Astro.url.pathname;
+const isCurrent = (href: string) => (href === '/' ? current === '/' : current.startsWith(href));
+---
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label={`${site.legalName}, home`}>
+      <Image src={logo} alt="" width={150} widths={[150, 300]} sizes="150px" loading="eager" />
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="menu-toggle__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Main">
+      <ul>
+        {nav.map((item) => (
+          <li><a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a></li>
+        ))}
+      </ul>
+      <div class="mobile-nav-extra">
+        <a class="btn btn--lg" href="/contact/" data-cta="nav_mobile_quote">Get a Free Quote</a>
+        <a class="btn btn--ghost btn--lg" href={site.phoneHref} data-track="phone">Call {site.phone}</a>
+      </div>
+    </nav>
+    <div class="header-actions">
+      <a class="header-phone" href={site.phoneHref} data-track="phone">
+        <small>Call for a free estimate</small>
+        <span>{site.phone}</span>
+      </a>
+      <a class="btn" href="/contact/" data-cta="header_quote">Free Quote</a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,11 @@
+---
+import Base from './Base.astro';
+import PageHero from '../components/PageHero.astro';
+interface Props { title: string; h1: string; description: string; path: string; label: string; noindex?: boolean; lede?: string }
+const { title, h1, description, path, label, noindex, lede } = Astro.props;
+const crumbs = [{ label: 'Home', href: '/' }, { label, href: path }];
+---
+<Base title={title} description={description} breadcrumbs={noindex ? undefined : crumbs} noindex={noindex}>
+  <PageHero title={h1} lede={lede} crumbs={crumbs} showCtas={false} />
+  <section class="section"><div class="container"><div class="prose"><slot /></div></div></section>
+</Base>

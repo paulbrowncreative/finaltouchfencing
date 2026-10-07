@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import QuoteBand from '../../components/QuoteBand.astro';
+import { articles } from '../../data/articles.js';
+const title = 'Fence Guides & Resources for Michigan Homeowners | Final Touch Fencing';
+const description = 'Practical fence guides for St. Clair Shores, Macomb County and Metro Detroit homeowners: local permit rules, choosing a fence material and preparing for installation.';
+const crumbs = [{ label: 'Home', href: '/' }, { label: 'Resources', href: '/resources/' }];
+---
+<Base title={title} description={description} breadcrumbs={crumbs}>
+  <PageHero eyebrow="Resources" title="Fence guides for local homeowners" lede="Straight answers to the questions we hear most, built from local ordinances and our own installs." crumbs={crumbs} showCtas={false} />
+  <section class="section">
+    <div class="container">
+      <ul class="card-list">
+        {articles.map((a) => (
+          <li><a href={`/resources/${a.slug}/`}><h2>{a.navTitle}</h2><p>{a.summary}</p><span class="text-link">Read the guide</span></a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <QuoteBand />
+</Base>

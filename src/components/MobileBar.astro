@@ -1,0 +1,8 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../data/site.js';
+---
+<nav class="mobile-bar on-dark" aria-label="Quick contact">
+  <a href={site.phoneHref} data-track="phone"><Icon name="phone" />Call Now</a>
+  <a href="/contact/" data-cta="mobile_bar_quote">Get a Free Quote</a>
+</nav>
