@@ -14,7 +14,7 @@ export const areas = [
     h1: 'Fence installation in St. Clair Shores',
     lede: 'St. Clair Shores is home base. We know the city’s fence ordinance, the canal-lot rules and the inspection schedule, because these are the jobs we do most.',
     hero: 'shadowCorner',
-    gallery: ['deckSunset', 'shadowLong', 'doubleGate'],
+    gallery: ['deckSunset', 'cornerSidewalk', 'shadowLong', 'doubleGate'],
     services: ['wood-fencing', 'privacy-fencing', 'aluminum-fencing', 'vinyl-fencing', 'gates', 'fence-repair'],
     nearby: ['harper-woods', 'chesterfield-township', 'macomb-township'],
     sections: [
@@ -59,7 +59,7 @@ export const areas = [
     lede:
       'Harper Woods is a few minutes from our base in St. Clair Shores, and we’ve completed projects here. Its fence ordinance differs from its neighbors’ in a few ways worth knowing before you plan.',
     hero: 'betweenHouses',
-    gallery: ['brickHouse', 'shadowGate', 'picket'],
+    gallery: ['shadowBrick', 'brickHouse', 'shadowGate', 'picket'],
     services: ['privacy-fencing', 'wood-fencing', 'vinyl-fencing', 'gates', 'fence-repair', 'fence-staining'],
     nearby: ['st-clair-shores', 'detroit'],
     sections: [
@@ -99,7 +99,7 @@ export const areas = [
     lede:
       'Between Anchor Bay, the Salt River, canal subdivisions and newer neighborhoods, Chesterfield Township has more variety in its fence rules than most places we work.',
     hero: 'splitRail',
-    gallery: ['aluWater', 'panorama', 'shadowWide'],
+    gallery: ['aluWater', 'aluYard', 'panorama', 'shadowWide'],
     services: ['aluminum-fencing', 'wood-fencing', 'privacy-fencing', 'chain-link-fencing', 'gates'],
     nearby: ['macomb-township', 'st-clair-shores', 'clay-township'],
     sections: [
@@ -139,7 +139,7 @@ export const areas = [
     h1: 'Fence installation in Macomb Township',
     lede: 'Most Macomb Township homes are in subdivisions, so a fence project here usually has two sets of rules: the township’s and your HOA’s.',
     hero: 'backyardTree',
-    gallery: ['deckSunset', 'vinylSingle', 'aluYard'],
+    gallery: ['largeLot', 'deckSunset', 'vinylSingle', 'aluYard'],
     services: ['privacy-fencing', 'vinyl-fencing', 'aluminum-fencing', 'wood-fencing', 'gates'],
     nearby: ['chesterfield-township', 'st-clair-shores'],
     sections: [
@@ -183,7 +183,7 @@ export const areas = [
     lede:
       'Final Touch Fencing started out in Clay Township before moving to St. Clair Shores, so the north end of Anchor Bay is familiar ground.',
     hero: 'picket',
-    gallery: ['aluWater', 'woodedSide', 'panorama'],
+    gallery: ['aluWater', 'woodedSide', 'maple', 'panorama'],
     services: ['aluminum-fencing', 'wood-fencing', 'privacy-fencing', 'chain-link-fencing', 'fence-staining'],
     nearby: ['chesterfield-township', 'st-clair-shores'],
     sections: [
@@ -223,7 +223,7 @@ export const areas = [
     lede:
       'We’ve built wood fences in Detroit, and the city’s east side is a short drive from our St. Clair Shores base. Detroit permits work differently from the suburbs, especially in historic districts.',
     hero: 'brickHouse',
-    gallery: ['betweenHouses', 'doubleGate', 'shadowGate'],
+    gallery: ['aluGateWide', 'betweenHouses', 'doubleGate', 'shadowGate'],
     services: ['wood-fencing', 'chain-link-fencing', 'aluminum-fencing', 'privacy-fencing', 'gates', 'fence-repair'],
     nearby: ['harper-woods', 'st-clair-shores'],
     sections: [

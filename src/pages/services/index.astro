@@ -29,6 +29,7 @@ const work = services.filter((s) => !materials.includes(s));
           return (
             <a class:list={['material', { 'material--noimg': !ph }]} href={`/services/${m.slug}/`}>
               {ph && <Photo photo={ph} alt="" sizes="(min-width: 60rem) 25vw, (min-width: 36rem) 50vw, 100vw" />}
+              {ph?.illustration && <span class="media-badge">Illustration</span>}
               <div class="material__body"><h3>{m.heading}</h3><p>{m.short}</p></div>
             </a>
           );

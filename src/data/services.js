@@ -19,7 +19,7 @@ export const services = [
     lede:
       'A new fence is a few days of work and decades of looking at it. We measure on site, price it in writing and build it straight, plumb and set deep enough to stay that way.',
     hero: 'panorama',
-    gallery: ['deckSunset', 'shadowGate', 'brickHouse', 'backyardTree'],
+    gallery: ['deckSunset', 'crew', 'shadowGate', 'aluGate', 'brickHouse', 'backyardTree'],
     sections: [
       {
         h2: 'What we install',
@@ -72,7 +72,7 @@ export const services = [
     lede:
       'Wood is most of what we build. It’s affordable, it can be cut to fit any yard, and it can be stained to match your home or left to weather naturally.',
     hero: 'shadowCorner',
-    gallery: ['shadowWide', 'picket', 'splitRail', 'betweenHouses', 'sideYardDog', 'railSide'],
+    gallery: ['shadowWide', 'shadowBrick', 'picket', 'splitRail', 'betweenHouses', 'sideYardDog'],
     sections: [
       {
         h2: 'Wood fence styles we build',
@@ -111,7 +111,7 @@ export const services = [
     lede:
       'A privacy fence has one job: block the view and keep the yard yours. We build them in wood and vinyl, up to the height your city allows, with gates that latch every time.',
     hero: 'deckSunset',
-    gallery: ['brickHouse', 'woodedSide', 'doubleGate', 'vinylSingle'],
+    gallery: ['cornerSidewalk', 'maple', 'brickHouse', 'woodedSide', 'doubleGate', 'vinylSingle'],
     sections: [
       {
         h2: 'Wood or vinyl privacy fence?',
@@ -150,7 +150,7 @@ export const services = [
     h1: 'Vinyl fence installation',
     lede: 'Vinyl is the low-maintenance choice. There’s nothing to stain or seal, it holds its color, and a hose rinse cleans it up.',
     hero: 'vinylDouble',
-    gallery: ['vinylDouble', 'vinylSingle'],
+    gallery: ['vinylSingle', 'vinylDouble'],
     sections: [
       {
         h2: 'Why homeowners choose vinyl',
@@ -187,7 +187,7 @@ export const services = [
     lede:
       'Aluminum gives you the look of wrought iron without the rust. It’s open, so it keeps the view, and it’s often the one fence type allowed on a waterfront lot.',
     hero: 'aluWater',
-    gallery: ['aluWater', 'aluYard'],
+    gallery: ['aluGate', 'aluGateWide', 'aluYard', 'crew'],
     sections: [
       {
         h2: 'Built for waterfront properties',
@@ -219,7 +219,7 @@ export const services = [
     h1: 'Chain link fence installation',
     lede:
       'Chain link is the practical fence. It costs less per foot than other materials, lasts for years and keeps kids and dogs in without blocking light or the view.',
-    hero: null,
+    hero: 'chainLinkArt',
     gallery: [],
     sections: [
       {
@@ -256,7 +256,7 @@ export const services = [
     h1: 'Gate installation',
     lede: 'You use the gate more than any other part of the fence. It has to swing freely, latch every time and stay square for years.',
     hero: 'doubleGate',
-    gallery: ['shadowGate', 'splitRail', 'brickHouse', 'vinylDouble'],
+    gallery: ['aluGate', 'shadowGate', 'splitRail', 'vinylDouble', 'brickHouse'],
     sections: [
       {
         h2: 'Gates we install',
@@ -293,7 +293,7 @@ export const services = [
     h1: 'Fence repair',
     lede: 'Not every problem means a new fence. A leaning section, a few broken boards or a gate that won’t latch can usually be fixed for a fraction of the cost of replacement.',
     hero: 'railSide',
-    gallery: [],
+    gallery: ['sloped', 'largeLot'],
     sections: [
       {
         h2: 'Common fence repairs',

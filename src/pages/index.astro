@@ -27,7 +27,7 @@ const materials = [
   { slug: 'wood-fencing', name: 'Wood', text: 'Privacy, shadow box, picket and split rail.', photo: photos.shadowWide },
   { slug: 'vinyl-fencing', name: 'Vinyl', text: 'Clean privacy panels. Never needs stain.', photo: photos.vinylDouble },
   { slug: 'aluminum-fencing', name: 'Aluminum', text: 'Open, rust-free and allowed on waterfront lots.', photo: photos.aluWater },
-  { slug: 'chain-link-fencing', name: 'Chain link', text: 'Affordable containment for pets and back lots.', photo: null },
+  { slug: 'chain-link-fencing', name: 'Chain link', text: 'Affordable containment for pets and back lots.', photo: photos.chainLinkArt },
 ];
 const otherServices = services.filter((s) => ['fence-installation', 'privacy-fencing', 'gates', 'fence-repair', 'fence-staining'].includes(s.slug));
 const areaHooks = {
@@ -97,6 +97,7 @@ const faqs = [
         {materials.map((m) => (
           <a class:list={['material', { 'material--noimg': !m.photo }]} href={`/services/${m.slug}/`}>
             {m.photo && <Photo photo={m.photo} sizes="(min-width: 60rem) 25vw, (min-width: 36rem) 50vw, 100vw" alt="" />}
+            {m.photo?.illustration && <span class="media-badge">Illustration</span>}
             <div class="material__body"><h3>{m.name}</h3><p>{m.text}</p></div>
           </a>
         ))}
@@ -147,10 +148,10 @@ const faqs = [
       <div class="section-head">
         <span class="eyebrow">Recent work</span>
         <h2 id="work-h">Real fences, built by our crew</h2>
-        <p>Every photo on this site is a Final Touch Fencing project. No stock photos.</p>
+        <p>Every photo on this site is a Final Touch Fencing project. No stock photography.</p>
       </div>
       <div class="mosaic">
-        {[photos.panorama, photos.picket, photos.doubleGate, photos.shadowCorner].map((ph, i) => (
+        {[photos.panorama, photos.picket, photos.aluGate, photos.shadowCorner].map((ph, i) => (
           <figure><Photo photo={ph} sizes={i === 0 ? '(min-width: 60rem) 50vw, 100vw' : '(min-width: 60rem) 25vw, 50vw'} /></figure>
         ))}
       </div>

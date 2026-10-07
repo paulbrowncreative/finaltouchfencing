@@ -24,6 +24,7 @@ const small = photo?.lowres;
       {photo && (
         <div class="page-hero__media" style={small ? `max-width:${photo.src.width}px` : undefined}>
           <Photo photo={photo} eager sizes={small ? `${photo.src.width}px` : '(min-width: 60rem) 46vw, 100vw'} />
+          {photo.illustration && <span class="media-badge">Illustration</span>}
         </div>
       )}
     </div>

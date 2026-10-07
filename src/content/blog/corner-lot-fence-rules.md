@@ -5,7 +5,7 @@ description: "Corner lot fence rules for St. Clair Shores, Harper Woods and Ches
 summary: "Why corner lots get special fence rules and what St. Clair Shores, Harper Woods and Chesterfield Township require."
 date: 2026-10-07
 category: "Permits and rules"
-image: "shadowLong"
+image: "cornerSidewalk"
 keywords: ["corner lot fence rules", "corner lot fence height", "clear vision triangle fence", "corner lot privacy fence St. Clair Shores"]
 services: ["privacy-fencing", "wood-fencing"]
 areas: ["st-clair-shores", "harper-woods", "chesterfield-township"]

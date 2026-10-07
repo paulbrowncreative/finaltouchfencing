@@ -5,7 +5,7 @@ description: "How to choose a fence gate: walk gate vs. double drive gate, how w
 summary: "How wide to make a gate, when to choose a double gate and the hardware that keeps it from sagging."
 date: 2026-10-07
 category: "Materials and styles"
-image: "doubleGate"
+image: "aluGate"
 keywords: ["fence gate installation", "double drive gate", "how wide should a fence gate be", "gate sagging fix", "driveway gate"]
 services: ["gates", "fence-repair"]
 areas: ["st-clair-shores", "detroit"]
