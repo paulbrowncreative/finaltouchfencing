@@ -27,6 +27,7 @@ Researched 2026-10-07. The sandbox blocked direct page loads for Yelp, Facebook,
 | Yahoo Local | local.yahoo.com/info-239064085-final-touch-fencing-algonac | **Chesterfield Twp, MI 48047**; listing slug says "algonac" | M–F 8–5 | Says "15 years in business" (unverified) |
 | Angi | angi.com/…/algonac/final-touch-fencing-llc-reviews-154055872 | **9765 Marina Circle, Clay, MI**; URL slug says "algonac" | **M–F 9–5** | 5.0 |
 | Thumbtack | https://www.thumbtack.com/mi/algonac/fences/final-touch-fencing-llc/service/552851054992007177 (owner-supplied) | **Algonac** (URL) | — | Not indexed by search engines; content unverified (thumbtack.com blocked in the build sandbox) |
+| MapQuest | https://www.mapquest.com/us/michigan/final-touch-fencing-778372309 (owner-supplied) | Unknown (URL lists only "michigan") | — | Not indexed; content unverified (mapquest.com blocked in the build sandbox) |
 | Google Business Profile | Not confirmed | — | — | Could not find an indexed GBP. Check in Google Maps or Business Profile Manager |
 | BBB, Houzz, Nextdoor, Yellow Pages, Instagram | None found | — | — | — |
 
