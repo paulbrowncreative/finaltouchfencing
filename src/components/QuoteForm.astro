@@ -6,7 +6,7 @@ import { site } from '../data/site.js';
 
 interface Props { id?: string; heading?: string; note?: string; headingLevel?: 'h2' | 'h3'; defaultService?: string }
 const {
-  id = 'quote',
+  id = 'quote-form',
   heading = 'Request a free quote',
   note = 'Tell us a little about the job. We’ll follow up to schedule a free, no-obligation estimate.',
   headingLevel = 'h3',
@@ -81,7 +81,7 @@ const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rai
         <div class="form-grid">
           <div class="field span-2">
             <label for={f('address')}>Property address</label>
-            <input id={f('address')} name="address" type="text" autocomplete="street-address" maxlength="200" />
+            <input id={f('address')} name="address" type="text" autocomplete="address-line1" maxlength="200" />
           </div>
           <div class="field">
             <label for={f('city')}>City</label>

@@ -75,14 +75,14 @@ await step('valid submission shows success and delivers a complete email', async
 
 await step('first-touch UTM persists to a form on another page (service page)', async () => {
   await page.goto(`${BASE}/services/gates/`);
-  assert.equal(await page.inputValue('#quote input[name=utm_campaign]'), 'e2e');
-  assert.equal(await page.isChecked('#quote input[value="Gate"]'), true, 'gate service not preselected');
-  await page.fill('#quote-name', 'Second Form');
-  await page.fill('#quote-phone', '8105550100');
-  await page.fill('#quote-zip', '48047');
+  assert.equal(await page.inputValue('#quote-form input[name=utm_campaign]'), 'e2e');
+  assert.equal(await page.isChecked('#quote-form input[value="Gate"]'), true, 'gate service not preselected');
+  await page.fill('#quote-form-name', 'Second Form');
+  await page.fill('#quote-form-phone', '8105550100');
+  await page.fill('#quote-form-zip', '48047');
   await page.waitForTimeout(2700);
   const before = (await outbox()).length;
-  await page.click('#quote button[type=submit]');
+  await page.click('#quote-form button[type=submit]');
   await page.waitForSelector('#quote-band-h ~ * [data-form-success][data-visible=true], [data-form-success][data-visible=true]', { timeout: 8000 });
   const m = (await outbox()).at(-1);
   assert.equal((await outbox()).length, before + 1);
@@ -92,13 +92,13 @@ await step('first-touch UTM persists to a form on another page (service page)', 
 
 await step('honeypot-filled submission shows success to the bot but sends nothing', async () => {
   await page.goto(`${BASE}/`);
-  await page.fill('#quote-name', 'Spam Bot');
-  await page.fill('#quote-phone', '8105550101');
-  await page.fill('#quote-zip', '48080');
-  await page.evaluate(() => { document.querySelector('#quote input[name=company]').value = 'http://spam'; });
+  await page.fill('#quote-form-name', 'Spam Bot');
+  await page.fill('#quote-form-phone', '8105550101');
+  await page.fill('#quote-form-zip', '48080');
+  await page.evaluate(() => { document.querySelector('#quote-form input[name=company]').value = 'http://spam'; });
   await page.waitForTimeout(2700);
   const before = (await outbox()).length;
-  await page.click('#quote button[type=submit]');
+  await page.click('#quote-form button[type=submit]');
   await page.waitForSelector('[data-form-success][data-visible=true]', { timeout: 8000 });
   assert.equal((await outbox()).length, before);
 });

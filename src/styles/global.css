@@ -648,3 +648,16 @@ body.nav-open { overflow: hidden; }
 }
 .about-figure { margin: 0; }
 .about-figure figcaption { font-size: var(--fs-sm); color: var(--c-steel); padding-top: var(--sp-2); }
+
+/* Keep phone numbers on one line */
+a[href^='tel:'] { white-space: nowrap; }
+
+/* Comfortable tap targets (WCAG 2.2 target size) for small standalone links */
+.page-hero h1 .eyebrow a,
+.rules-table th a,
+.quote-band__contact a,
+.footer-col a,
+.footer-contact a,
+.footer-bottom a { display: inline-block; padding-block: 0.3rem; }
+.footer-col li { margin-bottom: 0.25rem; }
+.page-hero h1 .eyebrow a { padding-block: 0.45rem; }
