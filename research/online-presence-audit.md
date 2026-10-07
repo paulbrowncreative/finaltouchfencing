@@ -23,7 +23,7 @@ Researched 2026-10-07. The sandbox blocked direct page loads for Yelp, Facebook,
 | Yelp | yelp.com/biz/final-touch-fencing-saint-clair-shores | **22028 Fresard St, Saint Clair Shores, MI 48080**; "serves Chesterfield and surrounding area" | M–F 8–5 | 5.0 (3 reviews), 33 photos, ~1-day response time |
 | Yelp links from the owner | Profile: https://yelp.to/USuGzWK7Dr · All photos: https://yelp.to/YoxHKfJIEm | — | — | Photos not yet downloaded (yelp.com blocked in the build sandbox) |
 | Yelp Q&A | "Wher is your office located?" | Marisa L. answered: **based out of Clay, MI** (stale) | — | — |
-| Facebook | facebook.com/people/Final-Touch-Fencing-LLC/61575176697905 | **Macomb Township** | — | ~28 likes; page ID suggests it was created in 2025 |
+| Facebook | facebook.com/people/Final-Touch-Fencing-LLC/61575176697905 | **Macomb Township** | — | ~28 likes; page ID suggests it was created in 2025. Owner-confirmed URL: https://www.facebook.com/61575176697905/. Indexed post mentions a completed **Harper Woods** project |
 | Yahoo Local | local.yahoo.com/info-239064085-final-touch-fencing-algonac | **Chesterfield Twp, MI 48047**; listing slug says "algonac" | M–F 8–5 | Says "15 years in business" (unverified) |
 | Angi | angi.com/…/algonac/final-touch-fencing-llc-reviews-154055872 | **9765 Marina Circle, Clay, MI**; URL slug says "algonac" | **M–F 9–5** | 5.0 |
 | Google Business Profile | Not confirmed | — | — | Could not find an indexed GBP. Check in Google Maps or Business Profile Manager |
