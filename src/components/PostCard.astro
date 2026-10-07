@@ -1,0 +1,21 @@
+---
+import Photo from './Photo.astro';
+import { postPhoto, readingMinutes } from '../lib/blog.js';
+interface Props { post: any; headingLevel?: 'h2' | 'h3'; large?: boolean; showCategory?: boolean }
+const { post, headingLevel = 'h3', large = false, showCategory = true } = Astro.props;
+const H = headingLevel;
+const photo = postPhoto(post);
+---
+<article class:list={['post-card', { 'post-card--large': large }]}>
+  <a class="post-card__link" href={`/blog/${post.id}/`}>
+    <div class="post-card__media">
+      <Photo photo={photo} alt="" sizes={large ? '(min-width: 60rem) 55vw, 100vw' : '(min-width: 72rem) 22rem, (min-width: 40rem) 45vw, 100vw'} />
+    </div>
+    <div class="post-card__body">
+      <p class="post-card__meta">{showCategory && <>{post.data.category} · </>}{readingMinutes(post.body)} min read</p>
+      <H class="post-card__title">{post.data.title}</H>
+      <p>{post.data.summary}</p>
+      <span class="text-link" aria-hidden="true">Read the Guide</span>
+    </div>
+  </a>
+</article>

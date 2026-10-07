@@ -29,7 +29,7 @@ const work = services.filter((s) => !materials.includes(s));
           return (
             <a class:list={['material', { 'material--noimg': !ph }]} href={`/services/${m.slug}/`}>
               {ph && <Photo photo={ph} alt="" sizes="(min-width: 60rem) 25vw, (min-width: 36rem) 50vw, 100vw" />}
-              <div class="material__body"><h3>{m.name}</h3><p>{m.short}</p></div>
+              <div class="material__body"><h3>{m.heading}</h3><p>{m.short}</p></div>
             </a>
           );
         })}
@@ -37,7 +37,7 @@ const work = services.filter((s) => !materials.includes(s));
       <div class="section-head mt-7"><span class="eyebrow">By job</span><h2>Installation, gates and upkeep</h2></div>
       <div class="service-index" style="margin-top:0">
         {work.map((s) => (
-          <a href={`/services/${s.slug}/`}><h3>{s.name}</h3><p>{s.short}</p><span aria-hidden="true">→</span></a>
+          <a href={`/services/${s.slug}/`}><h3>{s.heading}</h3><p>{s.short}</p><span aria-hidden="true">→</span></a>
         ))}
       </div>
     </div>

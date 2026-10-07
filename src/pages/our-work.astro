@@ -9,13 +9,13 @@ const title = 'Fence Project Photos | Our Work | Final Touch Fencing';
 const description = 'Photos of Final Touch Fencing projects: wood privacy, shadow box, picket and split rail fences, gates, vinyl and aluminum across Macomb County.';
 const crumbs = [{ label: 'Home', href: '/' }, { label: 'Our Work', href: '/our-work/' }];
 const groups = [
-  { id: 'privacy', title: 'Wood privacy fences', link: '/services/privacy-fencing/', items: ['deckSunset', 'panorama', 'brickHouse', 'backyardTree', 'betweenHouses', 'woodedSide', 'sideYardDog', 'railSide'] },
-  { id: 'shadow-box', title: 'Shadow box fences', link: '/services/wood-fencing/', items: ['shadowWide', 'shadowCorner', 'shadowLong'] },
-  { id: 'gates', title: 'Gates', link: '/services/gates/', items: ['doubleGate', 'shadowGate'] },
-  { id: 'picket-split-rail', title: 'Picket & split rail', link: '/services/wood-fencing/', items: ['picket', 'splitRail'] },
-  { id: 'vinyl', title: 'Vinyl', link: '/services/vinyl-fencing/', items: ['vinylDouble', 'vinylSingle'] },
-  { id: 'aluminum', title: 'Aluminum', link: '/services/aluminum-fencing/', items: ['aluWater', 'aluYard'] },
-  { id: 'staining', title: 'Staining', link: '/services/fence-staining/', items: ['stained'] },
+  { id: 'privacy', title: 'Wood privacy fences', link: '/services/privacy-fencing/', linkLabel: 'Privacy Fencing', items: ['deckSunset', 'panorama', 'brickHouse', 'backyardTree', 'betweenHouses', 'woodedSide', 'sideYardDog', 'railSide'] },
+  { id: 'shadow-box', title: 'Shadow box fences', link: '/services/wood-fencing/', linkLabel: 'Wood Fencing', items: ['shadowWide', 'shadowCorner', 'shadowLong'] },
+  { id: 'gates', title: 'Gates', link: '/services/gates/', linkLabel: 'Gate Installation', items: ['doubleGate', 'shadowGate'] },
+  { id: 'picket-split-rail', title: 'Picket and split rail fences', link: '/services/wood-fencing/', linkLabel: 'Wood Fencing', items: ['picket', 'splitRail'] },
+  { id: 'vinyl', title: 'Vinyl fences', link: '/services/vinyl-fencing/', linkLabel: 'Vinyl Fencing', items: ['vinylDouble', 'vinylSingle'] },
+  { id: 'aluminum', title: 'Aluminum fences', link: '/services/aluminum-fencing/', linkLabel: 'Aluminum Fencing', items: ['aluWater', 'aluYard'] },
+  { id: 'staining', title: 'Fence staining', link: '/services/fence-staining/', linkLabel: 'Staining and Power Washing', items: ['stained'] },
 ];
 ---
 <Base title={title} description={description} breadcrumbs={crumbs}>
@@ -45,7 +45,7 @@ const groups = [
                 </figure>
               ))}
             </div>
-            <p class="mt-6"><a class="text-link" href={g.link}>More about {g.title.toLowerCase()}</a></p>
+            <p class="mt-6"><a class="text-link" href={g.link}>Explore {g.linkLabel}</a></p>
           </section>
         );
       })}

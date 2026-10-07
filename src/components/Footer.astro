@@ -34,7 +34,7 @@ const year = new Date().getFullYear();
         <li><a href="/about/">About</a></li>
         <li><a href="/our-work/">Our Work</a></li>
         <li><a href="/reviews/">Reviews</a></li>
-        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="/contact/">Contact</a></li>
       </ul>
     </div>
@@ -46,7 +46,7 @@ const year = new Date().getFullYear();
         {site.address.showStreet && <>{site.address.street}<br /></>}
         {site.address.city}, {site.address.region} {site.address.postalCode}
       </p>
-      <p>{site.hours.map((h) => <>{h.days}<br />{h.open} – {h.close}</>)}</p>
+      <p>{site.hours.map((h) => <>{h.days}<br />{h.open}–{h.close}</>)}</p>
     </div>
   </div>
   <div class="container footer-bottom">

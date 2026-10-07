@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import PostCard from '../../components/PostCard.astro';
+import QuoteBand from '../../components/QuoteBand.astro';
+import { getPosts, CATEGORIES, categoryId } from '../../lib/blog.js';
+
+const title = 'Fence Blog: Permits, Costs & Fence Tips | Final Touch Fencing';
+const description = 'Fence guides for St. Clair Shores, Macomb County and Metro Detroit homeowners: permit rules, fence costs, materials, gates, staining and repair.';
+const crumbs = [{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog/' }];
+const posts = await getPosts();
+const featured = posts.find((p) => p.data.featured) ?? posts[0];
+const byCategory = CATEGORIES.map((c) => ({ c, list: posts.filter((p) => p.data.category === c && p.id !== featured.id) })).filter((g) => g.list.length);
+const schema = [{
+  '@type': 'Blog',
+  '@id': new URL('/blog/#blog', Astro.site).href,
+  name: 'Final Touch Fencing Blog',
+  url: new URL('/blog/', Astro.site).href,
+  blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.data.title, url: new URL(`/blog/${p.id}/`, Astro.site).href, datePublished: p.data.date.toISOString().slice(0, 10) })),
+}];
+---
+<Base title={title} description={description} breadcrumbs={crumbs} schema={schema}>
+  <PageHero
+    eyebrow="Blog"
+    title="Fence guides for St. Clair Shores and Metro Detroit homeowners"
+    lede="Straight answers on fence permits, costs, materials and upkeep, built from local ordinances and our own installs."
+    crumbs={crumbs}
+    showCtas={false}
+  />
+  <section class="section">
+    <div class="container">
+      <nav class="filter-bar" aria-label="Blog categories">
+        {byCategory.map((g) => <a href={`#${categoryId(g.c)}`}>{g.c}</a>)}
+      </nav>
+      <div class="featured-post">
+        <PostCard post={featured} headingLevel="h2" large />
+      </div>
+      {byCategory.map((g) => (
+        <section id={categoryId(g.c)} class="blog-group" aria-labelledby={`${categoryId(g.c)}-h`}>
+          <h2 id={`${categoryId(g.c)}-h`}>{g.c}</h2>
+          <div class="post-grid">{g.list.map((p) => <PostCard post={p} showCategory={false} />)}</div>
+        </section>
+      ))}
+      <p class="notice mt-7">Get new guides in your feed reader: <a href="/blog/rss.xml">subscribe via RSS</a>.</p>
+    </div>
+  </section>
+  <QuoteBand />
+</Base>

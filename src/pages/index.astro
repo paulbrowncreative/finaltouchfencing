@@ -12,7 +12,10 @@ import { areas } from '../data/areas.js';
 import { reviewSummary } from '../data/reviews.js';
 import { faqNode } from '../lib/schema.js';
 import { getImage } from 'astro:assets';
+import RelatedGuides from '../components/RelatedGuides.astro';
+import { getPosts } from '../lib/blog.js';
 
+const latest = (await getPosts()).slice(0, 3);
 const heroSizes = '(min-width: 60rem) 48vw, 100vw';
 const heroW = photos.deckSunset.src.width;
 const heroAvif = await getImage({ src: photos.deckSunset.src, format: 'avif', widths: [400, 640, 800, heroW].filter((w) => w <= heroW), sizes: heroSizes });
@@ -24,22 +27,22 @@ const materials = [
   { slug: 'wood-fencing', name: 'Wood', text: 'Privacy, shadow box, picket and split rail.', photo: photos.shadowWide },
   { slug: 'vinyl-fencing', name: 'Vinyl', text: 'Clean privacy panels. Never needs stain.', photo: photos.vinylDouble },
   { slug: 'aluminum-fencing', name: 'Aluminum', text: 'Open, rust-free and allowed on waterfront lots.', photo: photos.aluWater },
-  { slug: 'chain-link-fencing', name: 'Chain Link', text: 'Affordable containment for pets and back lots.', photo: null },
+  { slug: 'chain-link-fencing', name: 'Chain link', text: 'Affordable containment for pets and back lots.', photo: null },
 ];
 const otherServices = services.filter((s) => ['fence-installation', 'privacy-fencing', 'gates', 'fence-repair', 'fence-staining'].includes(s.slug));
 const areaHooks = {
-  'st-clair-shores': 'Home base. Canal-lot and corner-lot rules',
-  'harper-woods': 'Six-foot privacy, ornamental front yards',
+  'st-clair-shores': 'Home base: canal-lot and corner-lot rules',
+  'harper-woods': '6-foot privacy fences and ornamental front yards',
   'chesterfield-township': 'Anchor Bay and Salt River waterfront rules',
-  'macomb-township': 'Subdivisions, HOAs and grade checks',
-  'clay-township': 'Where we got our start. Algonac area',
+  'macomb-township': 'Subdivisions, HOA rules and grade checks',
+  'clay-township': 'Where we got our start, around Algonac',
   detroit: 'East side homes and historic districts',
 };
 
 const faqs = [
   { q: 'Are estimates really free?', a: 'Yes. We come out, measure and give you a written price at no cost and with no obligation.' },
-  { q: 'What areas do you serve?', a: 'We’re based in St. Clair Shores and work throughout Macomb County, plus Harper Woods, Detroit and the Clay Township / Algonac area. See all <a href="/service-areas/">service areas</a>, or call to check your address.' },
-  { q: 'Do I need a permit for a new fence?', a: 'In most communities we serve, yes. Rules on height, front yards, corner lots and waterfront lots vary a lot from city to city. Our <a href="/resources/fence-permits-st-clair-shores-macomb-county/">fence permit guide</a> compares them.' },
+  { q: 'What areas do you serve?', a: 'We’re based in St. Clair Shores and work throughout Macomb County, plus Harper Woods, Detroit and the Clay Township and Algonac area. See all <a href="/service-areas/">service areas</a>, or call to check your address.' },
+  { q: 'Do I need a permit for a new fence?', a: 'In most communities we serve, yes. Rules on height, front yards, corner lots and waterfront lots vary a lot from city to city. Our <a href="/blog/fence-permit-rules-macomb-county/">fence permit guide</a> compares them.' },
   { q: 'What types of fence do you install?', a: 'Wood (privacy, shadow box, picket, split rail), vinyl, aluminum and chain link, plus walk gates, double drive gates and driveway gates.' },
   { q: 'How do I pay?', a: 'We accept cash, check, credit card, Venmo and Cash App.' },
 ];
@@ -53,7 +56,7 @@ const faqs = [
       <div class="hero__copy">
         <h1 id="hero-h">
           <span class="eyebrow">Fence company · St. Clair Shores, MI</span>
-          Fences built right, down to the final touch.
+          Fences built right, down to the final touch
         </h1>
         <p class="hero__lede">
           Family-owned fence installation and repair for homes in St. Clair Shores, Harper Woods, Chesterfield and across Macomb County.
@@ -65,7 +68,7 @@ const faqs = [
         </div>
         <ul class="hero__proof">
           <li><span class="stars" aria-hidden="true">★★★★★</span><span>{reviewSummary.average.toFixed(1)} on Yelp ({reviewSummary.count} reviews)</span></li>
-          <li><Icon name="home" />Family-owned &amp; operated</li>
+          <li><Icon name="home" />Family-owned and operated</li>
           <li><Icon name="clipboard" />Free, no-obligation estimates</li>
         </ul>
       </div>
@@ -88,7 +91,7 @@ const faqs = [
       <div class="section-head">
         <span class="eyebrow">Fence types</span>
         <h2 id="services-h">Every common fence, installed by one crew</h2>
-        <p>Pick a material to see styles, photos of our work, and how it fits the rules where you live.</p>
+        <p>Pick a material to see styles, photos of our work and how it fits the rules where you live.</p>
       </div>
       <div class="materials">
         {materials.map((m) => (
@@ -100,7 +103,7 @@ const faqs = [
       </div>
       <div class="service-index">
         {otherServices.map((s) => (
-          <a href={`/services/${s.slug}/`}><h3>{s.name}</h3><p>{s.short}</p><span aria-hidden="true">→</span></a>
+          <a href={`/services/${s.slug}/`}><h3>{s.heading}</h3><p>{s.short}</p><span aria-hidden="true">→</span></a>
         ))}
       </div>
     </div>
@@ -151,7 +154,7 @@ const faqs = [
           <figure><Photo photo={ph} sizes={i === 0 ? '(min-width: 60rem) 50vw, 100vw' : '(min-width: 60rem) 25vw, 50vw'} /></figure>
         ))}
       </div>
-      <p class="mt-6"><a class="text-link" href="/our-work/">See all project photos</a></p>
+      <p class="mt-6"><a class="text-link" href="/our-work/">See All Project Photos</a></p>
     </div>
   </section>
 
@@ -162,7 +165,7 @@ const faqs = [
           <span class="eyebrow">Know before you build</span>
           <h2 id="rules-h">Every city here has different fence rules</h2>
           <p>A fence that’s fine in Harper Woods can be denied in St. Clair Shores. We read the ordinance for your address before we price the job, so the fence you approve is one the city will approve.</p>
-          <p><a class="text-link" href="/resources/fence-permits-st-clair-shores-macomb-county/">Read the local fence permit guide</a></p>
+          <p><a class="text-link" href="/blog/fence-permit-rules-macomb-county/">Read the Fence Permit Guide</a></p>
         </div>
         <div class="table-scroll">
           <table class="rules-table rules-table--stack">
@@ -172,7 +175,7 @@ const faqs = [
               <tr><th scope="row"><a href="/service-areas/st-clair-shores/">St. Clair Shores</a></th><td data-label="Rule">No privacy fences on waterfront or canal lots. Posts at least 42&Prime; deep.</td></tr>
               <tr><th scope="row"><a href="/service-areas/chesterfield-township/">Chesterfield Twp.</a></th><td data-label="Rule">Front yards: split rail only, 24–42&Prime;. Anchor Bay water side: decorative aluminum up to 48&Prime;.</td></tr>
               <tr><th scope="row"><a href="/service-areas/harper-woods/">Harper Woods</a></th><td data-label="Rule">A fence on the lot line needs written consent from adjacent owners.</td></tr>
-              <tr><th scope="row"><a href="/service-areas/macomb-township/">Macomb Twp.</a></th><td data-label="Rule">No pointed tops, and no fence within 3½ ft of another fence.</td></tr>
+              <tr><th scope="row"><a href="/service-areas/macomb-township/">Macomb Twp.</a></th><td data-label="Rule">No pointed tops, and no fence within 3½′ of another fence.</td></tr>
             </tbody>
           </table>
         </div>
@@ -201,9 +204,9 @@ const faqs = [
       </div>
       <ol class="process">
         <li><h3>Request a quote</h3><p>Call or send the form with a few details about the job.</p></li>
-        <li><h3>Free on-site estimate</h3><p>We measure, check grade, gates and existing fence, and price it in writing.</p></li>
-        <li><h3>Permit &amp; utility marking</h3><p>Your city’s permit plus MISS DIG 811 marking, at least 3 business days before digging.</p></li>
-        <li><h3>Build &amp; walkthrough</h3><p>Posts, rails, boards or panels, then gates and hardware. We walk it with you when it’s done.</p></li>
+        <li><h3>Free on-site estimate</h3><p>We measure the run and check the grade, gates and any old fence. Then we price it in writing.</p></li>
+        <li><h3>Permit and utility marking</h3><p>Your city’s permit, plus MISS DIG 811 marking at least three business days before digging.</p></li>
+        <li><h3>Build and walkthrough</h3><p>Posts, rails, boards or panels, then gates and hardware. We walk it with you when it’s done.</p></li>
       </ol>
     </div>
   </section>
@@ -222,6 +225,8 @@ const faqs = [
       </ul>
     </div>
   </section>
+
+  <RelatedGuides posts={latest} heading="Fence guides from our blog" id="home-guides" />
 
   <Faq faqs={faqs} heading="Common questions" />
   <QuoteBand />

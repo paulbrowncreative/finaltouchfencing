@@ -6,7 +6,7 @@ import { areas } from '../../data/areas.js';
 import { photos } from '../../data/photos.js';
 
 const title = 'Service Areas: St. Clair Shores, Macomb & Detroit | Final Touch';
-const description = 'Fence installation in St. Clair Shores, Harper Woods, Chesterfield, Macomb Twp., Clay Twp./Algonac and Detroit, with each city’s fence rules.';
+const description = 'Fence installation in St. Clair Shores, Harper Woods, Chesterfield Township, Macomb Township, Clay Township, Algonac and Detroit, with local fence rules.';
 const crumbs = [{ label: 'Home', href: '/' }, { label: 'Service Areas', href: '/service-areas/' }];
 const byCounty = Object.entries(Object.groupBy ? Object.groupBy(areas, (a) => a.county) : areas.reduce((m, a) => ((m[a.county] ||= []).push(a), m), {}));
 ---

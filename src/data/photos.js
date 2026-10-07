@@ -39,7 +39,7 @@ export const photos = {
   shadowLong: p('shadowLong', shadowLong, 'Long stretch of new shadow box fence beside a sidewalk', ['wood', 'shadowbox', 'privacy'], 'Yelp'),
   shadowWide: p('shadowWide', shadowWide, 'Wide-angle view of a new wood shadow box privacy fence across a backyard', ['wood', 'shadowbox', 'privacy'], 'Yelp'),
   shadowGate: p('shadowGate', shadowGate, 'Shadow box fence with a matching walk gate and black strap hinges', ['wood', 'shadowbox', 'gates'], 'Thumbtack'),
-  picket: p('picket', picket, 'Cedar picket fence with pointed French gothic pickets along a yard', ['wood', 'picket', 'decorative'], 'Thumbtack'),
+  picket: p('picket', picket, 'Cedar picket fence with pointed French Gothic pickets along a yard', ['wood', 'picket', 'decorative'], 'Thumbtack'),
   splitRail: p('splitRail', splitRail, 'Wood split rail fence with a driveway gate in front of a ranch home', ['wood', 'split-rail', 'gates', 'decorative'], 'Yelp'),
   aluWater: p('aluWater', aluWater, 'Black aluminum fence along a waterfront canal lot', ['aluminum', 'waterfront', 'decorative'], 'Angi', { lowres: true }),
   aluYard: p('aluYard', aluYard, 'Black aluminum fence enclosing a backyard lawn', ['aluminum', 'decorative'], 'Angi', { lowres: true }),

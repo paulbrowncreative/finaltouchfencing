@@ -1,0 +1,116 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Photo from '../../components/Photo.astro';
+import PostCard from '../../components/PostCard.astro';
+import QuoteBand from '../../components/QuoteBand.astro';
+import { getPosts, readingMinutes, formatDate, postPhoto, ogImageFor, categoryId } from '../../lib/blog.js';
+import { serviceBySlug } from '../../data/services.js';
+import { areaBySlug } from '../../data/areas.js';
+import { site } from '../../data/site.js';
+import { blogPostingNode } from '../../lib/schema.js';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post, posts } }));
+}
+const { post, posts } = Astro.props;
+const { data } = post;
+const { Content, headings } = await render(post);
+const path = `/blog/${post.id}/`;
+const photo = postPhoto(post);
+const ogImage = await ogImageFor(photo);
+const minutes = readingMinutes(post.body);
+const words = post.body.split(/\s+/).filter(Boolean).length;
+const toc = headings.filter((h) => h.depth === 2);
+const crumbs = [{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog/' }, { label: data.title, href: path }];
+const iso = (d) => d.toISOString().slice(0, 10);
+const services = data.services.map((s) => serviceBySlug[s]).filter(Boolean);
+const areas = data.areas.map((a) => areaBySlug[a]).filter(Boolean);
+const related = posts
+  .filter((p) => p.id !== post.id)
+  .map((p) => ({ p, score: (p.data.category === data.category ? 2 : 0) + p.data.services.filter((s) => data.services.includes(s)).length }))
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 3)
+  .map((x) => x.p);
+const seoTitle = data.seoTitle.length <= 44 ? `${data.seoTitle} | Final Touch Fencing` : data.seoTitle;
+const schema = [
+  blogPostingNode({
+    path, title: data.title, description: data.description, datePublished: iso(data.date),
+    dateModified: data.updated ? iso(data.updated) : undefined, image: ogImage, section: data.category, keywords: data.keywords, wordCount: words,
+  }),
+];
+---
+<Base title={seoTitle} description={data.description} ogType="article" ogImage={ogImage} breadcrumbs={crumbs} schema={schema}>
+  <section class="page-hero on-dark">
+    <div class="container">
+      <Breadcrumbs items={crumbs} />
+      <div class="page-hero__grid">
+        <div>
+          <h1><span class="eyebrow"><a href={`/blog/#${categoryId(data.category)}`}>{data.category}</a></span>{data.title}</h1>
+          <p class="lede">{data.summary}</p>
+          <p class="article-meta">By Final Touch Fencing · <time datetime={iso(data.date)}>{formatDate(data.date)}</time> · {minutes} min read</p>
+        </div>
+        <div class:list={['page-hero__media', { 'page-hero__media--small': photo.lowres }]} style={photo.lowres ? `max-width:${photo.src.width}px` : undefined}>
+          <Photo photo={photo} eager sizes={photo.lowres ? `${photo.src.width}px` : '(min-width: 60rem) 46vw, 100vw'} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-track-scroll>
+    <div class="container content-grid">
+      <article class="prose post-body">
+        <Content />
+        <hr class="picket-rule" />
+        <p class="post-cta"><strong>Planning a fence?</strong> We check the rules for your address as part of every free estimate. <a href="#quote" data-cta="post_inline_quote">Request your free quote</a> or call <a href={site.phoneHref} data-track="phone">{site.phone}</a>.</p>
+      </article>
+      <aside class="content-grid__aside" aria-label="In this guide">
+        {toc.length > 2 && (
+          <nav class="toc" aria-labelledby="toc-h">
+            <h2 id="toc-h">In this guide</h2>
+            <ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+          </nav>
+        )}
+        <div class="aside-card">
+          <h2>Free fence estimate</h2>
+          <p>Family-owned and based in St. Clair Shores. We measure, check your city’s rules and price it in writing.</p>
+          <a class="btn btn--lg" href="#quote" data-cta="post_aside_quote">Get a Free Quote</a>
+          <a class="btn btn--ghost btn--lg" href={site.phoneHref} data-track="phone">{site.phone}</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  {(services.length > 0 || areas.length > 0) && (
+    <section class="section section--tight section--paper" aria-labelledby="post-links-h">
+      <div class="container">
+        <h2 id="post-links-h" class="visually-hidden">Related services and service areas</h2>
+        <div class="split" style="align-items:start">
+          {services.length > 0 && (
+            <div>
+              <h3>Related services</h3>
+              <ul class="chip-list">{services.map((s) => <li><a href={`/services/${s.slug}/`}>{s.heading}</a></li>)}</ul>
+            </div>
+          )}
+          {areas.length > 0 && (
+            <div>
+              <h3>Where we work</h3>
+              <ul class="chip-list">{areas.map((a) => <li><a href={`/service-areas/${a.slug}/`}>Fences in {a.name}</a></li>)}</ul>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section section--tight" aria-labelledby="more-h">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">Keep reading</span><h2 id="more-h">More fence guides</h2></div>
+      <div class="post-grid">{related.map((p) => <PostCard post={p} />)}</div>
+    </div>
+  </section>
+
+  <QuoteBand heading="Get a free, no-obligation fence quote" />
+</Base>

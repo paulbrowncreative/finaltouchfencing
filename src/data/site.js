@@ -21,7 +21,7 @@ export const site = {
     country: 'US',
   },
   // Majority of listings (Yelp, Yahoo, MapQuest). Angi says 9–5; Thumbtack says 7 days 8–6. CONFIRM.
-  hours: [{ days: 'Monday – Friday', open: '8:00 AM', close: '5:00 PM' }],
+  hours: [{ days: 'Monday–Friday', open: '8 a.m.', close: '5 p.m.' }],
   hoursSchema: [{ days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '17:00' }],
   paymentMethods: ['Cash', 'Check', 'Credit card', 'Venmo', 'Cash App'],
   owners: 'Robert and Marisa',
@@ -40,5 +40,5 @@ export const nav = [
   { label: 'Our Work', href: '/our-work/' },
   { label: 'Reviews', href: '/reviews/' },
   { label: 'About', href: '/about/' },
-  { label: 'Resources', href: '/resources/' },
+  { label: 'Blog', href: '/blog/' },
 ];

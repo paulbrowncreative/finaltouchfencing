@@ -21,7 +21,7 @@ const crumbs = [{ label: 'Home', href: '/' }, { label: 'Get a Quote', href: '/co
           <ul class="quote-band__contact">
             <li><Icon name="phone" /><div><a href={site.phoneHref} data-track="phone">{site.phone}</a><small>Call for a free estimate</small></div></li>
             <li><Icon name="mail" /><div><a href={`mailto:${site.email}`} data-track="email">{site.email}</a><small>For photos, documents or general questions</small></div></li>
-            <li><Icon name="clock" /><div>{site.hours[0].days}, {site.hours[0].open} – {site.hours[0].close}<small>Quote requests accepted any time</small></div></li>
+            <li><Icon name="clock" /><div>{site.hours[0].days}, {site.hours[0].open}–{site.hours[0].close}<small>Quote requests are accepted any time</small></div></li>
             <li><Icon name="pin" /><div>{site.address.city}, {site.address.region} {site.address.postalCode}<small>Serving {areas.map((a) => a.name).join(', ')}</small></div></li>
           </ul>
           <h2 class="mt-7" style="font-size:var(--fs-lg)">What happens next</h2>

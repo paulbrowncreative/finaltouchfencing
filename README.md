@@ -2,7 +2,8 @@
 
 Static site built with [Astro](https://astro.build) and deployed on Netlify, plus one serverless function for the quote form.
 
-- 29 indexable pages: home, 9 service pages, 6 service-area pages, 3 local guides, about, our work, reviews, contact, hubs and legal pages
+- 41 indexable pages: home, 9 service pages, 6 service-area pages, a 15-post blog, about, our work, reviews, contact, hubs and legal pages
+- Copy follows the voice and style guide in `docs/brand-voice.md`. Read it before editing any page or post.
 - Every business fact lives in `src/data/` (sources: `research/online-presence-audit.md`, `research/local-regulations.md`)
 - All photos are the company's own project photos (`src/assets/images/`), served as AVIF and WebP at responsive sizes
 
@@ -16,6 +17,20 @@ npm test           # quote handler unit tests (13)
 npm run test:e2e   # builds nothing; serves dist/ and runs browser form tests (8)
 node tests/e2e/audit.mjs   # with the e2e server running: SEO, link, schema and axe WCAG audit
 ```
+
+## Blog
+
+Posts are Markdown files in `src/content/blog/`, validated against the schema in `src/content.config.ts`: `title`, `seoTitle` (62 characters max), `description` (110–160 characters), `summary`, `date`, `category`, `image` (a key from `src/data/photos.js`), target `keywords`, and related `services` and `areas`.
+
+To add a post, copy an existing file, change the frontmatter and write in the brand voice. The post automatically appears in:
+
+- the blog index
+- the RSS feed (`/blog/rss.xml`)
+- the sitemap
+- "Related guides" on its linked service and area pages
+- "More fence guides" on other posts
+
+Old `/resources/` URLs 301-redirect to the blog (`netlify.toml`).
 
 ## Quote form (how submissions reach finaltouchfencing@gmail.com)
 

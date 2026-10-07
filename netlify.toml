@@ -21,6 +21,24 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
 
+# Old guide URLs moved to the blog
+[[redirects]]
+  from = "/resources/fence-permits-st-clair-shores-macomb-county/"
+  to = "/blog/fence-permit-rules-macomb-county/"
+  status = 301
+[[redirects]]
+  from = "/resources/preparing-for-fence-installation/"
+  to = "/blog/how-to-prepare-for-fence-installation/"
+  status = 301
+[[redirects]]
+  from = "/resources/wood-vs-vinyl-vs-aluminum-fence/"
+  to = "/blog/wood-vs-vinyl-vs-aluminum-fence/"
+  status = 301
+[[redirects]]
+  from = "/resources/*"
+  to = "/blog/"
+  status = 301
+
 # Canonical host: send the bare domain to www (enable once the domain is live)
 # [[redirects]]
 #   from = "https://finaltouchfencing.com/*"

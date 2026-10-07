@@ -18,8 +18,8 @@ const {
       <p>{text}</p>
       <ul class="quote-band__contact">
         <li><Icon name="phone" /><div><a href={site.phoneHref} data-track="phone">{site.phone}</a><small>Free estimates, no obligation</small></div></li>
-        <li><Icon name="clock" /><div>{site.hours[0].days}, {site.hours[0].open} – {site.hours[0].close}<small>Quote requests are accepted any time</small></div></li>
-        <li><Icon name="pin" /><div>Based in {site.address.city}, MI<small>Serving Macomb, St. Clair &amp; Wayne counties</small></div></li>
+        <li><Icon name="clock" /><div>{site.hours[0].days}, {site.hours[0].open}–{site.hours[0].close}<small>Quote requests are accepted any time</small></div></li>
+        <li><Icon name="pin" /><div>Based in {site.address.city}, MI<small>Serving Macomb, St. Clair and Wayne counties</small></div></li>
       </ul>
     </div>
     <QuoteForm heading={formHeading} defaultService={defaultService} />

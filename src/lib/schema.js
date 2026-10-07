@@ -3,8 +3,8 @@ import { areas } from '../data/areas.js';
 import { services } from '../data/services.js';
 
 const abs = (path) => new URL(path, site.url).href;
-// "Clay Township & Algonac" is one page but two places.
-const cities = (names) => names.flatMap((n) => n.split(' & ')).map((n) => ({ '@type': 'City', name: `${n}, MI` }));
+// "Clay Township and Algonac" is one page but two places.
+const cities = (names) => names.flatMap((n) => n.split(' and ')).map((n) => ({ '@type': 'City', name: `${n}, MI` }));
 export const BUSINESS_ID = abs('/#business');
 export const WEBSITE_ID = abs('/#website');
 
@@ -99,17 +99,23 @@ export function faqNode(faqs) {
   };
 }
 
-export function articleNode({ path, title, description, datePublished, dateModified }) {
+export function blogPostingNode({ path, title, description, datePublished, dateModified, image, section, keywords, wordCount }) {
   return {
-    '@type': 'Article',
+    '@type': 'BlogPosting',
+    '@id': abs(path) + '#article',
     headline: title,
     description,
     url: abs(path),
     datePublished,
     dateModified: dateModified || datePublished,
+    articleSection: section,
+    keywords: keywords.join(', '),
+    wordCount,
+    inLanguage: 'en-US',
     author: { '@id': BUSINESS_ID },
     publisher: { '@id': BUSINESS_ID },
-    image: abs('/og-default.jpg'),
-    mainEntityOfPage: abs(path),
+    image: abs(image),
+    mainEntityOfPage: { '@id': abs(path) + '#webpage' },
+    isPartOf: { '@id': abs('/blog/') + '#webpage' },
   };
 }

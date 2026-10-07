@@ -16,7 +16,7 @@ const H = headingLevel;
 const f = (name: string) => `${id}-${name}`;
 const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
-const projectTypes = ['New fence', 'Replace a fence', 'Fence repair', 'Gate', 'Staining / power washing'];
+const projectTypes = ['New fence', 'Replace a fence', 'Fence repair', 'Gate', 'Staining or power washing'];
 const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rail', 'Vinyl', 'Aluminum', 'Chain link', 'Not sure yet'];
 ---
 <div class="form-card" data-quote-form-wrap>
@@ -148,7 +148,7 @@ const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rai
     <Icon name="checkCircle" class="form-success__icon" />
     <H>Thank you! Your quote request has been received.</H>
     <p>Final Touch Fencing will be in touch soon. If your project is time-sensitive, call us at <a href={site.phoneHref} data-track="phone">{site.phone}</a>.</p>
-    <p class="form-note">While you wait: check whether your city requires a fence permit in our <a href="/resources/fence-permits-st-clair-shores-macomb-county/">local fence permit guide</a>.</p>
+    <p class="form-note">While you wait: check whether your city requires a fence permit in our <a href="/blog/fence-permit-rules-macomb-county/">local fence permit guide</a>.</p>
   </div>
 </div>
 {turnstileKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}

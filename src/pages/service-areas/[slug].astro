@@ -10,6 +10,8 @@ import { serviceBySlug } from '../../data/services.js';
 import { photos } from '../../data/photos.js';
 import { site } from '../../data/site.js';
 import { serviceNode, faqNode } from '../../lib/schema.js';
+import RelatedGuides from '../../components/RelatedGuides.astro';
+import { postsFor } from '../../lib/blog.js';
 
 export function getStaticPaths() {
   return areas.map((a) => ({ params: { slug: a.slug }, props: { area: a } }));
@@ -21,6 +23,7 @@ const heroPhoto = photos[a.hero];
 const gallery = a.gallery.map((k) => photos[k]).filter(Boolean);
 const svc = a.services.map((slug) => serviceBySlug[slug]);
 const nearby = a.nearby.map((slug) => areaBySlug[slug]);
+const guides = await postsFor({ area: a.slug });
 const schema = [
   serviceNode({ name: `Fence installation and repair in ${a.name}`, path, description: a.description, areaNames: [a.name] }),
   faqNode(a.faqs),
@@ -42,7 +45,7 @@ const schema = [
         <h2>Fence services in {a.name}</h2>
         <ul class="link-list">
           {svc.map((s) => (
-            <li><a href={`/services/${s.slug}/`}><strong>{s.name}</strong></a> — {s.short}</li>
+            <li><a href={`/services/${s.slug}/`}><strong>{s.heading}</strong></a> — {s.short}</li>
           ))}
         </ul>
 
@@ -66,7 +69,7 @@ const schema = [
       <aside class="content-grid__aside" aria-label="Get a quote">
         <div class="aside-card">
           <h2>Fence estimate in {a.name}</h2>
-          <p>Free, no-obligation estimates. We’ll check the {a.name} rules for your lot before we price it.</p>
+          <p>Free, no-obligation estimates. We check the {a.name} rules for your lot before we price the job.</p>
           <a class="btn btn--lg" href="#quote" data-cta="aside_quote">Request a Quote</a>
           <a class="btn btn--ghost btn--lg" href={site.phoneHref} data-track="phone">{site.phone}</a>
           <ul>
@@ -83,9 +86,11 @@ const schema = [
     <div class="container">
       <div class="section-head"><span class="eyebrow">Reviews</span><h2 id="area-reviews-h">What our customers say</h2></div>
       <ReviewList limit={3} />
-      <p class="mt-6"><a class="text-link" href="/reviews/">Read all reviews</a></p>
+      <p class="mt-6"><a class="text-link" href="/reviews/">Read All Reviews</a></p>
     </div>
   </section>
+
+  <RelatedGuides posts={guides} heading={`Fence guides for ${a.name} homeowners`} />
 
   <Faq faqs={a.faqs} heading={`Fences in ${a.name}: common questions`} />
   <QuoteBand heading={`Get a free fence quote in ${a.name}`} />
