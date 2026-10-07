@@ -1,65 +1,145 @@
 # Final Touch Fencing LLC: Online Presence Audit
 
-Researched 2026-10-07. The sandbox blocked direct page loads for Yelp, Facebook, Yahoo, Angi and Google, so the details below come from search-engine snapshots of those pages. Confirm the counts and hours in a browser.
+Crawled 2026-10-07 after the environment's network access was opened.
 
-## Verified business facts
+| Source | How it was read |
+|---|---|
+| Thumbtack, Angi, HomeAdvisor | Live pages, rendered in a headless browser |
+| Yahoo Local, MapQuest | Live HTML |
+| Yelp | Not read directly: its bot protection blocks automated access (403). Yelp's reviews, hours and photos were captured from the Yahoo and MapQuest pages, which republish Yelp's data |
+| Facebook | Not read: the page requires a login. Details below come from search snippets only |
+| Google Maps | Searched by name, phone and city: **no listing found** |
+
+---
+
+## 1. Business facts (verified)
 
 | Field | Value | Source |
 |---|---|---|
-| Legal name | Final Touch Fencing LLC | Facebook, Angi |
-| Phone | (810) 614-4181 | All listings (consistent) |
-| Email | finaltouchfencing@gmail.com | Facebook / Angi snippet |
-| Website | None found | — |
-| Positioning | "Family-owned and operated… lasting relationships… honest, reliable service" | Facebook, Angi, Yelp |
-| Materials | Wood, vinyl, chain link, aluminum/steel | Angi, Yelp |
-| Services | Installation, repair, maintenance, power washing, staining; privacy & shadow-box fences; manual gate installation | Angi, Yelp |
-| Free estimates | Yes | Angi, Yelp |
-| People named | Marisa L. (business owner on Yelp; handles estimates), Robert, crew members Alex and Toma | Yelp reviews / Q&A |
+| Legal name | Final Touch Fencing LLC | Angi, HomeAdvisor, Thumbtack |
+| Phone | (810) 614-4181 | Every listing |
+| Email | finaltouchfencing@gmail.com | Facebook (search snippet) |
+| Website | **None** | Empty on every listing |
+| Address in use now | 22028 Fresard St, Saint Clair Shores, MI 48080 (near Fresard St & Greater Mack Ave) | Yelp, Yahoo, MapQuest, Angi, HomeAdvisor |
+| People | **Marisa Lawrence** (account owner; background-checked on Thumbtack 7/15/2025; answers Yelp as owner "Marisa L."), **Robert** (named in reviews), crew members **Alex** and **Toma** (named in a review) | Thumbtack, Yelp reviews |
+| Employees | 5 | Thumbtack |
+| Years in business | **11** (Thumbtack) vs **15** (Yahoo, earlier search snippet). These conflict; ask the owner | Thumbtack, Yahoo |
+| Insurance | "Insured" (self-reported); "Fully Insured & Locally Owned" | Angi/HomeAdvisor, Yahoo/Yelp description |
+| License | None listed on any platform | — |
+| Warranty | "Yes" (no terms given) | Angi/HomeAdvisor |
+| Free estimates | Yes, "FREE, no-obligation estimate" | Angi, Yahoo/Yelp |
+| Payment | Cash, check, credit card, Square Cash App, Venmo | Thumbtack |
+| Materials | Wood, vinyl, composite, aluminum, chain link | Angi, Yelp |
+| Services | Installation, repair, maintenance, staining, power washing; privacy, shadow-box and picket fences; driveway and walk gates; pet/dog fencing (traditional) | Angi, Thumbtack, Yelp |
+| Responsiveness | Yelp: 100% response rate, ~5-hour response time | Yahoo (Yelp data) |
+| Known project locations | Detroit ("Wood install Detroit" gallery), Harper Woods (Facebook post snippet), a waterfront canal property (aluminum fence photo) | Angi, Facebook |
 
-## Profile-by-profile
+### Owner-written descriptions (verbatim; reuse with care)
 
-| Platform | URL | Listed location | Hours | Rating |
-|---|---|---|---|---|
-| Yelp | yelp.com/biz/final-touch-fencing-saint-clair-shores | **22028 Fresard St, Saint Clair Shores, MI 48080**; "serves Chesterfield and surrounding area" | M–F 8–5 | 5.0 (3 reviews), 33 photos, ~1-day response time |
-| Yelp links from the owner | Profile: https://yelp.to/USuGzWK7Dr · All photos: https://yelp.to/YoxHKfJIEm | — | — | Photos not yet downloaded (yelp.com blocked in the build sandbox) |
-| Yelp Q&A | "Wher is your office located?" | Marisa L. answered: **based out of Clay, MI** (stale) | — | — |
-| Facebook | facebook.com/people/Final-Touch-Fencing-LLC/61575176697905 | **Macomb Township** | — | ~28 likes; page ID suggests it was created in 2025. Owner-confirmed URL: https://www.facebook.com/61575176697905/. Indexed post mentions a completed **Harper Woods** project |
-| Yahoo Local | local.yahoo.com/info-239064085-final-touch-fencing-algonac | **Chesterfield Twp, MI 48047**; listing slug says "algonac" | M–F 8–5 | Says "15 years in business" (unverified) |
-| Angi | angi.com/…/algonac/final-touch-fencing-llc-reviews-154055872 | **9765 Marina Circle, Clay, MI**; URL slug says "algonac" | **M–F 9–5** | 5.0 |
-| HomeAdvisor | https://www.homeadvisor.com/rated.FinalTouchFencingLLC.154055872.html (owner-supplied) | Same profile as Angi (shared ID 154055872), so likely **9765 Marina Circle, Clay** | — | Search snippet: "new on HomeAdvisor with no reviews yet" |
-| Thumbtack | https://www.thumbtack.com/mi/algonac/fences/final-touch-fencing-llc/service/552851054992007177 (owner-supplied) | **Algonac** (URL) | — | Not indexed by search engines; content unverified (thumbtack.com blocked in the build sandbox) |
-| MapQuest | https://www.mapquest.com/us/michigan/final-touch-fencing-778372309 (owner-supplied) | Unknown (URL lists only "michigan") | — | Not indexed; content unverified (mapquest.com blocked in the build sandbox) |
-| Google Business Profile | Not confirmed | — | — | Could not find an indexed GBP. Check in Google Maps or Business Profile Manager |
-| BBB, Houzz, Nextdoor, Yellow Pages, Instagram | None found | — | — | — |
+**Angi / HomeAdvisor:**
+> We are a family-owned and operated fencing company, dedicated to building lasting relationships with our customers and providing honest, reliable service! From wood, vinyl, composite & more, we've got you covered! Give us a call today! (810)614-4181 We take great pride in our experience, expertise, quality, and customer service that we provide to meet the consumer's needs. It is our mission to provide excellent workmanship and complete customer satisfaction, from the start to the completion of a project. In order to understand the needs and expectations of our customers, we take great care to work and communicate with every customer in a professional manner. Our reputation is based on service, safety, and quality, regardless of how large or small the job is.
 
-## Yelp reviews (all 5 stars)
+**Yelp (via Yahoo):**
+> Transform Your Outdoor Space with Final Touch Fencing LLC. At Final Touch Fencing, we specialize in delivering high-quality, custom fencing solutions designed to meet your unique needs. Whether you're looking to enhance privacy, secure your property, or simply elevate your home's curb appeal — our experienced team is here to help. Expert Craftsmanship · Reliable, On-Time Service · Competitive Pricing · Fully Insured & Locally Owned. From vinyl and wood to aluminum and chain link, we offer a wide range of materials and styles to match your vision and budget. We take pride in every project, ensuring lasting durability and a flawless finish. Call today for your FREE, no-obligation estimate: (810) 614-4181.
 
-1. "Final Touch Fencing had the best price. Robert and Marisa were very helpful throughout the entire process."
-2. "Marisa responded to my estimate request quickly and sent it over that evening. The estimate I received was the best out of 4 others… Alex, Toma and the rest of the crew worked almost non-stop… completed in less than two days… adds value to our property."
-3. "Great job. Answered the question call prompt. Reasonable quote. Great company to work with."
-4. One more snippet, which may be the third review or a review on another platform: "beyond happy… shadow box privacy fence around their entire yard, plus gates across their driveway and lawn."
+**Thumbtack:**
+> High-quality fences shouldn't cost a fortune. With years of experience in the fence installation industry, we pride ourselves on delivering reliable, durable, and aesthetically pleasing fences tailored to your needs without the high price tag!
 
-Recurring themes: **fast estimate turnaround, beat competitor quotes, quick install (under 2 days), responsive owners.**
+Their positioning across all three: **quality without the high price tag, family-owned, honest and responsive.**
 
-## Problems to fix (priority order)
+---
 
-1. **NAP inconsistency (critical for local SEO).** Five different locations appear across the listings: Saint Clair Shores, Clay, Macomb Twp, Chesterfield Twp and Algonac. Pick one canonical name, address and phone, then update every listing to match.
-2. **Residential address exposure.** If 22028 Fresard St is a home, set the GBP and Yelp to a *service-area business* with the address hidden rather than published.
-3. **No website.** Every listing's website field is empty. This is the biggest gap.
-4. **GBP not confirmed.** If a Google Business Profile exists, it must match the new NAP. If none exists, create and verify one. GBP is the main local ranking asset.
-5. **Hours conflict:** Angi lists 9–5, while Yelp and Yahoo list 8–5.
-6. **Stale Yelp Q&A** still says "based out of Clay."
-7. **Unverified "15 years in business"** on Yahoo. Correct it or confirm it before reusing the claim.
-8. **Thin review base** (3–4 reviews). Start a post-job review request flow pointed at Google.
-9. **Gmail address.** Move to a branded domain email once the site launches.
+## 2. Profile-by-profile
 
-## Info needed from the owner
+| Platform | URL | Location shown | Hours shown | Reviews | Notes |
+|---|---|---|---|---|---|
+| Yelp | yelp.com/biz/final-touch-fencing-saint-clair-shores | 22028 Fresard St, St. Clair Shores 48080 | Mon–Fri 8–5 | **5.0 (4)** | Owner share links: https://yelp.to/USuGzWK7Dr, https://yelp.to/YoxHKfJIEm |
+| Yelp Q&A | "Wher is your office located?" | Answer says **"based out of Clay, MI"** | — | — | Out of date; edit or re-answer |
+| Yahoo Local | local.yahoo.com/info-239064085-final-touch-fencing-st-clair-shores | St. Clair Shores (now matches Yelp) | Mon–Fri 8–5 | 5.0 (4, from Yelp) | Unclaimed ("Is this your business? Verify your listing") |
+| MapQuest | mapquest.com/us/michigan/final-touch-fencing-778372309 | St. Clair Shores | Mon–Fri 8–5 | 5.0 (4, from Yelp) | Shows 2 Yelp photos |
+| Angi | angi.com/…/final-touch-fencing-llc-reviews-154055872.htm | St. Clair Shores (URL slug still says "algonac") | **Mon–Fri 9–5** | 0 ("New on Angi") | "Approved" badge; insured; warranties; 11 gallery photos |
+| HomeAdvisor | homeadvisor.com/rated.FinalTouchFencingLLC.154055872.html | Same record as Angi | **Mon–Fri 9–5** | 0 | Same content as Angi |
+| Thumbtack | thumbtack.com/mi/algonac/fences/final-touch-fencing-llc/service/552851054992007177 | **Algonac, MI 48001** | **7 days, 8 am–6 pm** | 5.0 (3, "posted outside Thumbtack") | Background checked; 5 employees; 11 yrs; logo is the profile image |
+| Facebook | facebook.com/61575176697905 | **Macomb Township** (snippet) | — | — | ~28 likes; created 2025; login wall |
+| Google Business Profile | — | **None found** | — | — | Biggest local-SEO gap |
+| BBB, Houzz, Nextdoor, Yellow Pages, Instagram | — | Not found | — | — | — |
 
-- Canonical business address, or confirmation that it should be a service-area business with the address hidden
-- Service-area city list (St. Clair Shores, Grosse Pointes, Roseville, Harrison Twp, Clinton Twp, Macomb, Chesterfield, New Baltimore, Algonac/Clay…?)
-- Year founded / real years of experience
-- Licensing and insurance status (Michigan residential builder license? general liability coverage?)
-- Owner names and roles as they want them published (Robert, Marisa)
-- GBP access, if a profile exists
-- Original project photos (Yelp shows 33)
-- Any warranty offered on installs
+---
+
+## 3. Reviews (Yelp, all 5 stars; text cut off where the source truncates it)
+
+| Reviewer | Date | Text |
+|---|---|---|
+| Maria W. | 05/09/2025 | "Final Touch Fencing installed my wooden fence and I am extremely happy. I requested an estimate and they came out promptly and provided an estimate the next day and they offered a very reasonable…" |
+| Dustin B. | 05/31/2025 | "beyond happy with Final Touch fencing! they put in a brand new shadow box privacy fence around our entire yard, the also put a gate across our driveway and a gate on the lawn. they DIDN'T use…" |
+| Paul T. | 06/20/2025 | "I got estimates from four fencing companies. Final Touch Fencing had the best price. Robert and Marisa were very helpful throughout the entire process. They answered all my questions and…" |
+| William B. | 10/12/2025 | "Great job. Answered the question call prompt. Reasonable quote. Great company to work with." |
+| (from search snippet; probably the full text of one review above) | — | "Marisa responded to my estimate request quickly and sent it over that evening. The estimate I received was the best out of 4 others. They were able to begin the work within a reasonable amount of time. Alex, Toma and the rest of the crew worked almost non-stop to get our job done. It was completed in less than two days. We are very happy with our new fence it looks great and adds value to our property. I would definitely recommend Final touch Fencing." |
+
+**Proof points the reviews support:** estimate the same or next day; lowest of 4 quotes (stated twice); install finished in under 2 days; owners answer questions; adds property value.
+
+Do not publish full review text on the website without checking the complete original on Yelp. If any review is marked up with schema on the site, it must match what is visible on the page.
+
+---
+
+## 4. Brand assets found
+
+- **Logo:** `assets/source/logo/final-touch-fencing-logo.jpg` (1125×1125 JPG, white background, from Thumbtack). The mark is a roofline and fence-picket icon with "FINALTOUCH / FENCING LLC". Colors: **red ≈ #E12C35** and **cool gray**. Ask the owner for a vector version (SVG/AI/EPS) or a transparent PNG.
+- **Crew uniform:** red shirts, which match the logo red (seen in the crew photo).
+
+## 5. Photos collected
+
+`assets/source/projects/`: 15 usable project photos at 750–1600 px (from Yelp and Thumbtack). Nearly all are wood: privacy, shadow-box, picket, split-rail and gates.
+
+`assets/source/projects-lowres/`: 8 Angi thumbnails, 185–332 px. **Too small for the website.** They are the only examples of the **aluminum**, **vinyl**, **staining** and **crew** work, so request the originals:
+
+| File | Shows |
+|---|---|
+| aluminum-black-waterfront-canal | Black aluminum fence on a canal/waterfront lot |
+| aluminum-black-backyard | Black aluminum fence, backyard |
+| crew-installing-aluminum-rotated | Two crew members in red shirts installing aluminum (stored sideways) |
+| vinyl-white-double-gate | White vinyl privacy double gate |
+| vinyl-white-single-gate | White vinyl privacy gate |
+| wood-stained-on-block-retaining-wall | Stained wood fence on a block retaining wall |
+| wood-privacy-corner-sidewalk, wood-privacy-side-yard-maple | Wood privacy fences |
+
+Seven photos from the Yahoo/MapQuest pages were **excluded** because they came from other businesses in those sites' sidebars (beach, car dealership, food, concert hall, woods).
+
+Of the 33 photos on Yelp, about 10 were reachable through Yahoo/MapQuest. The rest need the owner's originals or a manual download.
+
+---
+
+## 6. Problems to fix (priority order)
+
+1. **No Google Business Profile.** Create and verify one; for a local contractor it's the most valuable listing. Use the service-area setting and hide the address if it's a residence.
+2. **No website.** Every listing's website field is empty.
+3. **Name/address/phone conflicts.** Most listings now say St. Clair Shores. Still off:
+   - Thumbtack: **Algonac 48001**
+   - Facebook: **Macomb Township**
+   - Yelp Q&A: says **"based out of Clay"**
+   - Angi URL slug says "algonac" (the slug can't be changed, which is fine)
+4. **Hours conflict three ways:**
+   - Yelp, Yahoo and MapQuest: Mon–Fri 8–5
+   - Angi and HomeAdvisor: Mon–Fri 9–5
+   - Thumbtack: 7 days, 8–6
+
+   Pick one schedule and use it everywhere.
+5. **Years in business conflict:** 11 on Thumbtack vs 15 on Yahoo.
+6. **Possible residential address on public display.** If 22028 Fresard St is a home, switch Yelp, Angi, HomeAdvisor and the new GBP to a service area with the address hidden.
+7. **Thin reviews:** 4 on Yelp, 0 on Angi/HomeAdvisor, none on Google. Start a post-job review request that points to Google once the GBP exists.
+8. **Unclaimed Yahoo listing.** Claim it, or let it keep syncing from Yelp.
+9. **Gmail address.** Switch to a branded domain email when the site launches.
+10. **Insurance and license claims.** "Fully insured" is self-reported. Get the carrier and coverage, plus any Michigan license number, before stating them as fact on the site.
+
+## 7. Needed from the owner
+
+- [ ] Official address, or confirmation that it should be a service area with the address hidden
+- [ ] One set of business hours
+- [ ] Year founded (11 vs 15 years)
+- [ ] Proof of insurance; any Michigan license (e.g. residential builder / maintenance & alteration)
+- [ ] Warranty terms (Angi says "Yes")
+- [ ] Service-area cities (Detroit, Harper Woods and a waterfront job are confirmed; St. Clair Shores is the base)
+- [ ] How Robert and Marisa want to be named on the site, and their roles
+- [ ] Vector or transparent logo
+- [ ] Full-size originals of the aluminum, vinyl, staining and crew photos, plus any other job photos
+- [ ] Facebook page content (the page requires a login): any posts or photos worth reusing
