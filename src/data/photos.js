@@ -1,7 +1,6 @@
 // Project photo inventory. All `photos` are Final Touch Fencing's own project photos, published on their
 // Yelp, Thumbtack and Angi profiles (source noted per photo). Angi originals were downloaded at full
 // resolution; every file has been auto-rotated, resized to ≤2400px and stripped of EXIF/GPS metadata.
-// `illustration: true` marks drawn artwork (not a photo of their work); it's labeled as such wherever shown.
 
 import deckSunset from '../assets/images/projects/wood-privacy-backyard-deck-sunset.jpg';
 import panorama from '../assets/images/projects/wood-privacy-backyard-panorama.jpg';
@@ -31,7 +30,6 @@ import aluGateWide from '../assets/images/projects/aluminum-black-double-drive-g
 import vinylDouble from '../assets/images/projects/vinyl-white-double-gate.jpg';
 import vinylSingle from '../assets/images/projects/vinyl-white-single-gate.jpg';
 import crew from '../assets/images/projects/crew-installing-aluminum-fence.jpg';
-import chainLinkArt from '../assets/images/illustrations/chain-link-fence.jpg';
 
 const p = (key, src, alt, tags, source, extra = {}) => ({ key, src, alt, tags, source, ...extra });
 
@@ -64,8 +62,6 @@ export const photos = {
   vinylDouble: p('vinylDouble', vinylDouble, 'White vinyl privacy double gate beside a house', ['vinyl', 'gates', 'privacy'], 'Angi'),
   vinylSingle: p('vinylSingle', vinylSingle, 'White vinyl privacy fence with a single walk gate', ['vinyl', 'gates', 'privacy'], 'Angi'),
   crew: p('crew', crew, 'Two Final Touch Fencing crew members in red shirts installing a black aluminum fence', ['aluminum', 'crew', 'process'], 'Angi'),
-  chainLinkArt: p('chainLinkArt', chainLinkArt, 'Illustration of a galvanized chain link fence along a backyard lawn', ['chain-link'], 'Illustration', { illustration: true }),
 };
 
-/** Real project photos only (excludes illustrations). */
-export const allPhotos = Object.values(photos).filter((ph) => !ph.illustration);
+export const allPhotos = Object.values(photos);

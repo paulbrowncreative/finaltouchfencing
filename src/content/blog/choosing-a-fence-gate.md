@@ -46,7 +46,7 @@ A gate sags when its hinge post moves or its frame racks out of square. To preve
 
 ## Matching gates to your fence
 
-We build gates in wood, vinyl, aluminum and chain link to match the fence. Vinyl gates need reinforced posts and hardware rated for their weight.
+We build gates in wood, vinyl and aluminum to match the fence. Vinyl gates need reinforced posts and hardware rated for their weight.
 
 ## Fixing an existing gate
 

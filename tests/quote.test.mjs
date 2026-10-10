@@ -16,7 +16,7 @@ const good = {
   length: '150 ft',
   gate: 'Yes, walk gate',
   timeline: 'Within 1–3 months',
-  details: 'Back yard, remove old chain link.\nDog in yard.',
+  details: 'Back yard, remove old wood fence.\nDog in yard.',
   company: '',
   started_at: String(NOW - 60_000),
   source_page: 'https://www.finaltouchfencing.com/services/wood-fencing/',

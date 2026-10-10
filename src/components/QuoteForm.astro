@@ -17,7 +17,7 @@ const f = (name: string) => `${id}-${name}`;
 const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
 const projectTypes = ['New fence', 'Replace a fence', 'Fence repair', 'Gate', 'Staining or power washing'];
-const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rail', 'Vinyl', 'Aluminum', 'Chain link', 'Not sure yet'];
+const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rail', 'Vinyl', 'Aluminum', 'Not sure yet'];
 ---
 <div class="form-card" data-quote-form-wrap>
   <form
@@ -73,7 +73,7 @@ const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rai
 
       <div class="field span-2">
         <label for={f('details')}>Project details <span class="hint">(optional)</span></label>
-        <textarea id={f('details')} name="details" rows="4" maxlength="3000" placeholder="E.g. about 150 ft of 6 ft privacy fence around the backyard, one walk gate, old chain link to remove."></textarea>
+        <textarea id={f('details')} name="details" rows="4" maxlength="3000" placeholder="E.g. about 150 ft of 6 ft privacy fence around the backyard, one walk gate, old fence to remove."></textarea>
       </div>
 
       <details class="more-details span-2">

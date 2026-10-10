@@ -55,7 +55,7 @@ If the damaged section sits on a shared property line, talk to your neighbor bef
 
 ## Frequently asked questions
 
-### Can you repair a vinyl or chain link fence?
+### Can you repair a vinyl or aluminum fence?
 
 Tell us the material when you request a quote, and send photos. We’ll tell you what the repair involves.
 

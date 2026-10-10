@@ -26,7 +26,7 @@ Apply this to every page, blog post, form message and listing description.
 - **Owners:** Robert and Marisa, first names only.
 - **Places:** St. Clair Shores (always "St."), Harper Woods, Chesterfield Township, Macomb Township, Clay Township, Algonac, Detroit, Lake St. Clair, Anchor Bay, Salt River, Macomb County, St. Clair County, Wayne County. Write "Township" in full in body copy. "Twp." is allowed only in tables and title tags.
 - **Organizations:** MISS DIG 811, Community Development Department, Board of Fence Arbitration, Historic District Commission, BSEED.
-- **Fence terms** are lowercase open compounds: wood fence, privacy fence, shadow box fence, picket fence, split rail fence, chain link fence, vinyl fence, aluminum fence, French Gothic pickets (Gothic is capitalized), walk gate, double drive gate, driveway gate.
+- **Fence terms** are lowercase open compounds: wood fence, privacy fence, shadow box fence, picket fence, split rail fence, vinyl fence, aluminum fence, French Gothic pickets (Gothic is capitalized), walk gate, double drive gate, driveway gate.
 - **Payment:** cash, check, credit card, Venmo, Cash App.
 
 ## Mechanics

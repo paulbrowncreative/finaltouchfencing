@@ -21,13 +21,12 @@ const heroW = photos.deckSunset.src.width;
 const heroAvif = await getImage({ src: photos.deckSunset.src, format: 'avif', widths: [400, 640, 800, heroW].filter((w) => w <= heroW), sizes: heroSizes });
 const title = 'Fence Company in St. Clair Shores, MI | Final Touch Fencing LLC';
 const description =
-  'Family-owned fence company in St. Clair Shores, MI. Wood, vinyl, aluminum and chain link fences, gates and repair. Free estimates: (810) 614-4181.';
+  'Family-owned fence company in St. Clair Shores, MI. Wood, vinyl and aluminum fences, gates, repair and staining. Free estimates: (810) 614-4181.';
 
 const materials = [
   { slug: 'wood-fencing', name: 'Wood', text: 'Privacy, shadow box, picket and split rail.', photo: photos.shadowWide },
   { slug: 'vinyl-fencing', name: 'Vinyl', text: 'Clean privacy panels. Never needs stain.', photo: photos.vinylDouble },
   { slug: 'aluminum-fencing', name: 'Aluminum', text: 'Open, rust-free and allowed on waterfront lots.', photo: photos.aluWater },
-  { slug: 'chain-link-fencing', name: 'Chain link', text: 'Affordable containment for pets and back lots.', photo: photos.chainLinkArt },
 ];
 const otherServices = services.filter((s) => ['fence-installation', 'privacy-fencing', 'gates', 'fence-repair', 'fence-staining'].includes(s.slug));
 const areaHooks = {
@@ -43,7 +42,7 @@ const faqs = [
   { q: 'Are estimates really free?', a: 'Yes. We come out, measure and give you a written price at no cost and with no obligation.' },
   { q: 'What areas do you serve?', a: 'We’re based in St. Clair Shores and work throughout Macomb County, plus Harper Woods, Detroit and the Clay Township and Algonac area. See all <a href="/service-areas/">service areas</a>, or call to check your address.' },
   { q: 'Do I need a permit for a new fence?', a: 'In most communities we serve, yes. Rules on height, front yards, corner lots and waterfront lots vary a lot from city to city. Our <a href="/blog/fence-permit-rules-macomb-county/">fence permit guide</a> compares them.' },
-  { q: 'What types of fence do you install?', a: 'Wood (privacy, shadow box, picket, split rail), vinyl, aluminum and chain link, plus walk gates, double drive gates and driveway gates.' },
+  { q: 'What types of fence do you install?', a: 'Wood (privacy, shadow box, picket, split rail), vinyl and aluminum, plus walk gates, double drive gates and driveway gates.' },
   { q: 'How do I pay?', a: 'We accept cash, check, credit card, Venmo and Cash App.' },
 ];
 ---
@@ -60,7 +59,7 @@ const faqs = [
         </h1>
         <p class="hero__lede">
           Family-owned fence installation and repair for homes in St. Clair Shores, Harper Woods, Chesterfield and across Macomb County.
-          Wood, vinyl, aluminum and chain link, with free written estimates.
+          Wood, vinyl and aluminum, with free written estimates.
         </p>
         <div class="btn-row">
           <a class="btn btn--lg" href="/contact/" data-cta="hero_quote">Get a Free Quote</a>
@@ -97,7 +96,6 @@ const faqs = [
         {materials.map((m) => (
           <a class:list={['material', { 'material--noimg': !m.photo }]} href={`/services/${m.slug}/`}>
             {m.photo && <Photo photo={m.photo} sizes="(min-width: 60rem) 25vw, (min-width: 36rem) 50vw, 100vw" alt="" />}
-            {m.photo?.illustration && <span class="media-badge">Illustration</span>}
             <div class="material__body"><h3>{m.name}</h3><p>{m.text}</p></div>
           </a>
         ))}

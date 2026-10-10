@@ -25,7 +25,7 @@ That still leaves you options. An open fence, usually [black aluminum](/services
 Chesterfield Township has the most detailed waterfront rules we work with:
 
 - **Water-side front yards** on lots along Anchor Bay and the Salt River (south of Callens Road) allow only see-through decorative aluminum or wrought iron fences, no taller than 48 inches.
-- **Not allowed there:** walls, hedges, chain link and solid fences.
+- **Not allowed there:** walls, hedges and solid fences.
 - **Any waterfront or canal lot:** no privacy fences outside the building envelope.
 
 Learn more about [fences in Chesterfield Township](/service-areas/chesterfield-township/).
@@ -54,10 +54,6 @@ Permits take time everywhere. Macomb Township, for example, lists about two week
 An open aluminum fence along the water side keeps toddlers and dogs from wandering toward a seawall while leaving the view open. Pair it with self-closing gates and latches mounted out of a child’s reach. See [choosing a fence gate](/blog/choosing-a-fence-gate/).
 
 ## Frequently asked questions
-
-### Can I put a chain link fence on my canal lot?
-
-Not in the water-side front yard of Anchor Bay and Salt River lots in Chesterfield Township, where chain link is specifically excluded. In other places, the rules depend on your city and where on the lot the fence goes, so check first.
 
 ### How tall can a waterfront fence be?
 

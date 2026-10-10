@@ -100,7 +100,7 @@ export const areas = [
       'Between Anchor Bay, the Salt River, canal subdivisions and newer neighborhoods, Chesterfield Township has more variety in its fence rules than most places we work.',
     hero: 'splitRail',
     gallery: ['aluWater', 'aluYard', 'panorama', 'shadowWide'],
-    services: ['aluminum-fencing', 'wood-fencing', 'privacy-fencing', 'chain-link-fencing', 'gates'],
+    services: ['aluminum-fencing', 'wood-fencing', 'privacy-fencing', 'gates'],
     nearby: ['macomb-township', 'st-clair-shores', 'clay-township'],
     sections: [
       {
@@ -116,7 +116,7 @@ export const areas = [
       },
       {
         h2: 'Anchor Bay, the Salt River and canal lots',
-        html: `<p>Waterfront lots have stricter rules. On lots abutting Anchor Bay and the Salt River (south of Callens Road), the only fence allowed in the water-side front yard is see-through decorative aluminum or wrought iron no taller than 48 inches. Walls, hedges, chain link and solid fences aren’t allowed there. On any waterfront or canal lot, privacy fences aren’t allowed outside the building envelope.</p>
+        html: `<p>Waterfront lots have stricter rules. On lots abutting Anchor Bay and the Salt River (south of Callens Road), the only fence allowed in the water-side front yard is see-through decorative aluminum or wrought iron no taller than 48 inches. Walls, hedges and solid fences aren’t allowed there. On any waterfront or canal lot, privacy fences aren’t allowed outside the building envelope.</p>
 <p>That makes <a href="/services/aluminum-fencing/">black aluminum</a> the default waterfront fence here. It keeps pets and kids in and keeps the view open.</p>`,
       },
       {
@@ -184,7 +184,7 @@ export const areas = [
       'Final Touch Fencing started out in Clay Township before moving to St. Clair Shores, so the north end of Anchor Bay is familiar ground.',
     hero: 'picket',
     gallery: ['aluWater', 'woodedSide', 'maple', 'panorama'],
-    services: ['aluminum-fencing', 'wood-fencing', 'privacy-fencing', 'chain-link-fencing', 'fence-staining'],
+    services: ['aluminum-fencing', 'wood-fencing', 'privacy-fencing', 'fence-staining'],
     nearby: ['chesterfield-township', 'st-clair-shores'],
     sections: [
       {
@@ -192,7 +192,7 @@ export const areas = [
         html: `<p>Every fence in Clay Township needs a <strong>Zoning Compliance Permit</strong> from the Building Department (810-794-9320). Under Sec. 3.08 of the township zoning ordinance:</p>
 <ul>
 <li><strong>Side and rear yards:</strong> up to 6 feet, measured from average grade.</li>
-<li><strong>In front of the house or in the required front yard:</strong> no more than 4 feet, and no obscuring fence. Decorative see-through fencing up to 4 feet is allowed, but chain link doesn’t count as decorative.</li>
+<li><strong>In front of the house or in the required front yard:</strong> no more than 4 feet, and no obscuring fence. Decorative see-through fencing up to 4 feet is allowed.</li>
 <li><strong>Finished side:</strong> at least one side must be finished (stained or painted wood, painted metal) and face the neighboring properties.</li>
 <li><strong>Materials:</strong> treated wood, plastic, aluminum, galvanized metal or similar. Chicken wire and snow fencing can’t be used as permanent fencing.</li>
 </ul>
@@ -209,7 +209,6 @@ export const areas = [
     ],
     faqs: [
       { q: 'Do I need a permit for a fence in Clay Township?', a: 'Yes. Fences require a Zoning Compliance Permit from the Clay Township Building Department.' },
-      { q: 'Can I use chain link in my front yard?', a: 'Not as decorative front-yard fencing. The ordinance says see-through decorative fencing doesn’t include chain link.' },
     ],
   },
   {
@@ -218,13 +217,13 @@ export const areas = [
     county: 'Wayne County',
     title: 'Fence Installation in Detroit, MI (East Side) | Final Touch',
     description:
-      'Wood, vinyl, aluminum and chain link fence installation in Detroit, especially the east side near Harper Woods. Permits and historic district rules explained.',
+      'Wood, vinyl and aluminum fence installation in Detroit, especially the east side near Harper Woods. Permits and historic district rules explained.',
     h1: 'Fence installation in Detroit',
     lede:
       'We’ve built wood fences in Detroit, and the city’s east side is a short drive from our St. Clair Shores base. Detroit permits work differently from the suburbs, especially in historic districts.',
     hero: 'brickHouse',
     gallery: ['aluGateWide', 'betweenHouses', 'doubleGate', 'shadowGate'],
-    services: ['wood-fencing', 'chain-link-fencing', 'aluminum-fencing', 'privacy-fencing', 'gates', 'fence-repair'],
+    services: ['wood-fencing', 'aluminum-fencing', 'privacy-fencing', 'gates', 'fence-repair'],
     nearby: ['harper-woods', 'st-clair-shores'],
     sections: [
       {
@@ -236,14 +235,14 @@ export const areas = [
         html: `<p>If your home is in one of Detroit’s local historic districts, the Historic District Commission reviews fence applications before BSEED issues a permit, and its guidelines are specific:</p>
 <ul>
 <li><strong>Stockade fencing isn’t allowed.</strong></li>
-<li>Other wood fencing, chain link, wrought iron and aluminum that replicates wrought iron are acceptable materials.</li>
+<li>Other wood fencing, wrought iron and aluminum that replicates wrought iron are acceptable materials.</li>
 <li>Front-yard fencing generally isn’t allowed except on corner lots.</li>
 </ul>
 <p class="source">Source: <a href="https://detroitmi.gov/government/commissions/historic-district-commission/historic-district-commission-general-scope-work-guidelines/hdc-site-improvements-fences-paving-and-landscaping" rel="noopener" target="_blank">Detroit Historic District Commission: Fences, Paving and Landscaping guidelines</a>.</p>`,
       },
       {
         h2: 'Fences for city lots',
-        html: `<p>Detroit lots are often narrow, with a side drive and a detached garage at the back. That usually means a privacy fence along the rear and sides, plus a <a href="/services/gates/">double gate</a> across the drive. If you’ve bought the vacant lot next door, <a href="/services/chain-link-fencing/">chain link</a> or <a href="/services/aluminum-fencing/">aluminum</a> is a cost-effective way to secure it.</p>`,
+        html: `<p>Detroit lots are often narrow, with a side drive and a detached garage at the back. That usually means a privacy fence along the rear and sides, plus a <a href="/services/gates/">double gate</a> across the drive. If you’ve bought the vacant lot next door, an <a href="/services/aluminum-fencing/">aluminum</a> or <a href="/services/wood-fencing/">split rail</a> fence marks and secures it without closing it in.</p>`,
       },
     ],
     faqs: [

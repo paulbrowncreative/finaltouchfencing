@@ -23,7 +23,7 @@ export function businessNode() {
     logo: abs('/icon-512.png'),
     image: abs('/og-default.jpg'),
     description:
-      'Family-owned fence company based in St. Clair Shores, Michigan. Wood, vinyl, aluminum and chain link fence installation, gates, fence repair, staining and power washing.',
+      'Family-owned fence company based in St. Clair Shores, Michigan. Wood, vinyl and aluminum fence installation, gates, fence repair, staining and power washing.',
     address: {
       '@type': 'PostalAddress',
       ...(a.showStreet ? { streetAddress: a.street } : {}),

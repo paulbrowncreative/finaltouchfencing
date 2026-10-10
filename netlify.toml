@@ -23,6 +23,10 @@
 
 # Old guide URLs moved to the blog
 [[redirects]]
+  from = "/services/chain-link-fencing/"
+  to = "/services/"
+  status = 301
+[[redirects]]
   from = "/resources/fence-permits-st-clair-shores-macomb-county/"
   to = "/blog/fence-permit-rules-macomb-county/"
   status = 301

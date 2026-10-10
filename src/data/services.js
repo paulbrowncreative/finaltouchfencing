@@ -11,10 +11,10 @@ export const services = [
     name: 'Fence Installation',
     heading: 'Fence installation',
     noun: 'fence installation',
-    short: 'New fences built from the posts up in wood, vinyl, aluminum and chain link.',
+    short: 'New fences built from the posts up in wood, vinyl and aluminum.',
     title: 'Fence Installation in St. Clair Shores & Macomb | Final Touch',
     description:
-      'New fence installation in St. Clair Shores, Harper Woods, Chesterfield and nearby. Wood, vinyl, aluminum and chain link. Free estimates: (810) 614-4181.',
+      'New fence installation in St. Clair Shores, Harper Woods, Chesterfield and nearby. Wood, vinyl and aluminum fences. Free estimates: (810) 614-4181.',
     h1: 'Fence installation',
     lede:
       'A new fence is a few days of work and decades of looking at it. We measure on site, price it in writing and build it straight, plumb and set deep enough to stay that way.',
@@ -28,7 +28,6 @@ export const services = [
 <li><a href="/services/wood-fencing/">Wood fences</a> — privacy, shadow box, picket and split rail</li>
 <li><a href="/services/vinyl-fencing/">Vinyl fences</a> — low-maintenance privacy panels and gates</li>
 <li><a href="/services/aluminum-fencing/">Aluminum fences</a> — open, decorative and well suited to waterfront lots</li>
-<li><a href="/services/chain-link-fencing/">Chain link fences</a> — practical containment for pets and back lots</li>
 <li><a href="/services/gates/">Gates</a> — walk gates, double drive gates and driveway gates</li>
 </ul>`,
       },
@@ -129,7 +128,7 @@ export const services = [
       },
       {
         h2: 'Privacy fences for dogs',
-        html: `<p>A solid fence also keeps dogs calmer, because they can’t see what’s passing by. We keep the bottom gap tight (St. Clair Shores caps it at 3 inches) and add self-closing gate hardware on request. For containment on a budget, <a href="/services/chain-link-fencing/">chain link</a> is the alternative. More in <a href="/blog/best-fence-for-dogs/">the best fence for dogs</a>.</p>`,
+        html: `<p>A solid fence also keeps dogs calmer, because they can’t see what’s passing by. We keep the bottom gap tight (St. Clair Shores caps it at 3 inches) and add self-closing gate hardware on request. More in <a href="/blog/best-fence-for-dogs/">the best fence for dogs</a>.</p>`,
       },
     ],
     faqs: [
@@ -208,43 +207,6 @@ export const services = [
     ],
   },
   {
-    slug: 'chain-link-fencing',
-    name: 'Chain Link Fencing',
-    heading: 'Chain link fencing',
-    noun: 'chain link fence',
-    short: 'Durable, affordable containment for dogs, side lots and back property lines.',
-    title: 'Chain Link Fence Installation | Final Touch Fencing | Metro Detroit',
-    description:
-      'Chain link fence installation for dogs, side lots and property lines in St. Clair Shores, Harper Woods and Macomb County. Free estimates.',
-    h1: 'Chain link fence installation',
-    lede:
-      'Chain link is the practical fence. It costs less per foot than other materials, lasts for years and keeps kids and dogs in without blocking light or the view.',
-    hero: 'chainLinkArt',
-    gallery: [],
-    sections: [
-      {
-        h2: 'Good uses for chain link',
-        html: `<ul>
-<li><strong>Dog yards and runs.</strong> Sturdy, hard to climb and easy to see through.</li>
-<li><strong>Back and side property lines</strong> where screening isn’t needed.</li>
-<li><strong>Large areas on a budget.</strong> The lowest cost per foot of any fence we install.</li>
-</ul>`,
-      },
-      {
-        h2: 'Where chain link isn’t allowed',
-        html: `<p>Some ordinances single out chain link. Clay Township doesn’t count it as “decorative” fencing for front yards. Chesterfield Township doesn’t allow it in the water-side front yard of lots on Anchor Bay or the Salt River. For those spots, look at <a href="/services/aluminum-fencing/">aluminum</a> or <a href="/services/wood-fencing/">split rail</a>.</p>`,
-      },
-      {
-        h2: 'Materials',
-        html: `<p>The St. Clair Shores ordinance lists the expected materials: galvanized steel corner and line posts set at least 42 inches below grade, in concrete or by another accepted method. We build to the standard your city sets.</p>`,
-      },
-    ],
-    faqs: [
-      { q: 'How tall can a chain link fence be?', a: 'The same limits apply as for other fences: typically up to 6 feet in side and rear yards and much lower in front yards. Chain link often isn’t allowed in front yards at all.' },
-      { q: 'Can you add a gate to a chain link fence?', a: 'Yes. We install walk gates and wider double gates for equipment access.' },
-    ],
-  },
-  {
     slug: 'gates',
     name: 'Gates',
     heading: 'Gates',
@@ -261,7 +223,7 @@ export const services = [
       {
         h2: 'Gates we install',
         html: `<ul>
-<li><strong>Walk gates</strong> for side yards and garden access, in wood, vinyl, aluminum or chain link to match the fence.</li>
+<li><strong>Walk gates</strong> for side yards and garden access, in wood, vinyl or aluminum to match the fence.</li>
 <li><strong>Double drive gates</strong> wide enough for a mower, trailer or car.</li>
 <li><strong>Driveway gates</strong> on split rail and other open fences.</li>
 </ul>

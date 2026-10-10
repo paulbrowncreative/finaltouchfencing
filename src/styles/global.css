@@ -640,12 +640,6 @@ body.nav-open { overflow: hidden; }
 .post-body hr { margin: var(--sp-7) 0 var(--sp-5); }
 .post-cta { background: var(--c-paper); padding: var(--sp-5); border-top: 4px solid var(--c-red-brand); }
 
-/* Drawn artwork is always labeled so it's never mistaken for a project photo */
-.media-badge {
-  position: absolute; top: var(--sp-3); left: var(--sp-3); z-index: 2;
-  background: rgb(21 24 27 / 0.82); color: #fff; padding: 0.3rem 0.6rem;
-  font: 700 var(--fs-xs)/1 var(--f-body); letter-spacing: 0.08em; text-transform: uppercase;
-}
 .about-figure { margin: 0; }
 .about-figure figcaption { font-size: var(--fs-sm); color: var(--c-steel); padding-top: var(--sp-2); }
 

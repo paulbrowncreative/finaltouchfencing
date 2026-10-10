@@ -15,7 +15,7 @@ areas: ["st-clair-shores", "macomb-township"]
 
 ## 1. Fence material
 
-Material is the biggest single factor. In general, [chain link](/services/chain-link-fencing/) costs the least per foot, [wood](/services/wood-fencing/) sits in the middle, and [vinyl](/services/vinyl-fencing/) and [aluminum](/services/aluminum-fencing/) cost more up front. Vinyl and aluminum often make up some of the difference over time because they don’t need stain. Compare them in our [fence material guide](/blog/wood-vs-vinyl-vs-aluminum-fence/).
+Material is the biggest single factor. In general, [wood](/services/wood-fencing/) costs the least up front, and [vinyl](/services/vinyl-fencing/) and [aluminum](/services/aluminum-fencing/) cost more up front. Vinyl and aluminum often make up some of the difference over time because they don’t need stain. Compare them in our [fence material guide](/blog/wood-vs-vinyl-vs-aluminum-fence/).
 
 ## 2. Style within a material
 

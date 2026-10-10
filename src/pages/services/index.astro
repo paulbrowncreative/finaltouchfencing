@@ -7,7 +7,7 @@ import { services } from '../../data/services.js';
 import { photos } from '../../data/photos.js';
 
 const title = 'Fence Services: Install, Gates, Repair & Staining | Final Touch';
-const description = 'Fence installation in wood, vinyl, aluminum and chain link, plus gates, fence repair, staining and power washing. Family-owned, based in St. Clair Shores, MI.';
+const description = 'Fence installation in wood, vinyl and aluminum, plus gates, fence repair, staining and power washing. Family-owned, based in St. Clair Shores, MI.';
 const crumbs = [{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }];
 const materials = services.filter((s) => s.slug.endsWith('-fencing') && s.slug !== 'privacy-fencing');
 const work = services.filter((s) => !materials.includes(s));
@@ -29,7 +29,6 @@ const work = services.filter((s) => !materials.includes(s));
           return (
             <a class:list={['material', { 'material--noimg': !ph }]} href={`/services/${m.slug}/`}>
               {ph && <Photo photo={ph} alt="" sizes="(min-width: 60rem) 25vw, (min-width: 36rem) 50vw, 100vw" />}
-              {ph?.illustration && <span class="media-badge">Illustration</span>}
               <div class="material__body"><h3>{m.heading}</h3><p>{m.short}</p></div>
             </a>
           );

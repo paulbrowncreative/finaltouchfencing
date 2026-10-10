@@ -28,14 +28,14 @@ In most of our service area, yes. St. Clair Shores, Chesterfield Township and Ma
 | [Chesterfield Township](/service-areas/chesterfield-township/) | 3′–6′ | Split rail only, 24″–42″ | Yes; $65; electronic applications only |
 | [Macomb Township](/service-areas/macomb-township/) | See Ch. 14, Art. II | See Ch. 14, Art. II | Yes; $75; grade check, then 7–10 working days |
 | [Harper Woods](/service-areas/harper-woods/) | 6′ | 3′, ornamental | Check with the city |
-| [Clay Township](/service-areas/clay-township/) | 6′ | 4′, see-through (chain link doesn’t count as decorative) | Yes; zoning compliance permit |
+| [Clay Township](/service-areas/clay-township/) | 6′ | 4′, decorative see-through only | Yes; zoning compliance permit |
 
 ## Waterfront and canal lots
 
 Lots on Lake St. Clair, Anchor Bay and the canals have the strictest fence rules:
 
 - **St. Clair Shores:** privacy fences aren’t permitted on any waterfront or canal lot (Code Sec. 8-253(11)).
-- **Chesterfield Township:** no privacy fences outside the building envelope on any waterfront or canal lot. In the water-side front yard of lots on Anchor Bay and the Salt River (south of Callens Road), only see-through decorative aluminum or wrought iron up to 48 inches is allowed. Walls, hedges, chain link and solid fences aren’t allowed there.
+- **Chesterfield Township:** no privacy fences outside the building envelope on any waterfront or canal lot. In the water-side front yard of lots on Anchor Bay and the Salt River (south of Callens Road), only see-through decorative aluminum or wrought iron up to 48 inches is allowed. Walls, hedges and solid fences aren’t allowed there.
 
 In practice, that makes [black aluminum fencing](/services/aluminum-fencing/) the go-to waterfront fence. Our [waterfront and canal fence guide](/blog/waterfront-canal-fence-rules/) covers the options.
 
