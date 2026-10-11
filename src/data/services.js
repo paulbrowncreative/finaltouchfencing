@@ -19,7 +19,7 @@ export const services = [
     lede:
       'A new fence is a few days of work and decades of looking at it. We measure on site, price it in writing and build it straight, plumb and set deep enough to stay that way.',
     hero: 'panorama',
-    gallery: ['deckSunset', 'crew', 'shadowGate', 'aluGate', 'brickHouse', 'backyardTree'],
+    gallery: ['deckSunset', 'crew', 'vinylSide', 'aluSlope', 'woodGateNew', 'brickHouse'],
     sections: [
       {
         h2: 'What we install',
@@ -71,7 +71,7 @@ export const services = [
     lede:
       'Wood is most of what we build. It’s affordable, it can be cut to fit any yard, and it can be stained to match your home or left to weather naturally.',
     hero: 'shadowCorner',
-    gallery: ['shadowWide', 'shadowBrick', 'picket', 'splitRail', 'betweenHouses', 'sideYardDog'],
+    gallery: ['shadowWide', 'woodGateNew', 'shadowBrick', 'picket', 'splitRail', 'woodGateBrick'],
     sections: [
       {
         h2: 'Wood fence styles we build',
@@ -110,7 +110,7 @@ export const services = [
     lede:
       'A privacy fence has one job: block the view and keep the yard yours. We build them in wood and vinyl, up to the height your city allows, with gates that latch every time.',
     hero: 'deckSunset',
-    gallery: ['cornerSidewalk', 'maple', 'brickHouse', 'woodedSide', 'doubleGate', 'vinylSingle'],
+    gallery: ['cornerSidewalk', 'panelPrivacy', 'maple', 'vinylSide', 'brickHouse', 'woodedSide'],
     sections: [
       {
         h2: 'Wood or vinyl privacy fence?',
@@ -149,7 +149,7 @@ export const services = [
     h1: 'Vinyl fence installation',
     lede: 'Vinyl is the low-maintenance choice. There’s nothing to stain or seal, it holds its color, and a hose rinse cleans it up.',
     hero: 'vinylDouble',
-    gallery: ['vinylSingle', 'vinylDouble'],
+    gallery: ['vinylSide', 'vinylSingle', 'vinylDouble'],
     sections: [
       {
         h2: 'Why homeowners choose vinyl',
@@ -186,7 +186,7 @@ export const services = [
     lede:
       'Aluminum gives you the look of wrought iron without the rust. It’s open, so it keeps the view, and it’s often the one fence type allowed on a waterfront lot.',
     hero: 'aluWater',
-    gallery: ['aluGate', 'aluGateWide', 'aluYard', 'crew'],
+    gallery: ['aluSlope', 'aluGate', 'aluGateWide', 'aluYard', 'crew'],
     sections: [
       {
         h2: 'Built for waterfront properties',
@@ -218,7 +218,7 @@ export const services = [
     h1: 'Gate installation',
     lede: 'You use the gate more than any other part of the fence. It has to swing freely, latch every time and stay square for years.',
     hero: 'doubleGate',
-    gallery: ['aluGate', 'shadowGate', 'splitRail', 'vinylDouble', 'brickHouse'],
+    gallery: ['woodGateNew', 'woodGateBrick', 'aluGate', 'shadowGate', 'splitRail', 'vinylDouble'],
     sections: [
       {
         h2: 'Gates we install',

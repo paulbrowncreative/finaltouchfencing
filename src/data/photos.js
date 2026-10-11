@@ -29,6 +29,11 @@ import aluGate from '../assets/images/projects/aluminum-black-double-drive-gate.
 import aluGateWide from '../assets/images/projects/aluminum-black-double-drive-gate-wide.jpg';
 import vinylDouble from '../assets/images/projects/vinyl-white-double-gate.jpg';
 import vinylSingle from '../assets/images/projects/vinyl-white-single-gate.jpg';
+import woodGateNew from '../assets/images/projects/wood-privacy-double-gate-new-build.jpg';
+import woodGateBrick from '../assets/images/projects/wood-double-gate-between-brick-homes.jpg';
+import vinylSide from '../assets/images/projects/vinyl-white-privacy-side-yard.jpg';
+import aluSlope from '../assets/images/projects/aluminum-black-sloped-yard.jpg';
+import panelPrivacy from '../assets/images/projects/horizontal-privacy-panels-black-posts.jpg';
 import crew from '../assets/images/projects/crew-installing-aluminum-fence.jpg';
 
 const p = (key, src, alt, tags, source, extra = {}) => ({ key, src, alt, tags, source, ...extra });
@@ -61,6 +66,11 @@ export const photos = {
   aluGateWide: p('aluGateWide', aluGateWide, 'Black aluminum fence and double drive gate leading to a detached garage', ['aluminum', 'gates'], 'Thumbtack'),
   vinylDouble: p('vinylDouble', vinylDouble, 'White vinyl privacy double gate beside a house', ['vinyl', 'gates', 'privacy'], 'Angi'),
   vinylSingle: p('vinylSingle', vinylSingle, 'White vinyl privacy fence with a single walk gate', ['vinyl', 'gates', 'privacy'], 'Angi'),
+  woodGateNew: p('woodGateNew', woodGateNew, 'New wood privacy fence with a double drive gate on black strap hinges', ['wood', 'privacy', 'gates'], 'Owner'),
+  woodGateBrick: p('woodGateBrick', woodGateBrick, 'Wood double gate across a concrete driveway between two brick homes', ['wood', 'gates'], 'Owner'),
+  vinylSide: p('vinylSide', vinylSide, 'Long run of white vinyl privacy fence along a side yard next to a garage', ['vinyl', 'privacy'], 'Owner'),
+  aluSlope: p('aluSlope', aluSlope, 'Black aluminum fence with spear-top pickets stepping down a sloped, wooded yard', ['aluminum', 'decorative'], 'Owner'),
+  panelPrivacy: p('panelPrivacy', panelPrivacy, 'Horizontal wood-tone privacy fence panels framed by black posts along a paved path', ['privacy'], 'Owner'),
   crew: p('crew', crew, 'Two Final Touch Fencing crew members in red shirts installing a black aluminum fence', ['aluminum', 'crew', 'process'], 'Angi'),
 };
 
