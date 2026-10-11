@@ -110,7 +110,7 @@ export const services = [
     lede:
       'A privacy fence has one job: block the view and keep the yard yours. We build them in wood and vinyl, up to the height your city allows, with gates that latch every time.',
     hero: 'deckSunset',
-    gallery: ['cornerSidewalk', 'panelPrivacy', 'maple', 'vinylSide', 'brickHouse', 'woodedSide'],
+    gallery: ['cornerSidewalk', 'panelBackyard', 'woodLongRun', 'vinylSide', 'panelPrivacy', 'maple'],
     sections: [
       {
         h2: 'Wood or vinyl privacy fence?',
@@ -292,7 +292,7 @@ export const services = [
     h1: 'Fence staining and power washing',
     lede: 'Gray, blotchy wood isn’t ruined. A careful cleaning and a quality stain bring the color back and help protect the boards through Michigan winters.',
     hero: 'stained',
-    gallery: ['stained'],
+    gallery: ['shadowStained', 'stained'],
     sections: [
       {
         h2: 'What’s included',

@@ -34,6 +34,9 @@ import woodGateBrick from '../assets/images/projects/wood-double-gate-between-br
 import vinylSide from '../assets/images/projects/vinyl-white-privacy-side-yard.jpg';
 import aluSlope from '../assets/images/projects/aluminum-black-sloped-yard.jpg';
 import panelPrivacy from '../assets/images/projects/horizontal-privacy-panels-black-posts.jpg';
+import woodLongRun from '../assets/images/projects/wood-privacy-long-run-gravel-drive.jpg';
+import shadowStained from '../assets/images/projects/wood-shadowbox-stained-on-block-wall.jpg';
+import panelBackyard from '../assets/images/projects/horizontal-privacy-panels-backyard.jpg';
 import crew from '../assets/images/projects/crew-installing-aluminum-fence.jpg';
 
 const p = (key, src, alt, tags, source, extra = {}) => ({ key, src, alt, tags, source, ...extra });
@@ -71,6 +74,9 @@ export const photos = {
   vinylSide: p('vinylSide', vinylSide, 'Long run of white vinyl privacy fence along a side yard next to a garage', ['vinyl', 'privacy'], 'Owner'),
   aluSlope: p('aluSlope', aluSlope, 'Black aluminum fence with spear-top pickets stepping down a sloped, wooded yard', ['aluminum', 'decorative'], 'Owner'),
   panelPrivacy: p('panelPrivacy', panelPrivacy, 'Horizontal wood-tone privacy fence panels framed by black posts along a paved path', ['privacy'], 'Owner'),
+  woodLongRun: p('woodLongRun', woodLongRun, 'Long run of new wood privacy fence along a gravel drive', ['wood', 'privacy'], 'Owner'),
+  shadowStained: p('shadowStained', shadowStained, 'Dark brown stained shadow box fence on top of a block retaining wall', ['wood', 'shadowbox', 'staining'], 'Owner'),
+  panelBackyard: p('panelBackyard', panelBackyard, 'Horizontal wood-tone privacy panels with black posts enclosing a backyard next to a brick home', ['privacy'], 'Owner'),
   crew: p('crew', crew, 'Two Final Touch Fencing crew members in red shirts installing a black aluminum fence', ['aluminum', 'crew', 'process'], 'Angi'),
 };
 
