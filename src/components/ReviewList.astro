@@ -1,20 +1,26 @@
 ---
-import { reviews, formatReviewDate } from '../data/reviews.js';
+// Full-text Yelp reviews. `featured` shows the three chosen for short sections; `stacked` lays reviews out
+// one per row at reading width (used on /reviews/, where every review appears in full).
+import { reviews, featuredReviews, formatReviewDate } from '../data/reviews.js';
 import { site } from '../data/site.js';
-interface Props { limit?: number }
-const { limit } = Astro.props;
-const list = limit ? reviews.slice(0, limit) : reviews;
+interface Props { featured?: boolean; stacked?: boolean }
+const { featured = false, stacked = false } = Astro.props;
+const list = featured ? featuredReviews : reviews;
 ---
-<div class="reviews">
-  {list.map((r) => (
-    <figure class="review">
-      <p class="stars" role="img" aria-label={`${r.rating} out of 5 stars`}>★★★★★</p>
-      <blockquote cite={site.profiles.yelp}><p>&ldquo;{r.text}&rdquo;</p></blockquote>
-      <figcaption>
-        <strong>{r.name}</strong>
-        <span>{r.platform} · {formatReviewDate(r.date)}</span>
-        <a class="review__more" href={site.profiles.yelp} rel="noopener" target="_blank">Read the Full Review on Yelp<span class="visually-hidden"> (opens in a new tab)</span></a>
-      </figcaption>
-    </figure>
-  ))}
+<div class:list={['reviews', { 'reviews--stacked': stacked }]}>
+  {list.map((r) => {
+    const paras = r.text.split('\n\n');
+    return (
+      <figure class="review">
+        <p class="stars" role="img" aria-label={`${r.rating} out of 5 stars`}>★★★★★</p>
+        <blockquote cite={site.profiles.yelp}>
+          {paras.map((p, i) => <p>{i === 0 && '“'}{p}{i === paras.length - 1 && '”'}</p>)}
+        </blockquote>
+        <figcaption>
+          <strong>{r.name}</strong>
+          <span>{r.platform} · {formatReviewDate(r.date)}</span>
+        </figcaption>
+      </figure>
+    );
+  })}
 </div>

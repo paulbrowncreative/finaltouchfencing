@@ -429,6 +429,9 @@ body.nav-open { overflow: hidden; }
 .review { margin: 0; padding: var(--sp-5); background: #fff; border: 1px solid var(--c-line); border-top: 4px solid var(--c-ink); display: flex; flex-direction: column; }
 .review blockquote { margin: 0 0 var(--sp-4); font-size: var(--fs-base); line-height: 1.55; flex: 1; }
 .review blockquote p { margin: 0; }
+.review blockquote p + p { margin-top: var(--sp-3); }
+.reviews--stacked { display: block; columns: 2 26rem; column-gap: var(--sp-5); }
+.reviews--stacked .review { break-inside: avoid; margin-bottom: var(--sp-5); padding: var(--sp-6); }
 .review figcaption { font-size: var(--fs-sm); color: var(--c-steel); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sp-2); }
 .review figcaption strong { color: var(--c-ink); }
 .review-summary { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3) var(--sp-5); margin-bottom: var(--sp-6); }
@@ -671,4 +674,3 @@ a[href^='tel:'] { white-space: nowrap; }
 .confirm-hero h1 { margin-top: var(--sp-4); }
 .h3 { font-size: var(--fs-lg); line-height: 1.15; }
 .mt-4 { margin-top: var(--sp-4); }
-.review__more { flex-basis: 100%; margin-top: var(--sp-2); padding-block: 0.3rem; font-size: var(--fs-sm); font-weight: 600; color: var(--c-red); }

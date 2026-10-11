@@ -7,7 +7,7 @@ import { site } from '../data/site.js';
 import { reviewSummary } from '../data/reviews.js';
 
 const title = 'Final Touch Fencing Reviews | 5.0 Stars on Yelp';
-const description = 'Read what customers say about Final Touch Fencing: competitive prices, fast estimates and helpful owners. 5.0 stars from 4 reviews on Yelp.';
+const description = 'Read every Final Touch Fencing review in full: competitive prices, fast estimates and owners who stay involved. Seven 5-star reviews on Yelp.';
 const crumbs = [{ label: 'Home', href: '/' }, { label: 'Reviews', href: '/reviews/' }];
 ---
 <Base title={title} description={description} breadcrumbs={crumbs}>
@@ -16,8 +16,8 @@ const crumbs = [{ label: 'Home', href: '/' }, { label: 'Reviews', href: '/review
   </PageHero>
   <section class="section">
     <div class="container">
-      <ReviewList />
-      <p class="notice mt-7">Reviews are shown as they appear publicly on Yelp. Longer reviews are cut off where Yelp’s preview ends; <a href={site.profiles.yelp} rel="noopener" target="_blank">read the full reviews on Yelp<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
+      <ReviewList stacked />
+      <p class="notice mt-7">Every review here is shown in full, as written on <a href={site.profiles.yelp} rel="noopener" target="_blank">Yelp<span class="visually-hidden"> (opens in a new tab)</span></a>, with only spelling and punctuation tidied.</p>
     </div>
   </section>
   <section class="section section--paper" aria-labelledby="leave-h">
@@ -25,8 +25,8 @@ const crumbs = [{ label: 'Home', href: '/' }, { label: 'Reviews', href: '/review
       <h2 id="leave-h">Had Us Build Your Fence?</h2>
       <p>A short review helps other homeowners find a contractor they can trust. Thank you!</p>
       <div class="btn-row">
-        <a class="btn" href={site.profiles.yelp} rel="noopener" target="_blank" data-cta="review_yelp">Review us on Yelp</a>
-        <a class="btn btn--ghost" href={site.profiles.facebook} rel="noopener" target="_blank" data-cta="review_facebook">Recommend us on Facebook</a>
+        <a class="btn" href={site.profiles.yelp} rel="noopener" target="_blank" data-cta="review_yelp">Review Us on Yelp</a>
+        <a class="btn btn--ghost" href={site.profiles.facebook} rel="noopener" target="_blank" data-cta="review_facebook">Recommend Us on Facebook</a>
       </div>
     </div>
   </section>
