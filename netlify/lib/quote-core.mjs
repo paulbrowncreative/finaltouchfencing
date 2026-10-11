@@ -1,31 +1,9 @@
 // Quote request processing: parsing, spam checks, validation, email composition and delivery.
 // Pure functions + an injectable `fetch` so everything here is unit-testable without network access.
 
-export const FIELD_LABELS = [
-  ['name', 'Name'],
-  ['phone', 'Phone'],
-  ['email', 'Email'],
-  ['address', 'Address'],
-  ['city', 'City'],
-  ['zip', 'ZIP'],
-  ['project_type', 'Project Type'],
-  ['fence_type', 'Fence Type'],
-  ['length', 'Approximate Length'],
-  ['gate', 'Gate Needed'],
-  ['timeline', 'Timeline'],
-  ['details', 'Additional Details'],
-];
-export const TRACKING_LABELS = [
-  ['source_page', 'Source Page'],
-  ['landing_page', 'Landing Page'],
-  ['referrer', 'Referrer'],
-  ['utm_source', 'utm_source'],
-  ['utm_medium', 'utm_medium'],
-  ['utm_campaign', 'utm_campaign'],
-  ['utm_term', 'utm_term'],
-  ['utm_content', 'utm_content'],
-  ['gclid', 'gclid'],
-];
+import { FIELD_LABELS, TRACKING_LABELS, formatPhone, submittedAt, quoteSubject, quoteRows, formSubmitPayload } from '../../src/lib/quote-fields.js';
+
+export { FIELD_LABELS, TRACKING_LABELS, formatPhone };
 const MAX_LEN = { details: 3000, default: 300 };
 const MIN_FILL_MS = 2500; // humans don't complete the form in under 2.5s
 const MAX_BODY_BYTES = 20_000;
@@ -46,7 +24,7 @@ export function normalize(input) {
 }
 
 export function isSpam(data, now = Date.now()) {
-  if (data.company) return 'honeypot';
+  if (data._honey || data.company) return 'honeypot';
   const started = Number(data.started_at);
   if (started && now - started < MIN_FILL_MS) return 'too-fast';
   const linkCount = (data.details?.match(/https?:\/\//gi) || []).length;
@@ -64,16 +42,11 @@ export function validate(data) {
   return errors;
 }
 
-export function formatPhone(raw) {
-  const d = (raw || '').replace(/\D/g, '').replace(/^1(?=\d{10}$)/, '');
-  return d.length === 10 ? `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}` : raw;
-}
-
 const escapeHtml = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
-export function composeEmail(data, { now = new Date(), timeZone = 'America/Detroit' } = {}) {
-  const submitted = now.toLocaleString('en-US', { timeZone, dateStyle: 'full', timeStyle: 'short' });
+export function composeEmail(data, { now = new Date() } = {}) {
+  const submitted = submittedAt(now);
   const v = { ...data, phone: formatPhone(data.phone) };
   const line = (label, key) => `${label}: ${v[key] || '—'}`;
   const text = [
@@ -98,15 +71,8 @@ export function composeEmail(data, { now = new Date(), timeZone = 'America/Detro
 <table style="border-collapse:collapse;font-size:13px;width:100%">${row('Submission Date/Time', submitted)}${TRACKING_LABELS.map(([k, l]) => row(l, v[k])).join('')}</table>
 </div></body></html>`;
 
-  const subjectBits = [v.project_type, v.fence_type, v.city || v.zip].filter(Boolean).join(' · ');
-  const subject = `New quote request: ${v.name}${subjectBits ? ` — ${subjectBits}` : ''}`.slice(0, 180);
-  // Ordered label/value pairs for providers that build their own layout (FormSubmit).
-  const rows = [
-    ...FIELD_LABELS.map(([k, l]) => [l, v[k] || '—']),
-    ['Submission Date/Time', `${submitted} (Eastern)`],
-    ...TRACKING_LABELS.map(([k, l]) => [l, v[k] || '—']),
-  ];
-  return { subject, text, html, rows };
+  const subject = quoteSubject(v);
+  return { subject, text, html };
 }
 
 export async function verifyTurnstile(token, { secret, ip, fetchImpl = fetch }) {
@@ -149,19 +115,13 @@ const SITE_ORIGIN = 'https://www.finaltouchfencing.com';
  * FormSubmit ties its one-time inbox activation to. Until the "Activate Form" email is clicked,
  * FormSubmit answers 200 with success "false"; that is treated as a failure, never as delivered.
  */
-export async function sendFormSubmit({ subject, rows, replyTo }, env, fetchImpl = fetch) {
+export async function sendFormSubmit({ data, now }, env, fetchImpl = fetch) {
   const target = (env.FORMSUBMIT_ALIAS || (env.QUOTE_TO_EMAIL || DEFAULT_TO).split(',')[0]).trim();
   const origin = env.SITE_URL || SITE_ORIGIN;
   const res = await fetchImpl(`${env.FORMSUBMIT_URL || 'https://formsubmit.co/ajax/'}${encodeURIComponent(target)}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json', Origin: origin, Referer: `${origin}/` },
-    body: JSON.stringify({
-      _subject: subject,
-      _template: 'table',
-      _captcha: 'false',
-      ...(replyTo ? { _replyto: replyTo } : {}),
-      ...Object.fromEntries(rows),
-    }),
+    body: JSON.stringify(formSubmitPayload(data, now)),
   });
   const json = await res.json().catch(() => ({}));
   if (!res.ok || String(json.success) !== 'true') {
@@ -171,8 +131,9 @@ export async function sendFormSubmit({ subject, rows, replyTo }, env, fetchImpl 
 }
 
 /** Resend when RESEND_API_KEY is set (branded HTML, verified sender); otherwise FormSubmit. */
-export function deliverQuote(mail, env, fetchImpl = fetch) {
-  return env.RESEND_API_KEY ? sendEmail(mail, env, fetchImpl) : sendFormSubmit(mail, env, fetchImpl);
+export function deliverQuote({ data, now }, env, fetchImpl = fetch) {
+  if (!env.RESEND_API_KEY) return sendFormSubmit({ data, now }, env, fetchImpl);
+  return sendEmail({ ...composeEmail(data, { now }), replyTo: data.email || undefined }, env, fetchImpl);
 }
 
 /**
@@ -212,8 +173,7 @@ export async function handleQuote({ method, headers, bodyText, ip }, env, { fetc
   if (!human) return respond(403, { ok: false, message: 'Spam check failed. Please reload the page and try again.' }, '/quote-error/');
 
   try {
-    const mail = composeEmail(data, { now: new Date(now) });
-    await deliverQuote({ ...mail, replyTo: data.email || undefined }, env, fetchImpl);
+    await deliverQuote({ data, now: new Date(now) }, env, fetchImpl);
   } catch (err) {
     console.error('quote: email delivery failed', err);
     return respond(502, { ok: false, message: 'We couldn’t send your request right now.' }, '/quote-error/');
