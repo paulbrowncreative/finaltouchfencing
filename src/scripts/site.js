@@ -91,9 +91,7 @@ function validate(form) {
 }
 
 document.querySelectorAll('[data-quote-form]').forEach((form) => {
-  const wrap = form.closest('[data-quote-form-wrap]');
   const status = form.querySelector('[data-form-status]');
-  const success = wrap.querySelector('[data-form-success]');
   const button = form.querySelector('button[type="submit"]');
   let started = false;
 
@@ -133,15 +131,17 @@ document.querySelectorAll('[data-quote-form]').forEach((form) => {
         body: new URLSearchParams(new FormData(form)),
       });
       if (!res.ok) throw new Error('We couldn’t send your request right now.');
-      track('generate_lead', {
-        form_id: form.id,
-        project_type: form.elements.project_type?.value || '',
-        fence_type: form.elements.fence_type?.value || '',
-        page_path: location.pathname,
-      });
-      form.hidden = true;
-      success.dataset.visible = 'true';
-      success.focus();
+      // The confirmation page fires generate_lead once from this flag, so reloads don't double-count.
+      try {
+        sessionStorage.setItem('ftf_lead', JSON.stringify({
+          form_id: form.id,
+          project_type: form.elements.project_type?.value || '',
+          fence_type: form.elements.fence_type?.value || '',
+          page_path: location.pathname,
+        }));
+      } catch { /* storage unavailable */ }
+      location.assign('/thank-you/');
+      return;
     } catch (err) {
       status.dataset.state = 'error';
       status.textContent = `${err.message} Please try again, or call us at (810) 614-4181.`;

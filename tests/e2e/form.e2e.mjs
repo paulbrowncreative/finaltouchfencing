@@ -55,9 +55,8 @@ await step('valid submission shows success and delivers a complete email', async
   await page.selectOption('#contact-quote-timeline', 'As soon as possible');
   await page.waitForTimeout(2700); // the time trap rejects sub-2.5s submissions
   const before = (await outbox()).length;
-  await page.click('#contact-quote button[type=submit]');
-  await page.waitForSelector('[data-form-success][data-visible=true]', { timeout: 8000 });
-  assert.match(await page.textContent('[data-form-success]'), /Thank You! Your Quote Request Has Been Received\./);
+  await Promise.all([page.waitForURL('**/thank-you/', { timeout: 8000 }), page.click('#contact-quote button[type=submit]')]);
+  assert.match(await page.textContent('h1'), /Thank You — Your Quote Request Is In/);
   const mails = await outbox();
   assert.equal(mails.length, before + 1, 'no email captured');
   const m = mails.at(-1).fields;
@@ -70,8 +69,10 @@ await step('valid submission shows success and delivers a complete email', async
   assert.ok(m.source_page.startsWith(`${BASE}/contact/`), 'source page missing');
   assert.ok(m.landing_page.startsWith(`${BASE}/contact/?utm_source=google`), 'landing page missing');
   const events = await page.evaluate(() => window.dataLayer.map((e) => e.event));
-  assert.ok(events.includes('quote_form_start'), 'quote_form_start not tracked');
-  assert.ok(events.includes('generate_lead'), 'generate_lead not tracked');
+  assert.ok(events.includes('generate_lead'), 'generate_lead not tracked on the confirmation page');
+  await page.reload();
+  const again = await page.evaluate(() => window.dataLayer.filter((e) => e.event === 'generate_lead').length);
+  assert.equal(again, 0, 'reloading the confirmation page must not count another lead');
 });
 
 await step('first-touch UTM persists to a form on another page (service page)', async () => {
@@ -83,8 +84,7 @@ await step('first-touch UTM persists to a form on another page (service page)', 
   await page.fill('#quote-form-zip', '48047');
   await page.waitForTimeout(2700);
   const before = (await outbox()).length;
-  await page.click('#quote-form button[type=submit]');
-  await page.waitForSelector('#quote-band-h ~ * [data-form-success][data-visible=true], [data-form-success][data-visible=true]', { timeout: 8000 });
+  await Promise.all([page.waitForURL('**/thank-you/', { timeout: 8000 }), page.click('#quote-form button[type=submit]')]);
   const m = (await outbox()).at(-1).fields;
   assert.equal((await outbox()).length, before + 1);
   assert.equal(m.source_page, `${BASE}/services/gates/`);
@@ -99,8 +99,7 @@ await step('honeypot-filled submission shows success to the bot but sends nothin
   await page.evaluate(() => { document.querySelector('#quote-form input[name=company]').value = 'http://spam'; });
   await page.waitForTimeout(2700);
   const before = (await outbox()).length;
-  await page.click('#quote-form button[type=submit]');
-  await page.waitForSelector('[data-form-success][data-visible=true]', { timeout: 8000 });
+  await Promise.all([page.waitForURL('**/thank-you/', { timeout: 8000 }), page.click('#quote-form button[type=submit]')]);
   assert.equal((await outbox()).length, before);
 });
 
@@ -127,7 +126,7 @@ await step('works without JavaScript (303 → thank-you page)', async () => {
   await p.fill('#contact-quote-zip', '48080');
   const before = (await outbox()).length;
   await Promise.all([p.waitForURL('**/thank-you/'), p.click('#contact-quote button[type=submit]')]);
-  assert.match(await p.textContent('h1'), /Thank You/);
+  assert.match(await p.textContent('h1'), /Thank You — Your Quote Request Is In/);
   assert.equal((await outbox()).length, before + 1);
   await noJs.close();
 });

@@ -663,3 +663,11 @@ a[href^='tel:'] { white-space: nowrap; }
 .footer-col li { margin-bottom: 0.25rem; }
 .page-hero h1 .eyebrow a { padding-block: 0.45rem; }
 .nowrap { white-space: nowrap; }
+
+/* Quote confirmation page */
+.confirm-hero { padding-block: var(--sp-7) var(--sp-8); }
+.confirm-hero__inner { max-width: 44rem; }
+.confirm-hero__icon { width: 3.5rem; height: 3.5rem; color: #4cc27a; }
+.confirm-hero h1 { margin-top: var(--sp-4); }
+.h3 { font-size: var(--fs-lg); line-height: 1.15; }
+.mt-4 { margin-top: var(--sp-4); }

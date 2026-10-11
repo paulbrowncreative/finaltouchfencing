@@ -1,8 +1,72 @@
 ---
-import Simple from '../layouts/Simple.astro';
+// Confirmation landing page shown after a successful quote request (JS redirect or no-JS Netlify Forms
+// POST). Not indexed and excluded from the sitemap. The generate_lead conversion fires here, once per
+// submission, from the flag the form sets just before redirecting.
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
 import { site } from '../data/site.js';
+
+const hours = site.hours.map((h) => `${h.days}, ${h.open}–${h.close}`).join('; ');
 ---
-<Simple title="Quote Request Received | Final Touch Fencing" h1="Thank you! Your quote request has been received." label="Thank you" path="/thank-you/" description="Your quote request was received." noindex lede="Final Touch Fencing will be in touch soon.">
-  <p>If your project is time-sensitive, call us at <a href={site.phoneHref} data-track="phone">{site.phone}</a>.</p>
-  <p>While you wait, see whether your city requires a permit in our <a href="/blog/fence-permit-rules-macomb-county/">local fence permit guide</a>, or browse <a href="/our-work/">our work</a>.</p>
-</Simple>
+<Base title="Quote Request Received | Final Touch Fencing" description="Your quote request was received. Here’s what happens next." noindex>
+  <section class="page-hero on-dark confirm-hero" aria-labelledby="confirm-h">
+    <div class="container">
+      <div class="confirm-hero__inner">
+        <Icon name="checkCircle" class="confirm-hero__icon" />
+        <h1 id="confirm-h"><span class="eyebrow">Request received</span>Thank You — Your Quote Request Is In</h1>
+        <p class="lede">Your project details are on their way to Final Touch Fencing. Here’s what happens next.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="next-h">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What happens next</span>
+        <h2 id="next-h">From Your Request to a Written Price</h2>
+      </div>
+      <ol class="process">
+        <li><h3>We Review Your Request</h3><p>We read through your project details and check your city’s fence rules for your address.</p></li>
+        <li><h3>We Reach Out</h3><p>We contact you by phone or email to set a time to see the property. Office hours: {hours}</p></li>
+        <li><h3>Free On-Site Estimate</h3><p>We measure the run, check the grade, gates and any old fence, then give you a written price.</p></li>
+        <li><h3>You Decide</h3><p>No pressure and no obligation. When you’re ready, we handle the permit and schedule the build.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--paper" aria-labelledby="sooner-h">
+    <div class="container split">
+      <div>
+        <span class="eyebrow">Time-sensitive?</span>
+        <h2 id="sooner-h">Need to Talk Sooner?</h2>
+        <p class="lede">Call us directly, and mention you sent a quote request on the website.</p>
+        <div class="btn-row mt-6">
+          <a class="btn btn--lg" href={site.phoneHref} data-track="phone"><Icon name="phone" />Call {site.phone}</a>
+          <a class="btn btn--ghost btn--lg" href={`mailto:${site.email}?subject=${encodeURIComponent('Photos for my fence quote')}`} data-track="email"><Icon name="mail" />Email Us Photos</a>
+        </div>
+        <p class="mt-4">Photos of the yard, the fence line or an old fence help us prepare for the estimate.</p>
+      </div>
+      <div>
+        <h2 class="h3">While You Wait</h2>
+        <ul class="link-list">
+          <li><a href="/blog/fence-permit-rules-macomb-county/">Fence permit rules by city</a> — what your community requires</li>
+          <li><a href="/blog/how-to-prepare-for-fence-installation/">How to prepare for fence installation</a> — a homeowner checklist</li>
+          <li><a href="/our-work/">Our work</a> — photos of fences our crew has built</li>
+          <li><a href="/reviews/">Reviews</a> — what customers say about working with us</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Count the conversion once, only when arriving from a successful form submission.
+  try {
+    const lead = sessionStorage.getItem('ftf_lead');
+    if (lead) {
+      sessionStorage.removeItem('ftf_lead');
+      const dl = ((window as any).dataLayer = (window as any).dataLayer || []);
+      dl.push({ event: 'generate_lead', ...JSON.parse(lead) });
+    }
+  } catch { /* storage unavailable: conversion simply isn't recorded */ }
+</script>
