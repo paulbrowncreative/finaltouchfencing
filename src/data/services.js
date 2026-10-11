@@ -23,7 +23,8 @@ export const services = [
     sections: [
       {
         h2: 'What we install',
-        html: `<p>We install residential fences in every common material, plus the gates that go with them:</p>
+        html: `<p>Final Touch Fencing installs new residential fences from our base in St. Clair Shores, across Macomb County and in Harper Woods and Detroit’s east side.</p>
+<p>We install residential fences in every common material, plus the gates that go with them:</p>
 <ul class="link-list">
 <li><a href="/services/wood-fencing/">Wood fences</a> — privacy, shadow box, picket and split rail</li>
 <li><a href="/services/vinyl-fencing/">Vinyl fences</a> — low-maintenance privacy panels and gates</li>
@@ -65,7 +66,7 @@ export const services = [
     heading: 'Wood fencing',
     noun: 'wood fence',
     short: 'Privacy, shadow box, picket and split rail fences built from wood.',
-    title: 'Wood Fence Installation: Privacy, Shadow Box & Picket | Final Touch',
+    title: 'Wood Fence Installation: Privacy, Shadow Box & Picket',
     description:
       'Wood privacy, shadow box, picket and split rail fences in St. Clair Shores, Harper Woods and Macomb County. See real projects and get a free estimate.',
     h1: 'Wood fence installation',
@@ -76,7 +77,8 @@ export const services = [
     sections: [
       {
         h2: 'Wood fence styles we build',
-        html: `<dl class="defs">
+        html: `<p>We build wood privacy, shadow box, picket and split rail fences for homes in St. Clair Shores, Harper Woods, Chesterfield Township, Macomb Township, Clay Township and Detroit.</p>
+<dl class="defs">
 <dt>Privacy fence</dt><dd>Boards butted tight for full screening. The standard choice for backyards, pools and dogs.</dd>
 <dt>Shadow box fence</dt><dd>Boards alternate on each side of the rails, so the fence looks finished from both sides and lets some air through. A good choice when the fence faces a street or a neighbor.</dd>
 <dt>Picket fence</dt><dd>Spaced pickets, including pointed French Gothic tops, for front yards and gardens where you want definition rather than screening.</dd>
@@ -104,7 +106,7 @@ export const services = [
     heading: 'Privacy fencing',
     noun: 'privacy fence',
     short: '6-foot wood, vinyl and composite privacy fences that are tall, tight and built to code.',
-    title: 'Privacy Fence Installation: Wood & Vinyl | Final Touch Fencing',
+    title: 'Privacy Fence Installation: Wood, Vinyl & Composite',
     description:
       'Wood, vinyl and composite privacy fences built to local height and placement rules in St. Clair Shores, Harper Woods and Chesterfield. Free estimates.',
     h1: 'Privacy fence installation',
@@ -115,7 +117,8 @@ export const services = [
     sections: [
       {
         h2: 'Wood, vinyl or composite privacy fence?',
-        html: `<p><a href="/services/wood-fencing/">Wood privacy fences</a> cost less up front, can follow any grade and can be stained. <a href="/services/vinyl-fencing/">Vinyl privacy fences</a> cost more but never need stain or paint, and a hose rinse keeps them clean. If the fence will be seen from the street, consider a wood shadow box fence, which looks finished from both sides. Compare all four materials in our <a href="/blog/wood-vs-vinyl-vs-aluminum-fence/">fence material guide</a>. For a modern look, <a href="/services/composite-fencing/">composite privacy fences</a> pair horizontal wood-tone panels with black posts and need no stain.</p>`,
+        html: `<p>Our privacy fences screen backyards and side yards in St. Clair Shores, Harper Woods and across Macomb County, built to each city’s height and placement rules.</p>
+<p><a href="/services/wood-fencing/">Wood privacy fences</a> cost less up front, can follow any grade and can be stained. <a href="/services/vinyl-fencing/">Vinyl privacy fences</a> cost more but never need stain or paint, and a hose rinse keeps them clean. If the fence will be seen from the street, consider a wood shadow box fence, which looks finished from both sides. Compare all four materials in our <a href="/blog/wood-vs-vinyl-vs-aluminum-fence/">fence material guide</a>. For a modern look, <a href="/services/composite-fencing/">composite privacy fences</a> pair horizontal wood-tone panels with black posts and need no stain.</p>`,
       },
       {
         h2: 'Height and placement rules',
@@ -154,7 +157,8 @@ export const services = [
     sections: [
       {
         h2: 'Why homeowners choose vinyl',
-        html: `<ul>
+        html: `<p>We install vinyl privacy fences and gates for homeowners in St. Clair Shores, Harper Woods and across Macomb County who want privacy without the staining.</p>
+<ul>
 <li><strong>No refinishing.</strong> Vinyl never needs stain, sealer or paint.</li>
 <li><strong>Clean lines.</strong> Panels and posts are uniform, so long runs look consistent.</li>
 <li><strong>Finished on both sides.</strong> Most vinyl privacy panels look the same from either side, which helps with ordinances that require the finished side to face the neighbor.</li>
@@ -180,7 +184,7 @@ export const services = [
     heading: 'Composite fencing',
     noun: 'composite fence',
     short: 'Horizontal composite privacy panels framed in black for a clean, modern look.',
-    title: 'Composite Fence Installation in St. Clair Shores, MI | Final Touch',
+    title: 'Composite Fence Installation in St. Clair Shores, MI',
     description:
       'Horizontal composite privacy fence installation in St. Clair Shores, Harper Woods and Macomb County. Wood-tone panels, black posts. Free estimates.',
     h1: 'Composite fence installation',
@@ -190,7 +194,8 @@ export const services = [
     sections: [
       {
         h2: 'Why homeowners choose composite',
-        html: `<ul>
+        html: `<p>We install composite privacy fences for homes in St. Clair Shores, Harper Woods and across Macomb County.</p>
+<ul>
 <li><strong>The look of wood without the upkeep.</strong> Composite panels come in wood tones and don’t need stain, sealer or paint.</li>
 <li><strong>A modern horizontal design.</strong> Long horizontal boards framed in black posts and trim give the yard a contemporary, finished look that suits newer homes and updated older ones.</li>
 <li><strong>Full privacy.</strong> The panels are solid from top to bottom, so they screen patios, hot tubs and side yards completely.</li>
@@ -260,7 +265,8 @@ export const services = [
     sections: [
       {
         h2: 'Gates we install',
-        html: `<ul>
+        html: `<p>We build and install gates for homes in St. Clair Shores, Harper Woods, Macomb County and Detroit, on new fences and existing ones.</p>
+<ul>
 <li><strong>Walk gates</strong> for side yards and garden access, in wood, vinyl or aluminum to match the fence.</li>
 <li><strong>Double drive gates</strong> wide enough for a mower, trailer or car.</li>
 <li><strong>Driveway gates</strong> on split rail and other open fences.</li>
@@ -297,7 +303,8 @@ export const services = [
     sections: [
       {
         h2: 'Common fence repairs',
-        html: `<ul>
+        html: `<p>We repair leaning, broken and sagging fences in St. Clair Shores, Harper Woods and across Macomb County, including fences we didn’t build.</p>
+<ul>
 <li><strong>Leaning or heaved posts.</strong> We reset or replace the post and re-plumb the section.</li>
 <li><strong>Broken boards, pickets and rails.</strong> We replace them to match as closely as the existing material allows.</li>
 <li><strong>Sagging or dragging gates.</strong> We rehang, brace or replace hinges and latches.</li>
@@ -334,7 +341,8 @@ export const services = [
     sections: [
       {
         h2: 'What’s included',
-        html: `<ol class="steps">
+        html: `<p>We power wash and stain wood fences in St. Clair Shores, Harper Woods and across Macomb County.</p>
+<ol class="steps">
 <li><strong>Power washing.</strong> Removes dirt, mildew and the gray layer of weathered fiber at a pressure that cleans without furring the wood.</li>
 <li><strong>Dry time.</strong> Stain needs dry wood to soak in, so we let the fence dry before staining.</li>
 <li><strong>Staining.</strong> Applied evenly across boards, rails and posts, with nearby surfaces protected.</li>

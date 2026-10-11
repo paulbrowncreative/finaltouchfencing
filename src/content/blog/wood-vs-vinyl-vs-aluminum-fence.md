@@ -1,6 +1,6 @@
 ---
 title: "Wood vs. vinyl vs. composite vs. aluminum: choosing a fence in Michigan"
-seoTitle: "Wood vs. Vinyl vs. Aluminum Fence: Which Is Best in Michigan?"
+seoTitle: "Wood vs. Vinyl vs. Composite vs. Aluminum Fence in Michigan"
 description: "Wood, vinyl, composite or aluminum? How each fence material compares on privacy, upkeep, cost and local rules for Macomb County and Metro Detroit homes."
 summary: "Privacy, upkeep, cost and where local rules point you to one fence material over another."
 date: 2026-10-07

@@ -8,7 +8,7 @@ export const areas = [
     slug: 'st-clair-shores',
     name: 'St. Clair Shores',
     county: 'Macomb County',
-    title: 'Fence Company in St. Clair Shores, MI | Final Touch Fencing',
+    title: 'St. Clair Shores Fence Installation & Rules | Final Touch',
     description:
       'St. Clair Shores fence installation and repair from a local family-owned company. Canal-lot rules and the city permit process explained.',
     h1: 'Fence installation in St. Clair Shores',
