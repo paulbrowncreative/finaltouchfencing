@@ -38,8 +38,8 @@ export const services = [
         html: `<ol class="steps">
 <li><strong>Quote request.</strong> Call <a href="tel:+18106144181" data-track="phone">(810) 614-4181</a> or send the <a href="/contact/">quote form</a>. Tell us roughly where the fence goes and what you have in mind.</li>
 <li><strong>On-site estimate.</strong> We walk the property, measure the run, note grade changes, gates, trees and any existing fence, and give you a written price. Reviewers mention getting their estimate the next day.</li>
-<li><strong>Permit and utility marking.</strong> Most communities we serve require a fence permit before work starts. Michigan law also requires utility lines to be marked through MISS DIG 811 at least three business days before anyone digs. See our <a href="/blog/fence-permit-rules-macomb-county/">fence permit guide</a>.</li>
-<li><strong>Build.</strong> Posts go in first, then rails, boards or panels, then gates and hardware.</li>
+<li><strong>Permit and utility marking.</strong> Most communities we serve require a fence permit before work starts. Michigan law also requires utility lines to be marked through MISS DIG 811 at least three business days before anyone digs. We handle the permit for you, and when a city adds a step, such as a post-hole inspection before concrete, we build it into the schedule. “They handled all permits and were great about keeping me updated,” Paul T. wrote on Yelp. See our <a href="/blog/fence-permit-rules-macomb-county/">fence permit guide</a>.</li>
+<li><strong>Build.</strong> Posts go in first, then rails, boards or panels, then gates and hardware. We keep to the schedule: when hard, compacted ground slowed the digging on one job, the crew came out on a Saturday to finish on time.</li>
 <li><strong>Walkthrough.</strong> We check gate swing and latch, clean up and go over the finished fence with you. If your city requires a final inspection, it happens after the build.</li>
 </ol>`,
       },
@@ -50,11 +50,13 @@ export const services = [
       },
       {
         h2: 'Replacing an Old Fence',
-        html: `<p>If an existing fence is coming out, say so in your quote request so we can price the removal. Before you tear out a fence on a property line, confirm it’s yours. St. Clair Shores asks on its permit application whether ownership of an existing fence has been determined, and the city won’t decide it for you. Our guide to <a href="/blog/fence-on-property-line/">fences on the property line</a> covers the details.</p>`,
+        html: `<p>If an existing fence is coming out, say so in your quote request so we can price the removal. We take the old fence out and haul it away, and we clear the fence line carefully, saving shrubs and plantings where we can. One customer wrote that we preserved several bushes “that otherwise may have been removed,” and worked around the tree company clearing the same yard. Before you tear out a fence on a property line, confirm it’s yours. St. Clair Shores asks on its permit application whether ownership of an existing fence has been determined, and the city won’t decide it for you. Our guide to <a href="/blog/fence-on-property-line/">fences on the property line</a> covers the details.</p>`,
       },
     ],
     faqs: [
-      { q: 'How Long Does a Fence Installation Take?', a: 'It depends on length, material and gates. A typical backyard takes a few days of work once the permit is issued and utilities are marked. We give you a schedule with your estimate.' },
+      { q: 'How Long Does a Fence Installation Take?', a: 'Once the permit is issued and utilities are marked, most backyard fences take one to a few days of work. Customers on Yelp describe one job finished in a day and another in less than two. Length, material, gates and ground conditions set the schedule, and we give you one with your estimate.' },
+      { q: 'I Share the Fence Line With Neighbors. Can You Help Split the Cost?', a: 'Yes. Ask us to break out each neighbor’s share in the estimate. One customer who shares a fence line with three neighbors said the breakdown “made approaching my neighbors so much easier.” See <a href="/blog/fence-on-property-line/">building a fence on the property line</a>.' },
+      { q: 'Can I Change the Plan Before the Fence Goes In?', a: 'Usually, yes. Tell us as early as you can. One customer added a small separate fence and an eight-foot gate just before the start date, and wrote that the changes “did not delay the project.”' },
       { q: 'Do I Need a Permit?', a: 'In most of the communities we serve, yes. St. Clair Shores, Chesterfield Township, Macomb Township and Clay Township all require a fence or zoning permit. Our <a href="/blog/fence-permit-rules-macomb-county/">fence permit guide</a> covers the details by city.' },
       { q: 'Is the Estimate Free?', a: 'Yes. Estimates are free and come with no obligation.' },
       { q: 'How Do I Pay?', a: 'We accept cash, check, credit card, Venmo and Cash App.' },
@@ -86,6 +88,10 @@ export const services = [
 </dl>`,
       },
       {
+        h2: 'Custom Tops and Tricky Grades',
+        html: `<p>Wood can be built to fit the yard and the neighborhood. We’ve matched a custom top to a neighbor’s existing fence and worked out a clean, good-looking transition where a planting box and retaining wall changed the grade. On one shadow box job, the crew built the fence board by board instead of using premade panels, which the customer said “just shows their skills even more.”</p>`,
+      },
+      {
         h2: 'Privacy Fence vs. Shadow Box Fence',
         html: `<p>Both give you a 6-foot screen. A solid privacy fence blocks every sightline but takes the full force of the wind, and one side shows the posts and rails. A shadow box fence costs more in material but looks good from both sides. That matters in places like <a href="/service-areas/harper-woods/">Harper Woods</a> and <a href="/service-areas/macomb-township/">Macomb Township</a>, where the ordinance requires the finished side to face the neighbor or the street. Our <a href="/blog/shadow-box-vs-privacy-fence/">shadow box vs. privacy fence guide</a> goes deeper.</p>`,
       },
@@ -96,7 +102,7 @@ export const services = [
     ],
     faqs: [
       { q: 'How Tall Can a Wood Privacy Fence Be?', a: 'Most of our communities cap side and rear yard fences at 6 feet. St. Clair Shores allows privacy fences up to 6 feet 6 inches overall, with panels no taller than 6 feet. Front yards are far more restricted. See <a href="/blog/how-tall-can-a-fence-be/">how tall a fence can be</a> in each city.' },
-      { q: 'Which Side of the Fence Faces My Neighbor?', a: 'Most local ordinances require the finished side to face out toward neighbors and streets. A shadow box fence avoids the question because both sides look the same.' },
+      { q: 'Which Side of the Fence Faces My Neighbor?', a: 'Most local ordinances require the finished side to face out toward neighbors and streets. A shadow box fence avoids the question because both sides look the same. If a neighbor wants a finished look on their side too, we can add pickets to that side.' },
       { q: 'Can a Wood Fence Go on a Waterfront or Canal Lot?', a: 'Often not as a privacy fence. St. Clair Shores prohibits privacy fences on waterfront and canal lots, and Chesterfield Township prohibits them outside the building envelope. Open styles such as <a href="/services/aluminum-fencing/">aluminum</a> are the usual answer.' },
     ],
   },
@@ -175,6 +181,7 @@ export const services = [
     ],
     faqs: [
       { q: 'Does a Vinyl Fence Need Maintenance?', a: 'Very little. An occasional wash with a hose or mild soap removes dirt and mildew. There’s no staining or painting.' },
+      { q: 'Will You Install Vinyl Fencing I Already Bought?', a: 'Often, yes. Tell us what you have, and we’ll look at it during the estimate. One customer had already bought vinyl privacy fencing that no other company would install. We installed it in a day, met the city’s post-hole inspection and bottom-clearance requirements along the way, and the customer called the result “beautiful.” <a href="/reviews/">Read the review</a>.' },
       { q: 'Is Vinyl More Expensive Than Wood?', a: 'Usually, up front. It saves the cost of staining and refinishing over the years. We can price both so you can compare.' },
     ],
   },
