@@ -126,16 +126,13 @@ document.querySelectorAll('[data-quote-form]').forEach((form) => {
     button.setAttribute('aria-busy', 'true');
     button.disabled = true;
     try {
-      const res = await fetch(form.action, {
+      // Netlify Forms accepts a URL-encoded POST to any page of the site and answers 200 when stored.
+      const res = await fetch('/', {
         method: 'POST',
-        headers: { Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(new FormData(form)),
       });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.ok) {
-        if (data.errors) for (const [n, m] of Object.entries(data.errors)) showError(form, n, m);
-        throw new Error(data.message || 'Something went wrong sending your request.');
-      }
+      if (!res.ok) throw new Error('We couldn’t send your request right now.');
       track('generate_lead', {
         form_id: form.id,
         project_type: form.elements.project_type?.value || '',

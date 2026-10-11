@@ -34,17 +34,17 @@ Old `/resources/` URLs 301-redirect to the blog (`netlify.toml`).
 
 ## Quote form (how submissions reach finaltouchfencing@gmail.com)
 
-`QuoteForm.astro` POSTs to `/api/quote`, which is handled by `netlify/functions/quote.mjs` (logic in `netlify/lib/quote-core.mjs`). The function validates the submission, filters spam (honeypot, time trap, link count, optional Cloudflare Turnstile), and forwards it server-side to [FormSubmit](https://formsubmit.co), which emails it to finaltouchfencing@gmail.com. Visitors never leave the page and no email app opens. The inbox address never appears in page source. Without JavaScript, the form still works and redirects to `/thank-you/`.
+Quote forms use **Netlify Forms**. Every `QuoteForm.astro` instance is named `quote` (`data-netlify="true"`, honeypot `company`). With JavaScript, `src/scripts/site.js` validates the fields and posts them in the background to the site itself, so the visitor stays on the page and sees the thank-you message. Without JavaScript, the plain POST lands on `/thank-you/`. Netlify stores every submission (Netlify → Forms) and emails it to the business. No API keys, and no outside form service.
 
-The email lists every field in form order, plus the submission time (Eastern), source page, landing page, referrer, UTM tags and gclid. **Reply** goes straight to the customer when they gave an email address.
+Each submission includes every field, plus the source page, landing page, referrer, UTM tags and gclid.
 
-### Launch setup
+### Launch setup (Netlify dashboard, one time)
 
-1. **Activate FormSubmit (one time).** The first submission makes FormSubmit email an **Activate Form** link to finaltouchfencing@gmail.com. Click it. Until then, the form shows visitors an error with the phone number, and nothing is reported as sent.
-2. **Optional: hide the address from FormSubmit URLs.** After activation, FormSubmit emails a random alias. Set it as `FORMSUBMIT_ALIAS` in Netlify → Project configuration → Environment variables, then redeploy.
-3. Submit a test quote on the live site and confirm it arrives. Check spam the first time and mark it **Not spam**.
-4. **Optional upgrade to Resend** (branded HTML email from `@finaltouchfencing.com`): verify the domain in Resend, then set `RESEND_API_KEY` and `QUOTE_FROM_EMAIL`. When `RESEND_API_KEY` is set, it's used instead of FormSubmit. Never put keys in code.
-5. Optional: add Cloudflare Turnstile keys (`PUBLIC_TURNSTILE_SITE_KEY` at build time, `TURNSTILE_SECRET_KEY` for the function).
+1. **Project configuration → Forms → Enable form detection**, then redeploy. The `quote` form appears under **Forms**.
+2. **Project configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email notification**: email `finaltouchfencing@gmail.com`, form `quote`.
+3. Submit a test quote on the live site. Confirm it appears under **Forms → quote** and arrives in Gmail (check spam the first time and mark **Not spam**).
+
+`netlify/functions/quote.mjs` (`/api/quote`) is an unused legacy endpoint that can deliver through Resend or FormSubmit. The form no longer calls it.
 
 ## Analytics
 

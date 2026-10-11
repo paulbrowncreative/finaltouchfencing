@@ -1,7 +1,9 @@
 ---
 import { titleCase } from '../lib/titlecase.js';
-// Quote request form. Posts to /api/quote (Netlify Function → email to the business).
-// Works without JavaScript (server responds with a redirect); with JS it submits in place.
+// Quote request form, handled by Netlify Forms: submissions post to this site, are stored in the
+// Netlify dashboard and are emailed to finaltouchfencing@gmail.com by a Form notification (set in
+// Netlify → Forms). With JS the form submits in the background; without JS, Netlify redirects to
+// /thank-you/. Every instance shares the name "quote" and the same fields, so Netlify registers one form.
 import Icon from './Icon.astro';
 import { site } from '../data/site.js';
 
@@ -15,7 +17,6 @@ const {
 } = Astro.props;
 const H = headingLevel;
 const f = (name: string) => `${id}-${name}`;
-const turnstileKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
 const projectTypes = ['New fence', 'Replace a fence', 'Fence repair', 'Gate', 'Staining or power washing'];
 const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rail', 'Vinyl', 'Composite', 'Aluminum', 'Not sure yet'];
@@ -24,8 +25,11 @@ const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rai
   <form
     class="quote-form"
     id={id}
-    action="/api/quote"
+    name="quote"
+    action="/thank-you/"
     method="post"
+    data-netlify="true"
+    netlify-honeypot="company"
     novalidate
     data-quote-form
     aria-labelledby={f('heading')}
@@ -117,11 +121,13 @@ const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rai
       </details>
     </div>
 
-    <!-- Spam protection: honeypot + time-to-submit check (server-side) -->
+    <!-- Spam protection: honeypot (Netlify drops submissions that fill it) plus Netlify's built-in spam filter -->
     <div class="hp-field" aria-hidden="true">
       <label for={f('company')}>Company (leave this field empty)</label>
       <input id={f('company')} name="company" type="text" tabindex="-1" autocomplete="off" />
     </div>
+    <input type="hidden" name="form-name" value="quote" />
+    <input type="hidden" name="subject" value="New quote request — Final Touch Fencing website" />
     <input type="hidden" name="form_id" value={id} />
     <input type="hidden" name="started_at" value="" />
     <input type="hidden" name="source_page" value="" />
@@ -134,7 +140,6 @@ const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rai
     <input type="hidden" name="utm_content" value="" />
     <input type="hidden" name="gclid" value="" />
 
-    {turnstileKey && <div class="cf-turnstile" data-sitekey={turnstileKey} data-size="flexible"></div>}
 
     <div class="form-actions">
       <p class="form-status" role="alert" data-form-status></p>
@@ -152,4 +157,3 @@ const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rai
     <p class="form-note">While you wait: check whether your city requires a fence permit in our <a href="/blog/fence-permit-rules-macomb-county/">local fence permit guide</a>.</p>
   </div>
 </div>
-{turnstileKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}

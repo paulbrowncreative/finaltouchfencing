@@ -1,5 +1,5 @@
-// Quote email fields, shared by the browser (direct FormSubmit delivery) and the Netlify function
-// (fallback), so every lead email lists the same fields in the same order however it was sent.
+// Quote email fields used by the legacy /api/quote function (Resend or FormSubmit delivery).
+// The live form posts to Netlify Forms instead; see README.
 
 export const FIELD_LABELS = [
   ['name', 'Name'],
