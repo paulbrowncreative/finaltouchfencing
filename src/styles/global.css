@@ -671,3 +671,4 @@ a[href^='tel:'] { white-space: nowrap; }
 .confirm-hero h1 { margin-top: var(--sp-4); }
 .h3 { font-size: var(--fs-lg); line-height: 1.15; }
 .mt-4 { margin-top: var(--sp-4); }
+.review__more { flex-basis: 100%; margin-top: var(--sp-2); padding-block: 0.3rem; font-size: var(--fs-sm); font-weight: 600; color: var(--c-red); }

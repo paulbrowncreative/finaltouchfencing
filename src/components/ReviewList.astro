@@ -13,6 +13,7 @@ const list = limit ? reviews.slice(0, limit) : reviews;
       <figcaption>
         <strong>{r.name}</strong>
         <span>{r.platform} · {formatReviewDate(r.date)}</span>
+        <a class="review__more" href={site.profiles.yelp} rel="noopener" target="_blank">Read the Full Review on Yelp<span class="visually-hidden"> (opens in a new tab)</span></a>
       </figcaption>
     </figure>
   ))}

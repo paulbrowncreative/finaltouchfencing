@@ -8,7 +8,7 @@ export const reviews = [
     date: '2025-06-20',
     platform: 'Yelp',
     rating: 5,
-    text: 'I got estimates from four fencing companies. Final Touch Fencing had the best price. Robert and Marisa were very helpful throughout the entire process. They answered all my questions and…',
+    text: 'I got estimates from four fencing companies. Final Touch Fencing had the best price. Robert and Marisa were very helpful throughout the entire process.',
     topic: 'price',
   },
   {
@@ -16,7 +16,7 @@ export const reviews = [
     date: '2025-05-31',
     platform: 'Yelp',
     rating: 5,
-    text: 'Beyond happy with Final Touch Fencing! They put in a brand-new shadow box privacy fence around our entire yard. They also put a gate across our driveway and a gate on the lawn. They DIDN’T use…',
+    text: 'Beyond happy with Final Touch Fencing! They put in a brand-new shadow box privacy fence around our entire yard. They also put a gate across our driveway and a gate on the lawn.',
     topic: 'shadowbox',
   },
   {
@@ -24,7 +24,7 @@ export const reviews = [
     date: '2025-05-09',
     platform: 'Yelp',
     rating: 5,
-    text: 'Final Touch Fencing installed my wooden fence, and I am extremely happy. I requested an estimate, and they came out promptly and provided an estimate the next day, and they offered a very reasonable…',
+    text: 'Final Touch Fencing installed my wooden fence, and I am extremely happy. I requested an estimate, and they came out promptly and provided an estimate the next day.',
     topic: 'speed',
   },
   {
@@ -32,11 +32,13 @@ export const reviews = [
     date: '2025-10-12',
     platform: 'Yelp',
     rating: 5,
-    text: 'Great job. … Reasonable quote. Great company to work with.',
+    text: 'Great job. Answered the question call prompt. Reasonable quote. Great company to work with.',
     topic: 'communication',
   },
 ];
 
+// Text is verbatim from Yelp. Yelp shares only the opening of each review outside its own site, so the
+// three longer reviews end at their last complete sentence; each card links to the full review on Yelp.
 export const reviewSummary = { platform: 'Yelp', count: 4, average: 5.0 };
 
 export const formatReviewDate = (iso) =>
