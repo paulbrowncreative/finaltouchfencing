@@ -15,7 +15,7 @@ export const areas = [
     lede: 'St. Clair Shores is home base. We know the city’s fence ordinance, the canal-lot rules and the inspection schedule, because these are the jobs we do most.',
     hero: 'shadowCorner',
     gallery: ['deckSunset', 'cornerSidewalk', 'shadowLong', 'doubleGate'],
-    services: ['wood-fencing', 'privacy-fencing', 'aluminum-fencing', 'vinyl-fencing', 'gates', 'fence-repair'],
+    services: ['wood-fencing', 'privacy-fencing', 'aluminum-fencing', 'vinyl-fencing', 'composite-fencing', 'gates', 'fence-repair'],
     nearby: ['harper-woods', 'chesterfield-township', 'macomb-township'],
     sections: [
       {
@@ -140,7 +140,7 @@ export const areas = [
     lede: 'Most Macomb Township homes are in subdivisions, so a fence project here usually has two sets of rules: the township’s and your HOA’s.',
     hero: 'backyardTree',
     gallery: ['largeLot', 'deckSunset', 'vinylSingle', 'aluYard'],
-    services: ['privacy-fencing', 'vinyl-fencing', 'aluminum-fencing', 'wood-fencing', 'gates'],
+    services: ['privacy-fencing', 'vinyl-fencing', 'composite-fencing', 'aluminum-fencing', 'wood-fencing', 'gates'],
     nearby: ['chesterfield-township', 'st-clair-shores'],
     sections: [
       {

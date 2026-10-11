@@ -1,17 +1,17 @@
 ---
-title: "Wood vs. vinyl vs. aluminum: choosing a fence in Michigan"
+title: "Wood vs. vinyl vs. composite vs. aluminum: choosing a fence in Michigan"
 seoTitle: "Wood vs. Vinyl vs. Aluminum Fence: Which Is Best in Michigan?"
-description: "Wood, vinyl or aluminum? How each fence material compares on privacy, upkeep, cost and local rules for Macomb County and Metro Detroit homes."
+description: "Wood, vinyl, composite or aluminum? How each fence material compares on privacy, upkeep, cost and local rules for Macomb County and Metro Detroit homes."
 summary: "Privacy, upkeep, cost and where local rules point you to one fence material over another."
 date: 2026-10-07
 category: "Materials and styles"
 image: "deckSunset"
-keywords: ["wood vs vinyl fence", "best fence material Michigan", "aluminum vs vinyl fence", "wood vs aluminum fence", "fence materials St. Clair Shores"]
-services: ["wood-fencing", "vinyl-fencing", "aluminum-fencing"]
+keywords: ["wood vs vinyl fence", "best fence material Michigan", "aluminum vs vinyl fence", "wood vs aluminum fence", "composite fence vs wood", "fence materials St. Clair Shores"]
+services: ["wood-fencing", "vinyl-fencing", "composite-fencing", "aluminum-fencing"]
 areas: ["st-clair-shores", "chesterfield-township", "clay-township"]
 ---
 
-The best fence material depends on three things: what the fence is for, how much upkeep you want and what your city allows on your lot. Here’s how wood, vinyl and aluminum fences compare for homes in St. Clair Shores, Macomb County and Metro Detroit.
+The best fence material depends on three things: what the fence is for, how much upkeep you want and what your city allows on your lot. Here’s how wood, vinyl, composite and aluminum fences compare for homes in St. Clair Shores, Macomb County and Metro Detroit.
 
 ## Fence materials at a glance
 
@@ -19,6 +19,7 @@ The best fence material depends on three things: what the fence is for, how much
 |---|---|---|---|---|
 | [Wood](/services/wood-fencing/) | Full (privacy, shadow box) or none (picket, split rail) | Stain every few years | Moderate | Backyards, custom heights and styles |
 | [Vinyl](/services/vinyl-fencing/) | Full | Rinse occasionally | Higher | Low-maintenance privacy |
+| [Composite](/services/composite-fencing/) | Full | Rinse occasionally | Higher | Modern low-maintenance privacy |
 | [Aluminum](/services/aluminum-fencing/) | None; open view | Minimal; doesn’t rust | Higher | Waterfront lots, front yards, pools |
 
 ## Wood fences
@@ -31,6 +32,10 @@ In Clay Township, the ordinance requires the side facing neighbors to be “fini
 
 A vinyl fence gives you privacy without the maintenance. There’s no staining, painting or sealing, and most panels look the same from both sides, so you never argue over who gets the “good side.” Vinyl costs more up front than wood.
 
+## Composite fences
+
+Composite gives you the warm look of wood without the staining. We install it as horizontal wood-tone panels framed in black posts and trim, which makes a solid privacy fence with a clean, modern look. Like vinyl, it costs more up front than wood but skips the refinishing. See [composite fencing](/services/composite-fencing/).
+
 ## Aluminum fences
 
 Black ornamental aluminum looks like wrought iron but doesn’t rust. It’s open, so it doesn’t give privacy, and that’s exactly why it’s often the only option on waterfront lots. St. Clair Shores bans privacy fences on waterfront and canal lots, and Chesterfield Township allows only decorative aluminum or wrought iron (up to 48 inches) on the water side of Anchor Bay and Salt River lots. Details in our [waterfront fence guide](/blog/waterfront-canal-fence-rules/).
@@ -41,6 +46,7 @@ Every material can last a long time if it’s installed well, and every material
 
 - **Wood** lasts longest when it’s stained regularly and kept from sitting in wet soil or mulch.
 - **Vinyl** doesn’t rot and doesn’t need finishing. Keep it clean and keep the gates adjusted.
+- **Composite** doesn’t need stain or paint. Rinse it occasionally to keep it clean.
 - **Aluminum** doesn’t rust and needs very little care.
 
 ## Mixing materials on one property
@@ -55,11 +61,11 @@ Of the materials we install, wood usually costs the least up front. Vinyl and al
 
 ### What’s the most low-maintenance fence?
 
-Vinyl and aluminum. Neither needs stain or paint.
+Vinyl, composite and aluminum. None of them needs stain or paint.
 
 ### What’s the best fence for privacy?
 
-A solid wood privacy fence, a wood shadow box fence or a vinyl privacy fence. See [shadow box vs. privacy fence](/blog/shadow-box-vs-privacy-fence/).
+A solid wood privacy fence, a wood shadow box fence, a vinyl privacy fence or a composite fence. See [shadow box vs. privacy fence](/blog/shadow-box-vs-privacy-fence/).
 
 ### What’s the best fence for dogs?
 
@@ -69,5 +75,5 @@ For most dogs, a 6-foot wood or vinyl privacy fence. See [the best fence for dog
 
 1. **Start with your lot’s rules.** Waterfront, corner lot or front yard? That may decide for you. See the [fence permit guide](/blog/fence-permit-rules-macomb-county/).
 2. **Decide how much privacy you need.** Full screening means a wood privacy, shadow box or vinyl fence.
-3. **Be honest about upkeep.** If you won’t stain, choose vinyl or aluminum.
+3. **Be honest about upkeep.** If you won’t stain, choose vinyl, composite or aluminum.
 4. **Get two prices.** We’re happy to price wood and vinyl side by side so you can compare. [Request a free quote](/contact/).

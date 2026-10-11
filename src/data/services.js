@@ -11,10 +11,10 @@ export const services = [
     name: 'Fence Installation',
     heading: 'Fence installation',
     noun: 'fence installation',
-    short: 'New fences built from the posts up in wood, vinyl and aluminum.',
+    short: 'New fences built from the posts up in wood, vinyl, composite and aluminum.',
     title: 'Fence Installation in St. Clair Shores & Macomb | Final Touch',
     description:
-      'New fence installation in St. Clair Shores, Harper Woods, Chesterfield and nearby. Wood, vinyl and aluminum fences. Free estimates: (810) 614-4181.',
+      'New fence installation in St. Clair Shores, Harper Woods, Chesterfield and nearby. Wood, vinyl, composite and aluminum. Free estimates: (810) 614-4181.',
     h1: 'Fence installation',
     lede:
       'A new fence is a few days of work and decades of looking at it. We measure on site, price it in writing and build it straight, plumb and set deep enough to stay that way.',
@@ -27,6 +27,7 @@ export const services = [
 <ul class="link-list">
 <li><a href="/services/wood-fencing/">Wood fences</a> — privacy, shadow box, picket and split rail</li>
 <li><a href="/services/vinyl-fencing/">Vinyl fences</a> — low-maintenance privacy panels and gates</li>
+<li><a href="/services/composite-fencing/">Composite fences</a> — modern horizontal privacy panels with no staining</li>
 <li><a href="/services/aluminum-fencing/">Aluminum fences</a> — open, decorative and well suited to waterfront lots</li>
 <li><a href="/services/gates/">Gates</a> — walk gates, double drive gates and driveway gates</li>
 </ul>`,
@@ -102,19 +103,19 @@ export const services = [
     name: 'Privacy Fencing',
     heading: 'Privacy fencing',
     noun: 'privacy fence',
-    short: '6-foot wood and vinyl privacy fences that are tall, tight and built to code.',
+    short: '6-foot wood, vinyl and composite privacy fences that are tall, tight and built to code.',
     title: 'Privacy Fence Installation: Wood & Vinyl | Final Touch Fencing',
     description:
-      'Wood and vinyl privacy fences built to local height and placement rules in St. Clair Shores, Harper Woods and Chesterfield. Free estimates.',
+      'Wood, vinyl and composite privacy fences built to local height and placement rules in St. Clair Shores, Harper Woods and Chesterfield. Free estimates.',
     h1: 'Privacy fence installation',
     lede:
-      'A privacy fence has one job: block the view and keep the yard yours. We build them in wood and vinyl, up to the height your city allows, with gates that latch every time.',
+      'A privacy fence has one job: block the view and keep the yard yours. We build them in wood, vinyl and composite, up to the height your city allows, with gates that latch every time.',
     hero: 'deckSunset',
     gallery: ['cornerSidewalk', 'panelBackyard', 'woodLongRun', 'vinylSide', 'panelPrivacy', 'maple'],
     sections: [
       {
-        h2: 'Wood or vinyl privacy fence?',
-        html: `<p><a href="/services/wood-fencing/">Wood privacy fences</a> cost less up front, can follow any grade and can be stained. <a href="/services/vinyl-fencing/">Vinyl privacy fences</a> cost more but never need stain or paint, and a hose rinse keeps them clean. If the fence will be seen from the street, consider a wood shadow box fence, which looks finished from both sides. Compare all four materials in our <a href="/blog/wood-vs-vinyl-vs-aluminum-fence/">fence material guide</a>.</p>`,
+        h2: 'Wood, vinyl or composite privacy fence?',
+        html: `<p><a href="/services/wood-fencing/">Wood privacy fences</a> cost less up front, can follow any grade and can be stained. <a href="/services/vinyl-fencing/">Vinyl privacy fences</a> cost more but never need stain or paint, and a hose rinse keeps them clean. If the fence will be seen from the street, consider a wood shadow box fence, which looks finished from both sides. Compare all four materials in our <a href="/blog/wood-vs-vinyl-vs-aluminum-fence/">fence material guide</a>. For a modern look, <a href="/services/composite-fencing/">composite privacy fences</a> pair horizontal wood-tone panels with black posts and need no stain.</p>`,
       },
       {
         h2: 'Height and placement rules',
@@ -171,6 +172,43 @@ export const services = [
     faqs: [
       { q: 'Does a vinyl fence need maintenance?', a: 'Very little. An occasional wash with a hose or mild soap removes dirt and mildew. There’s no staining or painting.' },
       { q: 'Is vinyl more expensive than wood?', a: 'Usually, up front. It saves the cost of staining and refinishing over the years. We can price both so you can compare.' },
+    ],
+  },
+  {
+    slug: 'composite-fencing',
+    name: 'Composite Fencing',
+    heading: 'Composite fencing',
+    noun: 'composite fence',
+    short: 'Horizontal composite privacy panels framed in black for a clean, modern look.',
+    title: 'Composite Fence Installation in St. Clair Shores, MI | Final Touch',
+    description:
+      'Horizontal composite privacy fence installation in St. Clair Shores, Harper Woods and Macomb County. Wood-tone panels, black posts. Free estimates.',
+    h1: 'Composite fence installation',
+    lede: 'Composite gives you the warm look of wood in a modern horizontal layout, with no staining. Wood-tone panels set in black posts and trim make a solid privacy fence with clean, straight lines.',
+    hero: 'panelBackyard',
+    gallery: ['panelBackyard', 'panelPrivacy'],
+    sections: [
+      {
+        h2: 'Why homeowners choose composite',
+        html: `<ul>
+<li><strong>The look of wood without the upkeep.</strong> Composite panels come in wood tones and don’t need stain, sealer or paint.</li>
+<li><strong>A modern horizontal design.</strong> Long horizontal boards framed in black posts and trim give the yard a contemporary, finished look that suits newer homes and updated older ones.</li>
+<li><strong>Full privacy.</strong> The panels are solid from top to bottom, so they screen patios, hot tubs and side yards completely.</li>
+</ul>`,
+      },
+      {
+        h2: 'Composite vs. wood vs. vinyl',
+        html: `<p>All three make a solid privacy fence. <a href="/services/wood-fencing/">Wood</a> usually costs the least up front but needs stain every few years. <a href="/services/vinyl-fencing/">Vinyl</a> is low-maintenance and typically comes in white. Composite sits between them in look: the warmth of wood in a modern, low-maintenance panel. It generally costs more up front than wood. Compare all of them in our <a href="/blog/wood-vs-vinyl-vs-aluminum-fence/">fence material guide</a>, and we’ll gladly price more than one option on the same layout.</p>`,
+      },
+      {
+        h2: 'Where a composite fence fits',
+        html: `<p>A composite fence follows the same rules as any solid privacy fence. It works in backyards and side yards where a privacy fence is allowed, typically up to 6 feet. Front yards, corner lots and waterfront lots have tighter limits, so check <a href="/blog/how-tall-can-a-fence-be/">how tall a fence can be</a> and our <a href="/blog/fence-permit-rules-macomb-county/">fence permit guide</a>, or let us check your lot at the estimate.</p>`,
+      },
+    ],
+    faqs: [
+      { q: 'Does a composite fence need staining?', a: 'No. Composite panels don’t need stain, sealer or paint. An occasional rinse keeps them clean.' },
+      { q: 'Is composite more expensive than wood?', a: 'Usually, up front. You skip the cost and work of staining over the years. We can price composite and wood on the same layout so you can compare.' },
+      { q: 'Can a composite fence go on a waterfront lot?', a: 'It depends on your city and where the fence goes. St. Clair Shores doesn’t allow privacy fences on waterfront and canal lots, and Chesterfield Township limits fences on the water side. See our <a href="/blog/waterfront-canal-fence-rules/">waterfront fence guide</a>.' },
     ],
   },
   {
