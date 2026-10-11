@@ -12,7 +12,7 @@ const blog = defineCollection({
     summary: z.string(), // card + intro deck
     date: z.coerce.date(),
     updated: z.coerce.date().optional(),
-    category: z.enum(['Permits and rules', 'Materials and styles', 'Planning and cost', 'Care and repair']),
+    category: z.enum(['Permits and Rules', 'Materials and Styles', 'Planning and Cost', 'Care and Repair']),
     image: z.string(), // key from src/data/photos.js
     keywords: z.array(z.string()).min(1), // target search phrases (editorial planning, not emitted as meta)
     services: z.array(z.string()).default([]), // service slugs this post supports

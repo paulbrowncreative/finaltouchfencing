@@ -40,11 +40,11 @@ const areaHooks = {
 };
 
 const faqs = [
-  { q: 'Are estimates really free?', a: 'Yes. We come out, measure and give you a written price at no cost and with no obligation.' },
-  { q: 'What areas do you serve?', a: 'We’re based in St. Clair Shores and work throughout Macomb County, plus Harper Woods, Detroit and the Clay Township and Algonac area. See all <a href="/service-areas/">service areas</a>, or call to check your address.' },
-  { q: 'Do I need a permit for a new fence?', a: 'In most communities we serve, yes. Rules on height, front yards, corner lots and waterfront lots vary a lot from city to city. Our <a href="/blog/fence-permit-rules-macomb-county/">fence permit guide</a> compares them.' },
-  { q: 'What types of fence do you install?', a: 'Wood (privacy, shadow box, picket, split rail), vinyl, composite and aluminum, plus walk gates, double drive gates and driveway gates.' },
-  { q: 'How do I pay?', a: 'We accept cash, check, credit card, Venmo and Cash App.' },
+  { q: 'Are Estimates Really Free?', a: 'Yes. We come out, measure and give you a written price at no cost and with no obligation.' },
+  { q: 'What Areas Do You Serve?', a: 'We’re based in St. Clair Shores and work throughout Macomb County, plus Harper Woods, Detroit and the Clay Township and Algonac area. See all <a href="/service-areas/">service areas</a>, or call to check your address.' },
+  { q: 'Do I Need a Permit for a New Fence?', a: 'In most communities we serve, yes. Rules on height, front yards, corner lots and waterfront lots vary a lot from city to city. Our <a href="/blog/fence-permit-rules-macomb-county/">fence permit guide</a> compares them.' },
+  { q: 'What Types of Fence Do You Install?', a: 'Wood (privacy, shadow box, picket, split rail), vinyl, composite and aluminum, plus walk gates, double drive gates and driveway gates.' },
+  { q: 'How Do I Pay?', a: 'We accept cash, check, credit card, Venmo and Cash App.' },
 ];
 ---
 <Base title={title} description={description} schema={[faqNode(faqs)]} preloadImage={{ srcset: heroAvif.srcSet.attribute, sizes: heroSizes, type: 'image/avif' }}>
@@ -56,7 +56,7 @@ const faqs = [
       <div class="hero__copy">
         <h1 id="hero-h">
           <span class="eyebrow">Fence company · St. Clair Shores, MI</span>
-          Fences built right, down to the final touch
+          Fences Built Right, Down to the Final Touch
         </h1>
         <p class="hero__lede">
           Family-owned fence installation and repair for homes in St. Clair Shores, Harper Woods, Chesterfield and across Macomb County.
@@ -90,7 +90,7 @@ const faqs = [
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Fence types</span>
-        <h2 id="services-h">Every common fence, installed by one crew</h2>
+        <h2 id="services-h">Every Common Fence, Installed by One Crew</h2>
         <p>Pick a material to see styles, photos of our work and how it fits the rules where you live.</p>
       </div>
       <div class="materials">
@@ -105,6 +105,7 @@ const faqs = [
         {otherServices.map((s) => (
           <a href={`/services/${s.slug}/`}><h3>{s.heading}</h3><p>{s.short}</p><span aria-hidden="true">→</span></a>
         ))}
+        <a href="/services/"><h3>All Fence Services</h3><p>Compare every material, style and service we offer.</p><span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -114,28 +115,28 @@ const faqs = [
       <div class="split split--wide-left">
         <div>
           <span class="eyebrow">In their words</span>
-          <h2 id="why-h">Why homeowners choose Final Touch Fencing</h2>
+          <h2 id="why-h">Why Homeowners Choose Final Touch Fencing</h2>
           <p class="lede">We’re a small, <a href="/about/">family-owned crew</a>, and our customers notice the difference. Here’s what stood out to them:</p>
           <div class="reasons mt-6" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));">
             <div class="reason">
-              <h3>The best price of four</h3>
+              <h3>The Best Price of Four</h3>
               <p>&ldquo;I got estimates from four fencing companies. Final Touch Fencing had the best price.&rdquo; — Paul T., Yelp</p>
             </div>
             <div class="reason">
-              <h3>Fast, clear estimates</h3>
+              <h3>Fast, Clear Estimates</h3>
               <p>&ldquo;They came out promptly and provided an estimate the next day.&rdquo; — Maria W., Yelp</p>
             </div>
             <div class="reason">
-              <h3>Owners who answer questions</h3>
+              <h3>Owners Who Answer Questions</h3>
               <p>&ldquo;Robert and Marisa were very helpful throughout the entire process.&rdquo; — Paul T., Yelp</p>
             </div>
             <div class="reason">
-              <h3>Whole-yard projects</h3>
-              <p>&ldquo;A brand new shadow box privacy fence around our entire yard … a gate across our driveway and a gate on the lawn.&rdquo; — Dustin B., Yelp</p>
+              <h3>Whole-Yard Projects</h3>
+              <p>&ldquo;A brand-new shadow box privacy fence around our entire yard … a gate across our driveway and a gate on the lawn.&rdquo; — Dustin B., Yelp</p>
             </div>
           </div>
         </div>
-        <div>
+        <div class="split__media">
           <Photo photo={photos.shadowGate} sizes="(min-width: 60rem) 40vw, 100vw" />
         </div>
       </div>
@@ -146,7 +147,7 @@ const faqs = [
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Recent work</span>
-        <h2 id="work-h">Real fences, built by our crew</h2>
+        <h2 id="work-h">Real Fences, Built by Our Crew</h2>
         <p>Every photo on this site is a Final Touch Fencing project. No stock photography.</p>
       </div>
       <div class="mosaic">
@@ -163,7 +164,7 @@ const faqs = [
       <div class="split">
         <div>
           <span class="eyebrow">Know before you build</span>
-          <h2 id="rules-h">Every city here has different fence rules</h2>
+          <h2 id="rules-h">Every City Here Has Different Fence Rules</h2>
           <p>A fence that’s fine in Harper Woods can be denied in St. Clair Shores. We read the ordinance for your address before we price the job, so the fence you approve is one the city will approve.</p>
           <p><a class="text-link" href="/blog/fence-permit-rules-macomb-county/">Read the Fence Permit Guide</a></p>
         </div>
@@ -188,7 +189,7 @@ const faqs = [
       <div class="review-summary">
         <div>
           <span class="eyebrow">Reviews</span>
-          <h2 id="reviews-h" style="margin:0">What customers say</h2>
+          <h2 id="reviews-h" style="margin:0">What Customers Say</h2>
         </div>
         <p class="review-summary__meta"><span class="review-summary__score">{reviewSummary.average.toFixed(1)}</span> <span class="stars" aria-hidden="true">★★★★★</span><br /><span class="visually-hidden">Rated {reviewSummary.average} out of 5 </span>{reviewSummary.count} reviews on <a href={site.profiles.yelp} rel="noopener" target="_blank">Yelp<span class="visually-hidden"> (opens in a new tab)</span></a></p>
       </div>
@@ -200,13 +201,13 @@ const faqs = [
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">How it works</span>
-        <h2 id="process-h">From first call to finished fence</h2>
+        <h2 id="process-h">From First Call to Finished Fence</h2>
       </div>
       <ol class="process">
-        <li><h3>Request a quote</h3><p>Call or send the form with a few details about the job.</p></li>
-        <li><h3>Free on-site estimate</h3><p>We measure the run and check the grade, gates and any old fence. Then we price it in writing.</p></li>
-        <li><h3>Permit and utility marking</h3><p>Your city’s permit, plus MISS DIG 811 marking at least three business days before digging.</p></li>
-        <li><h3>Build and walkthrough</h3><p>Posts, rails, boards or panels, then gates and hardware. We walk it with you when it’s done.</p></li>
+        <li><h3>Request a Quote</h3><p>Call or send the form with a few details about the job.</p></li>
+        <li><h3>Free On-Site Estimate</h3><p>We measure the run and check the grade, gates and any old fence. Then we price it in writing.</p></li>
+        <li><h3>Permit and Utility Marking</h3><p>Your city’s permit, plus MISS DIG 811 marking at least three business days before digging.</p></li>
+        <li><h3>Build and Walkthrough</h3><p>Posts, rails, boards or panels, then gates and hardware. We walk it with you when it’s done.</p></li>
       </ol>
     </div>
   </section>
@@ -215,7 +216,7 @@ const faqs = [
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Service areas</span>
-        <h2 id="areas-h">Based in St. Clair Shores, working across the east side</h2>
+        <h2 id="areas-h">Based in St. Clair Shores, Working Across the East Side</h2>
         <p>Each area page covers that community’s fence rules, permit process and the fences that work best there.</p>
       </div>
       <ul class="area-list">
@@ -226,8 +227,8 @@ const faqs = [
     </div>
   </section>
 
-  <RelatedGuides posts={latest} heading="Fence guides from our blog" id="home-guides" />
+  <RelatedGuides posts={latest} heading="Fence Guides From Our Blog" id="home-guides" />
 
-  <Faq faqs={faqs} heading="Common questions" />
+  <Faq faqs={faqs} heading="Common Questions" />
   <QuoteBand />
 </Base>

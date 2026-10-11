@@ -57,7 +57,7 @@ await step('valid submission shows success and delivers a complete email', async
   const before = (await outbox()).length;
   await page.click('#contact-quote button[type=submit]');
   await page.waitForSelector('[data-form-success][data-visible=true]', { timeout: 8000 });
-  assert.match(await page.textContent('[data-form-success]'), /Thank you! Your quote request has been received\./);
+  assert.match(await page.textContent('[data-form-success]'), /Thank You! Your Quote Request Has Been Received\./);
   const mails = await outbox();
   assert.equal(mails.length, before + 1, 'no email captured');
   const m = mails.at(-1);
@@ -125,7 +125,7 @@ await step('works without JavaScript (303 → thank-you page)', async () => {
   await p.fill('#contact-quote-zip', '48080');
   const before = (await outbox()).length;
   await Promise.all([p.waitForURL('**/thank-you/'), p.click('#contact-quote button[type=submit]')]);
-  assert.match(await p.textContent('h1'), /Thank you/);
+  assert.match(await p.textContent('h1'), /Thank You/);
   assert.equal((await outbox()).length, before + 1);
   await noJs.close();
 });

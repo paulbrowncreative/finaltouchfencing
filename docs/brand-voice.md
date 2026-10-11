@@ -31,7 +31,7 @@ Apply this to every page, blog post, form message and listing description.
 
 ## Mechanics
 
-- **Headings (H1–H3):** sentence case, with no closing period. The one exception is the quote confirmation message.
+- **Headings (H1–H3), FAQ questions and blog titles:** AP-style title case, applied by `src/lib/titlecase.js` (capitalize every word except short articles, conjunctions and prepositions — a, an, the, and, but, or, nor, for, yet, so, as, at, by, in, of, on, per, to, via, vs. — unless first, last or after a colon; the first part of a hyphenated compound is always capitalized). No closing period; questions end with a question mark. The one exception is the quote confirmation message.
 - **Navigation, buttons and footer link lists:** Title Case ("Get a Free Quote", "Service Areas"). CSS uppercases buttons visually.
 - **Lists in a sentence:** no serial comma (AP), unless leaving it out would make the list ambiguous.
 - **"and" vs. "&":** write "and" in all on-page copy. "&" is allowed only in title tags, where space is tight.

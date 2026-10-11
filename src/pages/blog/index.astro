@@ -1,4 +1,5 @@
 ---
+import { titleCase } from '../../lib/titlecase.js';
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import PostCard from '../../components/PostCard.astro';
@@ -22,7 +23,7 @@ const schema = [{
 <Base title={title} description={description} breadcrumbs={crumbs} schema={schema}>
   <PageHero
     eyebrow="Blog"
-    title="Fence guides for St. Clair Shores and Metro Detroit homeowners"
+    title="Fence Guides for St. Clair Shores and Metro Detroit Homeowners"
     lede="Straight answers on fence permits, costs, materials and upkeep, built from local ordinances and our own installs."
     crumbs={crumbs}
     showCtas={false}
@@ -37,7 +38,7 @@ const schema = [{
       </div>
       {byCategory.map((g) => (
         <section id={categoryId(g.c)} class="blog-group" aria-labelledby={`${categoryId(g.c)}-h`}>
-          <h2 id={`${categoryId(g.c)}-h`}>{g.c}</h2>
+          <h2 id={`${categoryId(g.c)}-h`}>{titleCase(g.c)}</h2>
           <div class="post-grid">{g.list.map((p) => <PostCard post={p} showCategory={false} />)}</div>
         </section>
       ))}

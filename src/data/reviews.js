@@ -16,7 +16,7 @@ export const reviews = [
     date: '2025-05-31',
     platform: 'Yelp',
     rating: 5,
-    text: 'beyond happy with Final Touch fencing! they put in a brand new shadow box privacy fence around our entire yard, the also put a gate across our driveway and a gate on the lawn. they DIDN’T use…',
+    text: 'Beyond happy with Final Touch Fencing! They put in a brand-new shadow box privacy fence around our entire yard. They also put a gate across our driveway and a gate on the lawn. They DIDN’T use…',
     topic: 'shadowbox',
   },
   {
@@ -24,7 +24,7 @@ export const reviews = [
     date: '2025-05-09',
     platform: 'Yelp',
     rating: 5,
-    text: 'Final Touch Fencing installed my wooden fence and I am extremely happy. I requested an estimate and they came out promptly and provided an estimate the next day and they offered a very reasonable…',
+    text: 'Final Touch Fencing installed my wooden fence, and I am extremely happy. I requested an estimate, and they came out promptly and provided an estimate the next day, and they offered a very reasonable…',
     topic: 'speed',
   },
   {
@@ -32,7 +32,7 @@ export const reviews = [
     date: '2025-10-12',
     platform: 'Yelp',
     rating: 5,
-    text: 'Great job. Answered the question call prompt. Reasonable quote. Great company to work with.',
+    text: 'Great job. … Reasonable quote. Great company to work with.',
     topic: 'communication',
   },
 ];

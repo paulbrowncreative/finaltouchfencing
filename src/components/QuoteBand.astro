@@ -1,12 +1,13 @@
 ---
+import { titleCase, keepHyphens } from '../lib/titlecase.js';
 import QuoteForm from './QuoteForm.astro';
 import Icon from './Icon.astro';
 import { site } from '../data/site.js';
 interface Props { heading?: string; text?: string; formHeading?: string; defaultService?: string }
 const {
-  heading = 'Get a free, no-obligation fence quote',
+  heading = 'Get a Free, No-Obligation Fence Quote',
   text = 'Send a few details and we’ll follow up to set a time to measure and price your project. No pressure, no obligation.',
-  formHeading = 'Request a free quote',
+  formHeading = 'Request a Free Quote',
   defaultService,
 } = Astro.props;
 ---
@@ -14,7 +15,7 @@ const {
   <div class="container quote-band__grid">
     <div>
       <span class="eyebrow">Free estimates</span>
-      <h2 id="quote-band-h">{heading}</h2>
+      <h2 id="quote-band-h">{keepHyphens(titleCase(heading))}</h2>
       <p>{text}</p>
       <ul class="quote-band__contact">
         <li><Icon name="phone" /><div><a href={site.phoneHref} data-track="phone">{site.phone}</a><small>Free estimates, no obligation</small></div></li>

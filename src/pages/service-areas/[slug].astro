@@ -1,4 +1,5 @@
 ---
+import { titleCase } from '../../lib/titlecase.js';
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import Photo from '../../components/Photo.astro';
@@ -37,19 +38,19 @@ const schema = [
       <div class="prose">
         {a.sections.map((sec) => (
           <>
-            <h2>{sec.h2}</h2>
+            <h2>{titleCase(sec.h2)}</h2>
             <Fragment set:html={sec.html} />
           </>
         ))}
 
-        <h2>Fence services in {a.name}</h2>
+        <h2>Fence Services in {a.name}</h2>
         <ul class="link-list">
           {svc.map((s) => (
             <li><a href={`/services/${s.slug}/`}><strong>{s.heading}</strong></a> — {s.short}</li>
           ))}
         </ul>
 
-        <h2>Fences we’ve built</h2>
+        <h2>Fences We’ve Built</h2>
         <p>A few recent Final Touch Fencing projects from around our service area:</p>
         <div class:list={['gallery', { 'gallery--small': gallery.some((g) => g.lowres) }]}>
           {gallery.map((g) => (
@@ -60,15 +61,15 @@ const schema = [
           ))}
         </div>
 
-        <h2>Nearby communities we serve</h2>
+        <h2>Nearby Communities We Serve</h2>
         <ul class="chip-list">
-          {nearby.map((n) => <li><a href={`/service-areas/${n.slug}/`}>Fence company in {n.name}</a></li>)}
+          {nearby.map((n) => <li><a href={`/service-areas/${n.slug}/`}>Fence Company in {n.name}</a></li>)}
         </ul>
       </div>
 
       <aside class="content-grid__aside" aria-label="Get a quote">
         <div class="aside-card">
-          <h2>Fence estimate in {a.name}</h2>
+          <h2>Fence Estimate in {a.name}</h2>
           <p>Free, no-obligation estimates. We check the {a.name} rules for your lot before we price the job.</p>
           <a class="btn btn--lg" href="#quote" data-cta="aside_quote">Request a Quote</a>
           <a class="btn btn--ghost btn--lg" href={site.phoneHref} data-track="phone">{site.phone}</a>
@@ -84,7 +85,7 @@ const schema = [
 
   <section class="section section--paper" aria-labelledby="area-reviews-h">
     <div class="container">
-      <div class="section-head"><span class="eyebrow">Reviews</span><h2 id="area-reviews-h">What our customers say</h2></div>
+      <div class="section-head"><span class="eyebrow">Reviews</span><h2 id="area-reviews-h">What Our Customers Say</h2></div>
       <ReviewList limit={3} />
       <p class="mt-6"><a class="text-link" href="/reviews/">Read All Reviews</a></p>
     </div>

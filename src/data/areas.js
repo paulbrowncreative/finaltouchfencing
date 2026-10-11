@@ -11,7 +11,7 @@ export const areas = [
     title: 'St. Clair Shores Fence Installation & Rules | Final Touch',
     description:
       'St. Clair Shores fence installation and repair from a local family-owned company. Canal-lot rules and the city permit process explained.',
-    h1: 'Fence installation in St. Clair Shores',
+    h1: 'Fence Installation in St. Clair Shores',
     lede: 'St. Clair Shores is home base. We know the city’s fence ordinance, the canal-lot rules and the inspection schedule, because these are the jobs we do most.',
     hero: 'shadowCorner',
     gallery: ['deckSunset', 'cornerSidewalk', 'shadowLong', 'doubleGate'],
@@ -19,8 +19,8 @@ export const areas = [
     nearby: ['harper-woods', 'chesterfield-township', 'macomb-township'],
     sections: [
       {
-        h2: 'What St. Clair Shores requires',
-        html: `<p>Every fence in the city needs a permit from the Community Development Department (27600 Jefferson Ave., 586-447-3340). The application asks for a plan showing the fence location, existing fences and easements. As of the February 2026 application, the fee is $100 for residential and $150 for commercial. The city requires two inspections: one at the post holes and a final.</p>
+        h2: 'What St. Clair Shores Requires',
+        html: `<p>Every fence in the city needs a permit from the Community Development Department (27600 Jefferson Ave., (586) 447-3340). The application asks for a plan showing the fence location, existing fences and easements. As of the February 2026 application, the fee is $100 for residential and $150 for commercial. The city requires two inspections: one at the post holes and a final.</p>
 <ul>
 <li><strong>Post depth:</strong> at least 42 inches below grade, set in concrete or by another accepted method.</li>
 <li><strong>Privacy fences:</strong> 6 feet 6 inches maximum, with individual panels no taller than 6 feet and no more than 3 inches of gap at grade.</li>
@@ -30,22 +30,22 @@ export const areas = [
 <p class="source">Source: <a href="https://www.scsmi.net/DocumentCenter/View/443/Fence-Permit-Application-PDF" rel="noopener" target="_blank">City of St. Clair Shores Fence Permit Application and Code Secs. 8-249 to 8-253</a>. Rules change, so confirm with the city before you build.</p>`,
       },
       {
-        h2: 'Canal and lakefront lots',
+        h2: 'Canal and Lakefront Lots',
         html: `<p>This is the rule that catches people by surprise: <strong>privacy fences aren’t permitted on any waterfront or canal lot</strong> in St. Clair Shores. The permit application asks directly whether your property borders a lake, canal or river. If it does, we’ll plan an open fence instead, usually black <a href="/services/aluminum-fencing/">aluminum</a>, which keeps the view and holds up near the water. Our <a href="/blog/waterfront-canal-fence-rules/">waterfront fence guide</a> covers the details.</p>`,
       },
       {
-        h2: 'Corner lots',
+        h2: 'Corner Lots',
         html: `<p>The city’s grid of residential streets creates plenty of corner lots, and they follow a step-down rule. Along the side street, the fence can be 6 feet 6 inches from the rear lot line to the front of the house. It then drops to 4 feet 6 inches and slopes down to no more than 2 feet 6 inches at the front lot line, using a material that doesn’t block drivers’ or pedestrians’ view. A <a href="/services/wood-fencing/">shadow box fence</a> like the one pictured above looks finished from the sidewalk side. See <a href="/blog/corner-lot-fence-rules/">corner lot fence rules</a> for every city we serve.</p>`,
       },
       {
-        h2: 'Replacing an old fence',
+        h2: 'Replacing an Old Fence',
         html: `<p>The permit application asks whether you’re removing an existing fence and on how many sides. The city doesn’t decide who owns a fence on a shared line, so settle that with your neighbor first. Read <a href="/blog/fence-on-property-line/">building a fence on the property line</a>.</p>`,
       },
     ],
     faqs: [
-      { q: 'How much is a fence permit in St. Clair Shores?', a: 'As of the February 2026 application, the fee is $100 for residential and $150 for commercial, plus $30 for plan review if applicable. Confirm the current fee with the Community Development Department.' },
-      { q: 'Can I put a privacy fence on my canal lot?', a: 'No. The city ordinance (Sec. 8-253) prohibits privacy fences on any waterfront or canal lot. An open aluminum fence is the common alternative.' },
-      { q: 'Do I need to be home for the inspection?', a: 'No. According to the city, you don’t need to be home for the final inspection.' },
+      { q: 'How Much Is a Fence Permit in St. Clair Shores?', a: 'As of the February 2026 application, the fee is $100 for residential and $150 for commercial, plus $30 for plan review if applicable. Confirm the current fee with the Community Development Department.' },
+      { q: 'Can I Put a Privacy Fence on My Canal Lot?', a: 'No. The city ordinance (Sec. 8-253) prohibits privacy fences on any waterfront or canal lot. An open aluminum fence is the common alternative.' },
+      { q: 'Do I Need to Be Home for the Inspection?', a: 'No. According to the city, you don’t need to be home for the final inspection.' },
     ],
   },
   {
@@ -55,7 +55,7 @@ export const areas = [
     title: 'Fence Installation in Harper Woods, MI | Final Touch Fencing',
     description:
       'Fence installation and repair in Harper Woods: 6-foot privacy fences, ornamental front-yard fencing and the city’s lot-line consent rule.',
-    h1: 'Fence installation in Harper Woods',
+    h1: 'Fence Installation in Harper Woods',
     lede:
       'Harper Woods is a few minutes from our base in St. Clair Shores, and we’ve completed projects here. Its fence ordinance differs from its neighbors’ in a few ways worth knowing before you plan.',
     hero: 'betweenHouses',
@@ -64,7 +64,7 @@ export const areas = [
     nearby: ['st-clair-shores', 'detroit'],
     sections: [
       {
-        h2: 'Harper Woods fence rules at a glance',
+        h2: 'Harper Woods Fence Rules at a Glance',
         html: `<ul>
 <li><strong>Rear and side yards:</strong> up to 6 feet.</li>
 <li><strong>In front of the house:</strong> no more than 3 feet, and it must be ornamental in design.</li>
@@ -75,17 +75,17 @@ export const areas = [
 <p class="source">Source: <a href="https://harperwoodscity.org/wp-content/uploads/2024/09/ZoningOrdi.pdf" rel="noopener" target="_blank">City of Harper Woods Zoning Ordinance, Sec. 10-228 Fences and Walls</a>. Confirm current requirements with the city.</p>`,
       },
       {
-        h2: 'Building on the lot line takes neighbor consent',
+        h2: 'Building on the Lot Line Takes Neighbor Consent',
         html: `<p>Harper Woods allows a fence in the side or rear yard to sit right on the lot line only with the <strong>written consent of all adjacent property owners</strong>. Without it, the fence goes inside your line. Have that conversation early. It’s also a good time to agree on style, since the ordinance requires a single finished side to face outward toward neighbors and the street.</p>`,
       },
       {
-        h2: 'Every fence on its own posts',
+        h2: 'Every Fence on Its Own Posts',
         html: `<p>The ordinance requires each fence to be freestanding on its own posts, so two separate fences can’t share posts. If a neighbor’s fence already runs along your line, a new fence needs its own post line. We’ll lay that out at the estimate.</p>`,
       },
     ],
     faqs: [
-      { q: 'How tall can a fence be in Harper Woods?', a: 'Up to 6 feet in rear and side yards and 3 feet (ornamental) in front of the house, per Sec. 10-228 of the zoning ordinance.' },
-      { q: 'Can my fence go right on the property line?', a: 'Only with the written consent of all adjacent property owners. Otherwise, it goes inside your line.' },
+      { q: 'How Tall Can a Fence Be in Harper Woods?', a: 'Up to 6 feet in rear and side yards and 3 feet (ornamental) in front of the house, per Sec. 10-228 of the zoning ordinance.' },
+      { q: 'Can My Fence Go Right on the Property Line?', a: 'Only with the written consent of all adjacent property owners. Otherwise, it goes inside your line.' },
     ],
   },
   {
@@ -95,7 +95,7 @@ export const areas = [
     title: 'Fence Company in Chesterfield Township, MI | Final Touch Fencing',
     description:
       'Fence installation in Chesterfield Township: privacy, split rail and waterfront aluminum on Anchor Bay and the Salt River. Township rules explained.',
-    h1: 'Fence installation in Chesterfield Township',
+    h1: 'Fence Installation in Chesterfield Township',
     lede:
       'Between Anchor Bay, the Salt River, canal subdivisions and newer neighborhoods, Chesterfield Township has more variety in its fence rules than most places we work.',
     hero: 'splitRail',
@@ -104,7 +104,7 @@ export const areas = [
     nearby: ['macomb-township', 'st-clair-shores', 'clay-township'],
     sections: [
       {
-        h2: 'Township fence rules',
+        h2: 'Township Fence Rules',
         html: `<ul>
 <li><strong>Side and rear yards:</strong> between 3 and 6 feet above mean grade.</li>
 <li><strong>Front yards:</strong> only decorative, see-through <a href="/services/wood-fencing/">split rail fence</a>, 24–42 inches high.</li>
@@ -112,21 +112,21 @@ export const areas = [
 <li><strong>Not allowed:</strong> barbed wire, sharp or pointed objects, or electrified fences.</li>
 </ul>
 <p>Permits cost $65, and since January 2024, the township accepts applications only electronically. You’ll need a mortgage survey or plot plan, the fence size and material, a driver’s license copy and the signed ordinance.</p>
-<p class="source">Source: <a href="https://www.chesterfieldtwp.org/DocumentCenter/View/2633/Fence-Application" rel="noopener" target="_blank">Chesterfield Township Fence Application and Ordinance</a>. Confirm with the Building Department (586-949-0400).</p>`,
+<p class="source">Source: <a href="https://www.chesterfieldtwp.org/DocumentCenter/View/2633/Fence-Application" rel="noopener" target="_blank">Chesterfield Township Fence Application and Ordinance</a>. Confirm with the Building Department ((586) 949-0400).</p>`,
       },
       {
-        h2: 'Anchor Bay, the Salt River and canal lots',
+        h2: 'Anchor Bay, the Salt River and Canal Lots',
         html: `<p>Waterfront lots have stricter rules. On lots abutting Anchor Bay and the Salt River (south of Callens Road), the only fence allowed in the water-side front yard is see-through decorative aluminum or wrought iron no taller than 48 inches. Walls, hedges and solid fences aren’t allowed there. On any waterfront or canal lot, privacy fences aren’t allowed outside the building envelope.</p>
 <p>That makes <a href="/services/aluminum-fencing/">black aluminum</a> the default waterfront fence here. It keeps pets and kids in and keeps the view open.</p>`,
       },
       {
-        h2: 'Replacing a fence on a corner lot',
+        h2: 'Replacing a Fence on a Corner Lot',
         html: `<p>The township ordinance points corner-lot replacements to a September 2016 Zoning Board of Appeals interpretation, so an existing corner fence doesn’t automatically get rebuilt as is. Ask about it at your estimate, and confirm with the Building Department.</p>`,
       },
     ],
     faqs: [
-      { q: 'Can I have a front yard fence in Chesterfield Township?', a: 'Only a decorative, see-through split rail fence between 24 and 42 inches, except on the water side of Anchor Bay and Salt River lots, where decorative aluminum or wrought iron up to 48 inches is allowed.' },
-      { q: 'How do I apply for a fence permit?', a: 'Online or by email to the Building Department. Paper applications haven’t been accepted since January 1, 2024. The fee is $65.' },
+      { q: 'Can I Have a Front Yard Fence in Chesterfield Township?', a: 'Only a decorative, see-through split rail fence between 24 and 42 inches, except on the water side of Anchor Bay and Salt River lots, where decorative aluminum or wrought iron up to 48 inches is allowed.' },
+      { q: 'How Do I Apply for a Fence Permit?', a: 'Online or by email to the Building Department. Paper applications haven’t been accepted since January 1, 2024. The fee is $65.' },
     ],
   },
   {
@@ -136,7 +136,7 @@ export const areas = [
     title: 'Fence Installation in Macomb Township, MI | Final Touch Fencing',
     description:
       'Fence installation in Macomb Township subdivisions: privacy, vinyl and aluminum. Grade checks, HOA restrictions and permit timing explained.',
-    h1: 'Fence installation in Macomb Township',
+    h1: 'Fence Installation in Macomb Township',
     lede: 'Most Macomb Township homes are in subdivisions, so a fence project here usually has two sets of rules: the township’s and your HOA’s.',
     hero: 'backyardTree',
     gallery: ['largeLot', 'deckSunset', 'vinylSingle', 'aluYard'],
@@ -144,11 +144,11 @@ export const areas = [
     nearby: ['chesterfield-township', 'st-clair-shores'],
     sections: [
       {
-        h2: 'Check your subdivision restrictions first',
+        h2: 'Check Your Subdivision Restrictions First',
         html: `<p>Macomb Township says plainly that it has no jurisdiction over subdivision restrictions. If your fence meets the ordinance, you’ll get a permit, but your HOA can still limit the style, height or location, and some subdivisions don’t allow fences at all. Get HOA approval before you schedule.</p>`,
       },
       {
-        h2: 'The permit process and timeline',
+        h2: 'The Permit Process and Timeline',
         html: `<ol class="steps">
 <li><strong>Application</strong> with a copy of your driver’s license and two copies of a plot plan showing each fence segment’s length, the total length, type and height. Note whether the fence serves as a pool barrier.</li>
 <li><strong>Grade check</strong> by the township Water Department, which takes about two to three days, to confirm nothing is built in easements and the grade hasn’t been changed.</li>
@@ -159,7 +159,7 @@ export const areas = [
 <p class="source">Source: <a href="https://www.macomb-mi.gov/DocumentCenter/View/7260/Fence-Requirements" rel="noopener" target="_blank">Macomb Township Fence Permit Requirements</a> (rev. 10/2022). Full rules are in Chapter 14, Article II of the township code.</p>`,
       },
       {
-        h2: 'Township design rules',
+        h2: 'Township Design Rules',
         html: `<ul>
 <li><strong>No double fencing:</strong> a new fence must be at least 3½ feet from any other fence. If a neighbor already has one on the line, plan around it.</li>
 <li><strong>No spiked or pointed tops.</strong> That rules out pointed pickets like French Gothic here, so choose flat or rounded tops.</li>
@@ -168,8 +168,8 @@ export const areas = [
       },
     ],
     faqs: [
-      { q: 'How long does a Macomb Township fence permit take?', a: 'The township lists about two to three days for the grade check, then seven to 10 working days to process the permit.' },
-      { q: 'My HOA has fence rules. Does the township enforce them?', a: 'No. The township issues permits based on its ordinance only. Your HOA restrictions still apply, and the association enforces them.' },
+      { q: 'How Long Does a Macomb Township Fence Permit Take?', a: 'The township lists about two to three days for the grade check, then seven to 10 working days to process the permit.' },
+      { q: 'My HOA Has Fence Rules. Does the Township Enforce Them?', a: 'No. The township issues permits based on its ordinance only. Your HOA restrictions still apply, and the association enforces them.' },
     ],
   },
   {
@@ -179,7 +179,7 @@ export const areas = [
     title: 'Fence Installation, Clay Township & Algonac MI | Final Touch',
     description:
       'Fence installation in Clay Township and Algonac, where Final Touch Fencing got its start. Zoning permits, finished-side rules and waterfront fences.',
-    h1: 'Fence installation in Clay Township and Algonac',
+    h1: 'Fence Installation in Clay Township and Algonac',
     lede:
       'Final Touch Fencing started out in Clay Township before moving to St. Clair Shores, so the north end of Anchor Bay is familiar ground.',
     hero: 'picket',
@@ -188,8 +188,8 @@ export const areas = [
     nearby: ['chesterfield-township', 'st-clair-shores'],
     sections: [
       {
-        h2: 'Clay Township fence rules',
-        html: `<p>Every fence in Clay Township needs a <strong>Zoning Compliance Permit</strong> from the Building Department (810-794-9320). Under Sec. 3.08 of the township zoning ordinance:</p>
+        h2: 'Clay Township Fence Rules',
+        html: `<p>Every fence in Clay Township needs a <strong>Zoning Compliance Permit</strong> from the Building Department ((810) 794-9320). Under Sec. 3.08 of the township zoning ordinance:</p>
 <ul>
 <li><strong>Side and rear yards:</strong> up to 6 feet, measured from average grade.</li>
 <li><strong>In front of the house or in the required front yard:</strong> no more than 4 feet, and no obscuring fence. Decorative see-through fencing up to 4 feet is allowed.</li>
@@ -199,16 +199,16 @@ export const areas = [
 <p class="source">Sources: <a href="https://claytwpmi.gov/buildingdept" rel="noopener" target="_blank">Clay Township Building Department</a>; <a href="https://cms2.revize.com/revize/claytownship/documents/docs/Clay_Township_Zoning_Ordinance_2007_july.pdf" rel="noopener" target="_blank">Zoning Ordinance #126, Sec. 3.08</a> (2007, as posted). Amendments may apply, so confirm with the township.</p>`,
       },
       {
-        h2: 'The “finished” requirement favors stain',
+        h2: 'The “Finished” Requirement Favors Stain',
         html: `<p>Clay Township defines “finished” as covering the raw material to protect it from the weather, for example by staining or painting wood. If you’re building in wood here, plan on <a href="/services/fence-staining/">staining</a> the side that faces your neighbors. Or choose <a href="/services/vinyl-fencing/">vinyl</a> or <a href="/services/aluminum-fencing/">aluminum</a>, which come finished.</p>`,
       },
       {
-        h2: 'Waterfront and canal properties',
+        h2: 'Waterfront and Canal Properties',
         html: `<p>Canal homes and riverfront lots are common around Algonac and Clay Township. An open aluminum fence keeps a dog or kids in without blocking the water view, and it holds up in a damp environment. For a canal-side fence, we’ll check the township setback chart and any other approvals your lot needs before we price it.</p>`,
       },
     ],
     faqs: [
-      { q: 'Do I need a permit for a fence in Clay Township?', a: 'Yes. Fences require a Zoning Compliance Permit from the Clay Township Building Department.' },
+      { q: 'Do I Need a Permit for a Fence in Clay Township?', a: 'Yes. Fences require a Zoning Compliance Permit from the Clay Township Building Department.' },
     ],
   },
   {
@@ -218,7 +218,7 @@ export const areas = [
     title: 'Fence Installation in Detroit, MI (East Side) | Final Touch',
     description:
       'Wood, vinyl and aluminum fence installation in Detroit, especially the east side near Harper Woods. Permits and historic district rules explained.',
-    h1: 'Fence installation in Detroit',
+    h1: 'Fence Installation in Detroit',
     lede:
       'We’ve built wood fences in Detroit, and the city’s east side is a short drive from our St. Clair Shores base. Detroit permits work differently from the suburbs, especially in historic districts.',
     hero: 'brickHouse',
@@ -227,11 +227,11 @@ export const areas = [
     nearby: ['harper-woods', 'st-clair-shores'],
     sections: [
       {
-        h2: 'Permits through BSEED',
+        h2: 'Permits Through BSEED',
         html: `<p>In Detroit, fence permits come from the Buildings, Safety Engineering and Environmental Department (BSEED). Height and placement limits come from the city zoning ordinance and vary by district and lot type, so we confirm the rules for your address before building.</p>`,
       },
       {
-        h2: 'Historic districts add a review',
+        h2: 'Historic Districts Add a Review',
         html: `<p>If your home is in one of Detroit’s local historic districts, the Historic District Commission reviews fence applications before BSEED issues a permit, and its guidelines are specific:</p>
 <ul>
 <li><strong>Stockade fencing isn’t allowed.</strong></li>
@@ -241,13 +241,13 @@ export const areas = [
 <p class="source">Source: <a href="https://detroitmi.gov/government/commissions/historic-district-commission/historic-district-commission-general-scope-work-guidelines/hdc-site-improvements-fences-paving-and-landscaping" rel="noopener" target="_blank">Detroit Historic District Commission: Fences, Paving and Landscaping guidelines</a>.</p>`,
       },
       {
-        h2: 'Fences for city lots',
+        h2: 'Fences for City Lots',
         html: `<p>Detroit lots are often narrow, with a side drive and a detached garage at the back. That usually means a privacy fence along the rear and sides, plus a <a href="/services/gates/">double gate</a> across the drive. If you’ve bought the vacant lot next door, an <a href="/services/aluminum-fencing/">aluminum</a> or <a href="/services/wood-fencing/">split rail</a> fence marks and secures it without closing it in.</p>`,
       },
     ],
     faqs: [
-      { q: 'Do I need a fence permit in Detroit?', a: 'Yes. BSEED issues fence permits, and the requirements depend on your fence and lot, so confirm with BSEED. In local historic districts, the Historic District Commission also reviews the application.' },
-      { q: 'Can I build a stockade fence in a historic district?', a: 'No. The Detroit Historic District Commission guidelines don’t allow stockade fencing.' },
+      { q: 'Do I Need a Fence Permit in Detroit?', a: 'Yes. BSEED issues fence permits, and the requirements depend on your fence and lot, so confirm with BSEED. In local historic districts, the Historic District Commission also reviews the application.' },
+      { q: 'Can I Build a Stockade Fence in a Historic District?', a: 'No. The Detroit Historic District Commission guidelines don’t allow stockade fencing.' },
     ],
   },
 ];

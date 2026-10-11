@@ -1,4 +1,5 @@
 ---
+import { titleCase } from '../lib/titlecase.js';
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import Photo from '../components/Photo.astro';
@@ -23,7 +24,7 @@ const groups = [
 <Base title={title} description={description} breadcrumbs={crumbs}>
   <PageHero
     eyebrow="Our work"
-    title="Fence projects by Final Touch Fencing"
+    title="Fence Projects by Final Touch Fencing"
     lede="Every photo here is a fence our crew built. Browse by type, then get a quote for something like it."
     crumbs={crumbs}
     ctaHref="/contact/"
@@ -38,7 +39,7 @@ const groups = [
         const small = list.some((p) => p.lowres);
         return (
           <section id={g.id} aria-labelledby={`${g.id}-h`} style="margin-bottom: var(--sp-8)">
-            <h2 id={`${g.id}-h`}>{g.title}</h2>
+            <h2 id={`${g.id}-h`}>{titleCase(g.title)}</h2>
             <div class:list={['gallery', { 'gallery--small': small }]}>
               {list.map((p) => (
                 <figure>
@@ -53,5 +54,5 @@ const groups = [
       })}
     </div>
   </section>
-  <QuoteBand heading="Want a fence like one of these?" />
+  <QuoteBand heading="Want a Fence Like One of These?" />
 </Base>

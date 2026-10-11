@@ -2,7 +2,7 @@ import { getCollection } from 'astro:content';
 import { getImage } from 'astro:assets';
 import { photos } from '../data/photos.js';
 
-export const CATEGORIES = ['Permits and rules', 'Materials and styles', 'Planning and cost', 'Care and repair'];
+export const CATEGORIES = ['Permits and Rules', 'Materials and Styles', 'Planning and Cost', 'Care and Repair'];
 export const categoryId = (c) => c.toLowerCase().replace(/[^a-z]+/g, '-');
 
 export async function getPosts() {

@@ -1,4 +1,5 @@
 ---
+import { titleCase } from '../lib/titlecase.js';
 // Quote request form. Posts to /api/quote (Netlify Function → email to the business).
 // Works without JavaScript (server responds with a redirect); with JS it submits in place.
 import Icon from './Icon.astro';
@@ -7,7 +8,7 @@ import { site } from '../data/site.js';
 interface Props { id?: string; heading?: string; note?: string; headingLevel?: 'h2' | 'h3'; defaultService?: string }
 const {
   id = 'quote-form',
-  heading = 'Request a free quote',
+  heading = 'Request a Free Quote',
   note = 'Tell us a little about the job. We’ll follow up to schedule a free, no-obligation estimate.',
   headingLevel = 'h3',
   defaultService = '',
@@ -29,7 +30,7 @@ const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rai
     data-quote-form
     aria-labelledby={f('heading')}
   >
-    <H id={f('heading')}>{heading}</H>
+    <H id={f('heading')}>{titleCase(heading)}</H>
     <p class="form-note">{note} Fields marked <span class="req" aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required.</p>
 
     <div class="form-grid">
@@ -146,7 +147,7 @@ const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rai
 
   <div class="form-success" data-form-success tabindex="-1" aria-live="polite">
     <Icon name="checkCircle" class="form-success__icon" />
-    <H>Thank you! Your quote request has been received.</H>
+    <H>Thank You! Your Quote Request Has Been Received.</H>
     <p>Final Touch Fencing will be in touch soon. If your project is time-sensitive, call us at <a href={site.phoneHref} data-track="phone">{site.phone}</a>.</p>
     <p class="form-note">While you wait: check whether your city requires a fence permit in our <a href="/blog/fence-permit-rules-macomb-county/">local fence permit guide</a>.</p>
   </div>

@@ -1,4 +1,5 @@
 ---
+import { titleCase } from '../../lib/titlecase.js';
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import Photo from '../../components/Photo.astro';
@@ -37,14 +38,14 @@ const schema = [
       <div class="prose">
         {s.sections.map((sec) => (
           <>
-            <h2>{sec.h2}</h2>
+            <h2>{titleCase(sec.h2)}</h2>
             <Fragment set:html={sec.html} />
           </>
         ))}
 
         {gallery.length > 0 && (
           <>
-            <h2>Recent {s.noun} projects</h2>
+            <h2>{titleCase(`Recent ${s.noun} projects`)}</h2>
             <div class:list={['gallery', { 'gallery--small': gallery.some((g) => g.lowres) }]}>
               {gallery.map((g) => (
                 <figure>
@@ -57,7 +58,7 @@ const schema = [
           </>
         )}
 
-        <h2>{s.heading} near you</h2>
+        <h2>{titleCase(`${s.heading} near you`)}</h2>
         <p>We offer {s.heading.toLowerCase()} in these communities. Each page covers the local permit and placement rules.</p>
         <ul class="chip-list">
           {listedAreas.map((a) => <li><a href={`/service-areas/${a.slug}/`}>{s.heading} in {a.name}</a></li>)}
@@ -66,7 +67,7 @@ const schema = [
 
       <aside class="content-grid__aside" aria-label="Get a quote">
         <div class="aside-card">
-          <h2>Free {s.noun} estimate</h2>
+          <h2>{titleCase(`Free ${s.noun} estimate`)}</h2>
           <p>Tell us about the project, and we’ll set up a time to measure and price it. No obligation.</p>
           <a class="btn btn--lg" href="#quote" data-cta="aside_quote">Request a Quote</a>
           <a class="btn btn--ghost btn--lg" href={site.phoneHref} data-track="phone">{site.phone}</a>
@@ -86,12 +87,12 @@ const schema = [
 
   <section class="section section--tight" aria-labelledby="related-h">
     <div class="container">
-      <h2 id="related-h">Other fence services</h2>
+      <h2 id="related-h">Other Fence Services</h2>
       <ul class="chip-list mt-6">
         {related.map((o) => <li><a href={`/services/${o.slug}/`}>{o.heading}</a></li>)}
       </ul>
     </div>
   </section>
 
-  <QuoteBand heading={`Get a free ${s.noun} quote`} formHeading="Request a free quote" defaultService={defaultService} />
+  <QuoteBand heading={`Get a free ${s.noun} quote`} formHeading="Request a Free Quote" defaultService={defaultService} />
 </Base>

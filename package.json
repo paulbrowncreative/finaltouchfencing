@@ -8,7 +8,7 @@
     "preview": "astro preview",
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "node tests/e2e/server.mjs & SERVER=$!; sleep 1; node tests/e2e/form.e2e.mjs; CODE=$?; kill $SERVER; exit $CODE",
-    "qa": "node tests/e2e/audit.mjs && node tests/e2e/qa-sweep.mjs"
+    "qa": "node tests/e2e/audit.mjs && node tests/e2e/qa-sweep.mjs && node tests/e2e/copy-check.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",

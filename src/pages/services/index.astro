@@ -15,14 +15,14 @@ const work = services.filter((s) => !materials.includes(s));
 <Base title={title} description={description} breadcrumbs={crumbs}>
   <PageHero
     eyebrow="Services"
-    title="Fence installation, gates, repair and staining"
+    title="Fence Installation, Gates, Repair and Staining"
     lede="One local crew for the whole job: new fences in every common material, the gates that go with them, and the repairs and upkeep that keep them looking right."
     crumbs={crumbs}
     photo={photos.panorama}
   />
   <section class="section" aria-labelledby="mat-h">
     <div class="container">
-      <div class="section-head"><span class="eyebrow">By material</span><h2 id="mat-h">Fence materials</h2></div>
+      <div class="section-head"><span class="eyebrow">By material</span><h2 id="mat-h">Fence Materials</h2></div>
       <div class="materials">
         {materials.map((m) => {
           const ph = m.hero ? photos[m.hero] : null;
@@ -34,7 +34,7 @@ const work = services.filter((s) => !materials.includes(s));
           );
         })}
       </div>
-      <div class="section-head mt-7"><span class="eyebrow">By job</span><h2>Installation, gates and upkeep</h2></div>
+      <div class="section-head mt-7"><span class="eyebrow">By job</span><h2>Installation, Gates and Upkeep</h2></div>
       <div class="service-index" style="margin-top:0">
         {work.map((s) => (
           <a href={`/services/${s.slug}/`}><h3>{s.heading}</h3><p>{s.short}</p><span aria-hidden="true">→</span></a>

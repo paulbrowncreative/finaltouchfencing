@@ -1,4 +1,5 @@
 ---
+import { keepHyphens } from '../../lib/titlecase.js';
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -48,9 +49,9 @@ const schema = [
       <Breadcrumbs items={crumbs} />
       <div class="page-hero__grid">
         <div>
-          <h1><span class="eyebrow"><a href={`/blog/#${categoryId(data.category)}`}>{data.category}</a></span>{data.title}</h1>
+          <h1 class:list={{ 'h1--long': data.title.length > 60 }}><span class="eyebrow"><a href={`/blog/#${categoryId(data.category)}`}>{data.category}</a></span>{keepHyphens(data.title)}</h1>
           <p class="lede">{data.summary}</p>
-          <p class="article-meta">By Final Touch Fencing · <time datetime={iso(data.date)}>{formatDate(data.date)}</time> · {minutes} min read</p>
+          <p class="article-meta">By Final Touch Fencing · <time datetime={iso(data.date)}>{formatDate(data.date)}</time> · <span class="nowrap">{minutes} min read</span></p>
         </div>
         <div class:list={['page-hero__media', { 'page-hero__media--small': photo.lowres }]} style={photo.lowres ? `max-width:${photo.src.width}px` : undefined}>
           <Photo photo={photo} eager sizes={photo.lowres ? `${photo.src.width}px` : '(min-width: 60rem) 46vw, 100vw'} />
@@ -69,12 +70,12 @@ const schema = [
       <aside class="content-grid__aside" aria-label="In this guide">
         {toc.length > 2 && (
           <nav class="toc" aria-labelledby="toc-h">
-            <h2 id="toc-h">In this guide</h2>
+            <h2 id="toc-h">In This Guide</h2>
             <ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
           </nav>
         )}
         <div class="aside-card">
-          <h2>Free fence estimate</h2>
+          <h2>Free Fence Estimate</h2>
           <p>Family-owned and based in St. Clair Shores. We measure, check your city’s rules and price it in writing.</p>
           <a class="btn btn--lg" href="#quote" data-cta="post_aside_quote">Get a Free Quote</a>
           <a class="btn btn--ghost btn--lg" href={site.phoneHref} data-track="phone">{site.phone}</a>
@@ -86,17 +87,17 @@ const schema = [
   {(services.length > 0 || areas.length > 0) && (
     <section class="section section--tight section--paper" aria-labelledby="post-links-h">
       <div class="container">
-        <h2 id="post-links-h" class="visually-hidden">Related services and service areas</h2>
+        <h2 id="post-links-h" class="visually-hidden">Related Services and Service Areas</h2>
         <div class="split" style="align-items:start">
           {services.length > 0 && (
             <div>
-              <h3>Related services</h3>
+              <h3>Related Services</h3>
               <ul class="chip-list">{services.map((s) => <li><a href={`/services/${s.slug}/`}>{s.heading}</a></li>)}</ul>
             </div>
           )}
           {areas.length > 0 && (
             <div>
-              <h3>Where we work</h3>
+              <h3>Where We Work</h3>
               <ul class="chip-list">{areas.map((a) => <li><a href={`/service-areas/${a.slug}/`}>Fences in {a.name}</a></li>)}</ul>
             </div>
           )}
@@ -107,10 +108,10 @@ const schema = [
 
   <section class="section section--tight" aria-labelledby="more-h">
     <div class="container">
-      <div class="section-head"><span class="eyebrow">Keep reading</span><h2 id="more-h">More fence guides</h2></div>
+      <div class="section-head"><span class="eyebrow">Keep reading</span><h2 id="more-h">More Fence Guides</h2></div>
       <div class="post-grid">{related.map((p) => <PostCard post={p} />)}</div>
     </div>
   </section>
 
-  <QuoteBand heading="Get a free, no-obligation fence quote" />
+  <QuoteBand />
 </Base>
