@@ -34,17 +34,19 @@ Old `/resources/` URLs 301-redirect to the blog (`netlify.toml`).
 
 ## Quote form (how submissions reach finaltouchfencing@gmail.com)
 
-Quote forms use **Netlify Forms**. Every `QuoteForm.astro` instance is named `quote` (`data-netlify="true"`, honeypot `company`). With JavaScript, `src/scripts/site.js` validates the fields and posts them in the background to the site itself, so the visitor stays on the page and sees the thank-you message. Without JavaScript, the plain POST lands on `/thank-you/`. Netlify stores every submission (Netlify → Forms) and emails it to the business. No API keys, and no outside form service.
+`QuoteForm.astro` POSTs to `/api/quote`, handled by `netlify/functions/quote.mjs` (logic in `netlify/lib/quote-core.mjs`). The function validates the lead, filters spam (honeypot, time trap, link count) and emails it to finaltouchfencing@gmail.com through [Resend](https://resend.com). With JavaScript, the visitor stays on the page and is then sent to the `/thank-you/` confirmation page. Without JavaScript, the function redirects there.
 
-Each submission includes every field, plus the source page, landing page, referrer, UTM tags and gclid.
+The email lists every field, plus the submission time (Eastern), source page, landing page, referrer, UTM tags and gclid. **Reply** goes to the customer when they gave an email address.
 
-### Launch setup (Netlify dashboard, one time)
+### Launch setup (Netlify → Project configuration → Environment variables)
 
-1. **Project configuration → Forms → Enable form detection**, then redeploy. The `quote` form appears under **Forms**.
-2. **Project configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email notification**: email `finaltouchfencing@gmail.com`, form `quote`.
-3. Submit a test quote on the live site. Confirm it appears under **Forms → quote** and arrives in Gmail (check spam the first time and mark **Not spam**).
+| Key | Value | Notes |
+|---|---|---|
+| `RESEND_API_KEY` | `re_…` from Resend → API Keys | Check **Contains secret values**. Required. |
+| `QUOTE_TO_EMAIL` | `finaltouchfencing@gmail.com` | Optional (this is the default). |
+| `QUOTE_FROM_EMAIL` | `Final Touch Fencing Website <quotes@finaltouchfencing.com>` | Only after `finaltouchfencing.com` is **Verified** in Resend → Domains. Leave unset before that; Resend's test sender then delivers only to the Resend account's own email. |
 
-`netlify/functions/quote.mjs` (`/api/quote`) is an unused legacy endpoint that can deliver through Resend or FormSubmit. The form no longer calls it.
+Redeploy after adding or changing variables. Without `RESEND_API_KEY`, the function falls back to FormSubmit, which refuses requests from Netlify's servers.
 
 ## Analytics
 

@@ -59,15 +59,15 @@ await step('valid submission shows success and delivers a complete email', async
   assert.match(await page.textContent('h1'), /Thank You — Your Quote Request Is In/);
   const mails = await outbox();
   assert.equal(mails.length, before + 1, 'no email captured');
-  const m = mails.at(-1).fields;
-  assert.equal(mails.at(-1).path, '/');
-  const expect = { 'form-name': 'quote', subject: 'New quote request — Final Touch Fencing website', name: 'E2E Tester', phone: '(586) 555-0199',
-    email: 'e2e@example.com', address: '1 Test St', city: 'St. Clair Shores', zip: '48080', project_type: 'Replace a fence', fence_type: 'Vinyl',
-    length: '120 ft', gate: 'Yes, walk gate', timeline: 'As soon as possible', details: 'Replace 120 ft of old wood with white vinyl.',
-    utm_source: 'google', utm_medium: 'cpc', utm_campaign: 'e2e', utm_term: 'fence company', utm_content: 'v1' };
-  for (const [k, v] of Object.entries(expect)) assert.equal(m[k], v, `submitted field ${k}`);
-  assert.ok(m.source_page.startsWith(`${BASE}/contact/`), 'source page missing');
-  assert.ok(m.landing_page.startsWith(`${BASE}/contact/?utm_source=google`), 'landing page missing');
+  const m = mails.at(-1);
+  assert.deepEqual(m.to, ['finaltouchfencing@gmail.com']);
+  assert.equal(m.reply_to, 'e2e@example.com');
+  assert.match(m.subject, /^New quote request: E2E Tester/);
+  for (const t of ['Name: E2E Tester', 'Phone: (586) 555-0199', 'Email: e2e@example.com', 'Address: 1 Test St', 'City: St. Clair Shores', 'ZIP: 48080',
+    'Project Type: Replace a fence', 'Fence Type: Vinyl', 'Approximate Length: 120 ft', 'Gate Needed: Yes, walk gate', 'Timeline: As soon as possible',
+    'Additional Details: Replace 120 ft', `Source Page: ${BASE}/contact/`, 'utm_source: google', 'utm_medium: cpc', 'utm_campaign: e2e',
+    'utm_term: fence company', 'utm_content: v1', `Landing Page: ${BASE}/contact/?utm_source=google`])
+    assert.ok(m.text.includes(t), `email missing "${t}"`);
   const events = await page.evaluate(() => window.dataLayer.map((e) => e.event));
   assert.ok(events.includes('generate_lead'), 'generate_lead not tracked on the confirmation page');
   await page.reload();
@@ -85,10 +85,10 @@ await step('first-touch UTM persists to a form on another page (service page)', 
   await page.waitForTimeout(2700);
   const before = (await outbox()).length;
   await Promise.all([page.waitForURL('**/thank-you/', { timeout: 8000 }), page.click('#quote-form button[type=submit]')]);
-  const m = (await outbox()).at(-1).fields;
+  const m = (await outbox()).at(-1);
   assert.equal((await outbox()).length, before + 1);
-  assert.equal(m.source_page, `${BASE}/services/gates/`);
-  assert.equal(m.project_type, 'Gate');
+  assert.ok(m.text.includes(`Source Page: ${BASE}/services/gates/`));
+  assert.ok(m.text.includes('Project Type: Gate'));
 });
 
 await step('honeypot-filled submission shows success to the bot but sends nothing', async () => {
@@ -105,8 +105,8 @@ await step('honeypot-filled submission shows success to the bot but sends nothin
 
 await step('server error shows a visible, recoverable error state', async () => {
   await page.goto(`${BASE}/contact/`);
-  const failPost = (r) => (r.request().method() === 'POST' ? r.fulfill({ status: 500, body: 'error' }) : r.continue());
-  await page.route(`${BASE}/`, failPost);
+  const failPost = (r) => r.fulfill({ status: 502, contentType: 'application/json', body: JSON.stringify({ ok: false, message: 'We couldn’t send your request right now.' }) });
+  await page.route('**/api/quote', failPost);
   await page.fill('#contact-quote-name', 'Err Test');
   await page.fill('#contact-quote-phone', '8105550102');
   await page.fill('#contact-quote-zip', '48080');
@@ -114,7 +114,7 @@ await step('server error shows a visible, recoverable error state', async () => 
   await page.waitForSelector('[data-form-status][data-state=error]');
   assert.match(await page.textContent('[data-form-status]'), /couldn’t send.*\(810\) 614-4181/);
   assert.equal(await page.isVisible('#contact-quote'), true, 'form should stay visible for retry');
-  await page.unroute(`${BASE}/`, failPost);
+  await page.unroute('**/api/quote', failPost);
 });
 
 await step('works without JavaScript (303 → thank-you page)', async () => {
@@ -131,7 +131,7 @@ await step('works without JavaScript (303 → thank-you page)', async () => {
   await noJs.close();
 });
 
-await step('no unexpected console errors', async () => { assert.deepEqual(consoleErrors.filter((e) => !/500 \(Internal Server Error\)/.test(e)), []); });
+await step('no unexpected console errors', async () => { assert.deepEqual(consoleErrors.filter((e) => !/502 \(Bad Gateway\)/.test(e)), []); });
 
 await browser.close();
 for (const r of results) console.log(r.join(' | '));

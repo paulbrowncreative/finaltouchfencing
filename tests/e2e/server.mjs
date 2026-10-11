@@ -1,6 +1,6 @@
-// Local test harness: serves dist/ and emulates Netlify Forms (POSTs carrying form-name are stored in
-// the outbox, honeypot hits are dropped, and a no-JS POST to /thank-you/ returns that page).
-// POST /api/quote still routes through the legacy function handler.
+// Local test harness: serves dist/ and routes POST /api/quote through the real function handler, with
+// Resend pointed at a local mock that records every email, so browser → function → email is verified
+// without sending real mail.
 // FormSubmit (the production provider) is pointed at a local mock that records every lead it receives,
 // so the full browser → function → email-payload path is verified without sending real email.
 import http from 'node:http';
@@ -16,19 +16,10 @@ const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
-  if (url.pathname.startsWith('/__mock-formsubmit/') && req.method === 'POST') {
+  if (url.pathname === '/__mock-resend' && req.method === 'POST') {
     let b = ''; for await (const c of req) b += c;
-    outbox.push({ to: decodeURIComponent(url.pathname.split('/').pop()), referer: req.headers.referer, body: JSON.parse(b) });
-    res.writeHead(200, { 'Content-Type': 'application/json' }).end('{"success":"true","message":"The form was submitted successfully."}');
-    return;
-  }
-  if (req.method === 'POST' && url.pathname !== '/api/quote' && !url.pathname.startsWith('/__')) {
-    let b = ''; for await (const c of req) b += c;
-    const fields = Object.fromEntries(new URLSearchParams(b));
-    if (!fields['form-name']) { res.writeHead(404).end('Not found'); return; }
-    if (!fields.company) outbox.push({ path: url.pathname, fields });
-    const page = path.join(DIST, url.pathname === '/' ? 'index.html' : path.join(url.pathname, 'index.html'));
-    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' }).end(fs.existsSync(page) ? fs.readFileSync(page) : '');
+    outbox.push(JSON.parse(b));
+    res.writeHead(200, { 'Content-Type': 'application/json' }).end('{"id":"mock"}');
     return;
   }
   if (url.pathname === '/__outbox') { res.writeHead(200, { 'Content-Type': 'application/json' }).end(JSON.stringify(outbox)); return; }
@@ -36,7 +27,7 @@ const server = http.createServer(async (req, res) => {
     let bodyText = ''; for await (const c of req) bodyText += c;
     const headers = Object.fromEntries(Object.entries(req.headers).map(([k, v]) => [k, String(v)]));
     const r = await handleQuote({ method: req.method, headers, bodyText }, {
-      FORMSUBMIT_URL: `http://localhost:${PORT}/__mock-formsubmit/`,
+      RESEND_API_KEY: 'test', RESEND_API_URL: `http://localhost:${PORT}/__mock-resend`,
     });
     res.writeHead(r.status, r.headers).end(r.body);
     return;

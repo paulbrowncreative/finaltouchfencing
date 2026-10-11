@@ -124,13 +124,16 @@ document.querySelectorAll('[data-quote-form]').forEach((form) => {
     button.setAttribute('aria-busy', 'true');
     button.disabled = true;
     try {
-      // Netlify Forms accepts a URL-encoded POST to any page of the site and answers 200 when stored.
-      const res = await fetch('/', {
+      const res = await fetch(form.action, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        headers: { Accept: 'application/json' },
         body: new URLSearchParams(new FormData(form)),
       });
-      if (!res.ok) throw new Error('We couldn’t send your request right now.');
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) {
+        if (data.errors) for (const [n, m] of Object.entries(data.errors)) showError(form, n, m);
+        throw new Error(data.message || 'We couldn’t send your request right now.');
+      }
       // The confirmation page fires generate_lead once from this flag, so reloads don't double-count.
       try {
         sessionStorage.setItem('ftf_lead', JSON.stringify({

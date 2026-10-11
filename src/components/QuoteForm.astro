@@ -1,9 +1,8 @@
 ---
 import { titleCase } from '../lib/titlecase.js';
-// Quote request form, handled by Netlify Forms: submissions post to this site, are stored in the
-// Netlify dashboard and are emailed to finaltouchfencing@gmail.com by a Form notification (set in
-// Netlify → Forms). With JS the form submits in the background; without JS, Netlify redirects to
-// /thank-you/. Every instance shares the name "quote" and the same fields, so Netlify registers one form.
+// Quote request form. Posts to /api/quote (netlify/functions/quote.mjs), which validates the lead, filters
+// spam and emails it to finaltouchfencing@gmail.com through Resend (RESEND_API_KEY in Netlify env).
+// With JS it submits in the background, then shows /thank-you/; without JS the function redirects there.
 import Icon from './Icon.astro';
 import { site } from '../data/site.js';
 
@@ -25,11 +24,8 @@ const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rai
   <form
     class="quote-form"
     id={id}
-    name="quote"
-    action="/thank-you/"
+    action="/api/quote"
     method="post"
-    data-netlify="true"
-    netlify-honeypot="company"
     novalidate
     data-quote-form
     aria-labelledby={f('heading')}
@@ -121,13 +117,11 @@ const fenceTypes = ['Wood privacy', 'Wood shadow box', 'Wood picket or split rai
       </details>
     </div>
 
-    <!-- Spam protection: honeypot (Netlify drops submissions that fill it) plus Netlify's built-in spam filter -->
+    <!-- Spam protection: honeypot + time-to-submit check (checked server-side) -->
     <div class="hp-field" aria-hidden="true">
       <label for={f('company')}>Company (leave this field empty)</label>
       <input id={f('company')} name="company" type="text" tabindex="-1" autocomplete="off" />
     </div>
-    <input type="hidden" name="form-name" value="quote" />
-    <input type="hidden" name="subject" value="New quote request — Final Touch Fencing website" />
     <input type="hidden" name="form_id" value={id} />
     <input type="hidden" name="started_at" value="" />
     <input type="hidden" name="source_page" value="" />
