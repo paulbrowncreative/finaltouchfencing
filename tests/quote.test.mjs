@@ -126,9 +126,55 @@ test('provider failure returns a 502 error the form can show', async () => {
   assert.equal(JSON.parse(res.body).ok, false);
 });
 
-test('missing API key fails loudly, never silently', async () => {
-  const res = await handleQuote(post(good), {}, { fetchImpl: mockFetch(), now: NOW });
+// FormSubmit is the default (no key needed); Resend is used only when RESEND_API_KEY is set.
+const formSubmitFetch = (reply = { success: 'true', message: 'The form was submitted successfully.' }, status = 200) => {
+  const calls = [];
+  const fn = async (url, init) => {
+    calls.push({ url, init, body: JSON.parse(init.body) });
+    return new Response(JSON.stringify(reply), { status });
+  };
+  fn.calls = calls;
+  return fn;
+};
+
+test('with no Resend key, leads go to finaltouchfencing@gmail.com through FormSubmit server-side', async () => {
+  const f = formSubmitFetch();
+  const res = await handleQuote(post(good), {}, { fetchImpl: f, now: NOW });
+  assert.equal(res.status, 200);
+  assert.equal(f.calls.length, 1);
+  const { url, init, body } = f.calls[0];
+  assert.equal(url, 'https://formsubmit.co/ajax/finaltouchfencing%40gmail.com');
+  assert.equal(init.headers.Referer, 'https://www.finaltouchfencing.com/');
+  assert.equal(init.headers.Origin, 'https://www.finaltouchfencing.com');
+  assert.equal(body._captcha, 'false');
+  assert.equal(body._template, 'table');
+  assert.equal(body._replyto, 'jane@example.com');
+  assert.match(body._subject, /^New quote request: Jane Homeowner/);
+  assert.equal(body.Name, 'Jane Homeowner');
+  assert.equal(body.Phone, '(586) 555-0142');
+  assert.equal(body['Additional Details'], 'Back yard, remove old wood fence.\nDog in yard.');
+  assert.match(body['Submission Date/Time'], /2026.*\(Eastern\)$/);
+  assert.equal(body.utm_campaign, 'fence-scs');
+  assert.equal(body.gclid, 'abc123');
+  // Field order in the email matches the form.
+  assert.deepEqual(Object.keys(body).slice(4, 7), ['Name', 'Phone', 'Email']);
+});
+
+test('FormSubmit alias replaces the address, and blanks show as a dash', async () => {
+  const f = formSubmitFetch();
+  await handleQuote(post({ ...good, email: '', fence_type: '' }), { FORMSUBMIT_ALIAS: 'a1b2c3d4e5' }, { fetchImpl: f, now: NOW });
+  assert.equal(f.calls[0].url, 'https://formsubmit.co/ajax/a1b2c3d4e5');
+  assert.equal(f.calls[0].body._replyto, undefined);
+  assert.equal(f.calls[0].body['Fence Type'], '—');
+});
+
+test('FormSubmit "needs activation" is a failure, never reported as delivered', async () => {
+  const f = formSubmitFetch({ success: 'false', message: 'This form needs Activation.' });
+  const res = await handleQuote(post(good), {}, { fetchImpl: f, now: NOW });
   assert.equal(res.status, 502);
+  assert.equal(JSON.parse(res.body).ok, false);
+  const down = await handleQuote(post(good), {}, { fetchImpl: formSubmitFetch({}, 500), now: NOW });
+  assert.equal(down.status, 502);
 });
 
 test('Turnstile is enforced when a secret is configured', async () => {

@@ -1,6 +1,6 @@
 // Local test harness: serves dist/ and routes POST /api/quote through the real handler.
-// The email provider URL points at a local mock that records every message it receives,
-// so the full browser → function → email-payload path can be verified without real credentials.
+// FormSubmit (the production provider) is pointed at a local mock that records every lead it receives,
+// so the full browser → function → email-payload path is verified without sending real email.
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -14,10 +14,10 @@ const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
-  if (url.pathname === '/__mock-resend' && req.method === 'POST') {
+  if (url.pathname.startsWith('/__mock-formsubmit/') && req.method === 'POST') {
     let b = ''; for await (const c of req) b += c;
-    outbox.push(JSON.parse(b));
-    res.writeHead(200, { 'Content-Type': 'application/json' }).end('{"id":"mock"}');
+    outbox.push({ to: decodeURIComponent(url.pathname.split('/').pop()), referer: req.headers.referer, body: JSON.parse(b) });
+    res.writeHead(200, { 'Content-Type': 'application/json' }).end('{"success":"true","message":"The form was submitted successfully."}');
     return;
   }
   if (url.pathname === '/__outbox') { res.writeHead(200, { 'Content-Type': 'application/json' }).end(JSON.stringify(outbox)); return; }
@@ -25,7 +25,7 @@ const server = http.createServer(async (req, res) => {
     let bodyText = ''; for await (const c of req) bodyText += c;
     const headers = Object.fromEntries(Object.entries(req.headers).map(([k, v]) => [k, String(v)]));
     const r = await handleQuote({ method: req.method, headers, bodyText }, {
-      RESEND_API_KEY: 'test', RESEND_API_URL: `http://localhost:${PORT}/__mock-resend`,
+      FORMSUBMIT_URL: `http://localhost:${PORT}/__mock-formsubmit/`,
     });
     res.writeHead(r.status, r.headers).end(r.body);
     return;

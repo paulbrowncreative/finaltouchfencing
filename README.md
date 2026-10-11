@@ -34,18 +34,17 @@ Old `/resources/` URLs 301-redirect to the blog (`netlify.toml`).
 
 ## Quote form (how submissions reach finaltouchfencing@gmail.com)
 
-`QuoteForm.astro` POSTs to `/api/quote`, which is handled by `netlify/functions/quote.mjs` (logic in `netlify/lib/quote-core.mjs`). The function validates the submission, filters spam (honeypot, time trap, link count, optional Cloudflare Turnstile), and sends a formatted email through the [Resend](https://resend.com) API. Visitors never leave the page and no email app opens. Without JavaScript, the form still works and redirects to `/thank-you/`.
+`QuoteForm.astro` POSTs to `/api/quote`, which is handled by `netlify/functions/quote.mjs` (logic in `netlify/lib/quote-core.mjs`). The function validates the submission, filters spam (honeypot, time trap, link count, optional Cloudflare Turnstile), and forwards it server-side to [FormSubmit](https://formsubmit.co), which emails it to finaltouchfencing@gmail.com. Visitors never leave the page and no email app opens. The inbox address never appears in page source. Without JavaScript, the form still works and redirects to `/thank-you/`.
 
-The email contains every field, plus the source page, landing page, referrer, UTM tags, gclid and submission time (Eastern).
+The email lists every field in form order, plus the submission time (Eastern), source page, landing page, referrer, UTM tags and gclid. **Reply** goes straight to the customer when they gave an email address.
 
-### Launch setup (required for the form to send email)
+### Launch setup
 
-1. Create a Resend account and an API key.
-   - **Quick start:** sign up for Resend *with finaltouchfencing@gmail.com*. Resend's test sender (`onboarding@resend.dev`) can deliver to the account owner's address before you verify a domain.
-   - **Production:** verify the site's domain in Resend and set `QUOTE_FROM_EMAIL` to an address on it.
-2. In Netlify → Site configuration → Environment variables, set `RESEND_API_KEY`, `QUOTE_TO_EMAIL` and `QUOTE_FROM_EMAIL` (see `.env.example`). Never put these in code.
-3. Deploy, submit a test quote on the live site, and confirm it arrives in the inbox. Check spam the first time.
-4. Optional: add Cloudflare Turnstile keys (`PUBLIC_TURNSTILE_SITE_KEY` at build time, `TURNSTILE_SECRET_KEY` for the function).
+1. **Activate FormSubmit (one time).** The first submission makes FormSubmit email an **Activate Form** link to finaltouchfencing@gmail.com. Click it. Until then, the form shows visitors an error with the phone number, and nothing is reported as sent.
+2. **Optional: hide the address from FormSubmit URLs.** After activation, FormSubmit emails a random alias. Set it as `FORMSUBMIT_ALIAS` in Netlify → Project configuration → Environment variables, then redeploy.
+3. Submit a test quote on the live site and confirm it arrives. Check spam the first time and mark it **Not spam**.
+4. **Optional upgrade to Resend** (branded HTML email from `@finaltouchfencing.com`): verify the domain in Resend, then set `RESEND_API_KEY` and `QUOTE_FROM_EMAIL`. When `RESEND_API_KEY` is set, it's used instead of FormSubmit. Never put keys in code.
+5. Optional: add Cloudflare Turnstile keys (`PUBLIC_TURNSTILE_SITE_KEY` at build time, `TURNSTILE_SECRET_KEY` for the function).
 
 ## Analytics
 

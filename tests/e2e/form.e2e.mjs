@@ -61,13 +61,19 @@ await step('valid submission shows success and delivers a complete email', async
   const mails = await outbox();
   assert.equal(mails.length, before + 1, 'no email captured');
   const m = mails.at(-1);
-  assert.deepEqual(m.to, ['finaltouchfencing@gmail.com']);
-  assert.equal(m.reply_to, 'e2e@example.com');
-  for (const s of ['Name: E2E Tester', 'Phone: (586) 555-0199', 'Email: e2e@example.com', 'Address: 1 Test St', 'City: St. Clair Shores', 'ZIP: 48080',
-    'Project Type: Replace a fence', 'Fence Type: Vinyl', 'Approximate Length: 120 ft', 'Gate Needed: Yes, walk gate', 'Timeline: As soon as possible',
-    'Additional Details: Replace 120 ft', `Source Page: ${BASE}/contact/`, 'utm_source: google', 'utm_medium: cpc', 'utm_campaign: e2e',
-    'utm_term: fence company', 'utm_content: v1', `Landing Page: ${BASE}/contact/?utm_source=google`])
-    assert.ok(m.text.includes(s), `email missing "${s}"`);
+  assert.equal(m.to, 'finaltouchfencing@gmail.com');
+  assert.equal(m.referer, 'https://www.finaltouchfencing.com/');
+  const b = m.body;
+  assert.equal(b._replyto, 'e2e@example.com');
+  assert.match(b._subject, /^New quote request: E2E Tester/);
+  const expect = { Name: 'E2E Tester', Phone: '(586) 555-0199', Email: 'e2e@example.com', Address: '1 Test St', City: 'St. Clair Shores', ZIP: '48080',
+    'Project Type': 'Replace a fence', 'Fence Type': 'Vinyl', 'Approximate Length': '120 ft', 'Gate Needed': 'Yes, walk gate', Timeline: 'As soon as possible',
+    'Additional Details': 'Replace 120 ft of old wood with white vinyl.', utm_source: 'google', utm_medium: 'cpc',
+    utm_campaign: 'e2e', utm_term: 'fence company', utm_content: 'v1' };
+  for (const [k, v] of Object.entries(expect)) assert.equal(b[k], v, `email field ${k}`);
+  assert.ok(b['Source Page'].startsWith(`${BASE}/contact/`), 'source page missing');
+  assert.ok(b['Landing Page'].startsWith(`${BASE}/contact/?utm_source=google`), 'landing page missing');
+  assert.match(b['Submission Date/Time'], /\(Eastern\)$/);
   const events = await page.evaluate(() => window.dataLayer.map((e) => e.event));
   assert.ok(events.includes('quote_form_start'), 'quote_form_start not tracked');
   assert.ok(events.includes('generate_lead'), 'generate_lead not tracked');
@@ -86,8 +92,8 @@ await step('first-touch UTM persists to a form on another page (service page)', 
   await page.waitForSelector('#quote-band-h ~ * [data-form-success][data-visible=true], [data-form-success][data-visible=true]', { timeout: 8000 });
   const m = (await outbox()).at(-1);
   assert.equal((await outbox()).length, before + 1);
-  assert.ok(m.text.includes(`Source Page: ${BASE}/services/gates/`));
-  assert.ok(m.text.includes('Project Type: Gate'));
+  assert.equal(m.body['Source Page'], `${BASE}/services/gates/`);
+  assert.equal(m.body['Project Type'], 'Gate');
 });
 
 await step('honeypot-filled submission shows success to the bot but sends nothing', async () => {

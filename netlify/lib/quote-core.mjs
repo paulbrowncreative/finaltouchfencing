@@ -100,7 +100,13 @@ export function composeEmail(data, { now = new Date(), timeZone = 'America/Detro
 
   const subjectBits = [v.project_type, v.fence_type, v.city || v.zip].filter(Boolean).join(' · ');
   const subject = `New quote request: ${v.name}${subjectBits ? ` — ${subjectBits}` : ''}`.slice(0, 180);
-  return { subject, text, html };
+  // Ordered label/value pairs for providers that build their own layout (FormSubmit).
+  const rows = [
+    ...FIELD_LABELS.map(([k, l]) => [l, v[k] || '—']),
+    ['Submission Date/Time', `${submitted} (Eastern)`],
+    ...TRACKING_LABELS.map(([k, l]) => [l, v[k] || '—']),
+  ];
+  return { subject, text, html, rows };
 }
 
 export async function verifyTurnstile(token, { secret, ip, fetchImpl = fetch }) {
@@ -120,7 +126,7 @@ export async function sendEmail({ subject, text, html, replyTo }, env, fetchImpl
     headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       from: env.QUOTE_FROM_EMAIL || 'Final Touch Fencing Website <onboarding@resend.dev>',
-      to: (env.QUOTE_TO_EMAIL || 'finaltouchfencing@gmail.com').split(',').map((s) => s.trim()),
+      to: (env.QUOTE_TO_EMAIL || DEFAULT_TO).split(',').map((s) => s.trim()),
       ...(replyTo ? { reply_to: replyTo } : {}),
       subject,
       text,
@@ -132,6 +138,41 @@ export async function sendEmail({ subject, text, html, replyTo }, env, fetchImpl
     throw new Error(`Email provider error ${res.status}: ${detail.slice(0, 200)}`);
   }
   return res.json().catch(() => ({}));
+}
+
+const DEFAULT_TO = 'finaltouchfencing@gmail.com';
+const SITE_ORIGIN = 'https://www.finaltouchfencing.com';
+
+/**
+ * Deliver through FormSubmit.co (no API key). Called server-side, so the destination address or
+ * alias never appears in page source, and every request carries the same Origin/Referer, which
+ * FormSubmit ties its one-time inbox activation to. Until the "Activate Form" email is clicked,
+ * FormSubmit answers 200 with success "false"; that is treated as a failure, never as delivered.
+ */
+export async function sendFormSubmit({ subject, rows, replyTo }, env, fetchImpl = fetch) {
+  const target = (env.FORMSUBMIT_ALIAS || (env.QUOTE_TO_EMAIL || DEFAULT_TO).split(',')[0]).trim();
+  const origin = env.SITE_URL || SITE_ORIGIN;
+  const res = await fetchImpl(`${env.FORMSUBMIT_URL || 'https://formsubmit.co/ajax/'}${encodeURIComponent(target)}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json', Origin: origin, Referer: `${origin}/` },
+    body: JSON.stringify({
+      _subject: subject,
+      _template: 'table',
+      _captcha: 'false',
+      ...(replyTo ? { _replyto: replyTo } : {}),
+      ...Object.fromEntries(rows),
+    }),
+  });
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok || String(json.success) !== 'true') {
+    throw new Error(`FormSubmit error ${res.status}: ${String(json.message || '').slice(0, 200)}`);
+  }
+  return json;
+}
+
+/** Resend when RESEND_API_KEY is set (branded HTML, verified sender); otherwise FormSubmit. */
+export function deliverQuote(mail, env, fetchImpl = fetch) {
+  return env.RESEND_API_KEY ? sendEmail(mail, env, fetchImpl) : sendFormSubmit(mail, env, fetchImpl);
 }
 
 /**
@@ -172,7 +213,7 @@ export async function handleQuote({ method, headers, bodyText, ip }, env, { fetc
 
   try {
     const mail = composeEmail(data, { now: new Date(now) });
-    await sendEmail({ ...mail, replyTo: data.email || undefined }, env, fetchImpl);
+    await deliverQuote({ ...mail, replyTo: data.email || undefined }, env, fetchImpl);
   } catch (err) {
     console.error('quote: email delivery failed', err);
     return respond(502, { ok: false, message: 'We couldn’t send your request right now.' }, '/quote-error/');
