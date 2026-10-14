@@ -107,7 +107,7 @@ export async function sendEmail({ subject, text, html, replyTo }, env, fetchImpl
 }
 
 const DEFAULT_TO = 'finaltouchfencing@gmail.com';
-const SITE_ORIGIN = 'https://www.finaltouchfencing.com';
+const SITE_ORIGIN = 'https://finaltouchfencing.com';
 
 /**
  * Deliver through FormSubmit.co (no API key). Called server-side, so the destination address or

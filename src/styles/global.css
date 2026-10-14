@@ -674,3 +674,11 @@ a[href^='tel:'] { white-space: nowrap; }
 .confirm-hero h1 { margin-top: var(--sp-4); }
 .h3 { font-size: var(--fs-lg); line-height: 1.15; }
 .mt-4 { margin-top: var(--sp-4); }
+
+/* HTML sitemap */
+.sitemap { display: grid; gap: var(--sp-7) var(--sp-8); grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); align-items: start; }
+.sitemap__group h2 { padding-bottom: var(--sp-3); border-bottom: 2px solid var(--c-ink); margin-bottom: var(--sp-3); }
+.sitemap__group ul { list-style: none; padding: 0; margin: 0; }
+.sitemap__group li { margin: 0; border-bottom: 1px solid var(--c-line); }
+.sitemap__group a { display: block; padding: var(--sp-3) 0; color: var(--c-ink); text-decoration: none; }
+.sitemap__group a:hover { color: var(--c-red); text-decoration: underline; }

@@ -19,8 +19,8 @@ const good = {
   details: 'Back yard, remove old wood fence.\nDog in yard.',
   company: '',
   started_at: String(NOW - 60_000),
-  source_page: 'https://www.finaltouchfencing.com/services/wood-fencing/',
-  landing_page: 'https://www.finaltouchfencing.com/?utm_source=google&utm_medium=cpc',
+  source_page: 'https://finaltouchfencing.com/services/wood-fencing/',
+  landing_page: 'https://finaltouchfencing.com/?utm_source=google&utm_medium=cpc',
   referrer: 'https://www.google.com/',
   utm_source: 'google',
   utm_medium: 'cpc',
@@ -61,7 +61,7 @@ test('valid submission emails finaltouchfencing@gmail.com with every field', asy
     'NEW FINAL TOUCH FENCING QUOTE REQUEST', 'Name: Jane Homeowner', 'Phone: (586) 555-0142', 'Email: jane@example.com',
     'Address: 123 Lakeview St', 'City: St. Clair Shores', 'ZIP: 48080', 'Project Type: New fence', 'Fence Type: Wood privacy',
     'Approximate Length: 150 ft', 'Gate Needed: Yes, walk gate', 'Timeline: Within 1–3 months', 'Additional Details: Back yard',
-    'Source Page: https://www.finaltouchfencing.com/services/wood-fencing/', 'Landing Page: https://www.finaltouchfencing.com/?utm_source=google',
+    'Source Page: https://finaltouchfencing.com/services/wood-fencing/', 'Landing Page: https://finaltouchfencing.com/?utm_source=google',
     'utm_source: google', 'utm_medium: cpc', 'utm_campaign: fence-scs', 'utm_term: fence company st clair shores', 'utm_content: ad-a',
     'gclid: abc123', 'Submission Date/Time: Wednesday, October 7, 2026',
   ]) assert.ok(body.text.includes(needle), `email text missing: ${needle}`);
@@ -144,8 +144,8 @@ test('with no Resend key, leads go to finaltouchfencing@gmail.com through FormSu
   assert.equal(f.calls.length, 1);
   const { url, init, body } = f.calls[0];
   assert.equal(url, 'https://formsubmit.co/ajax/finaltouchfencing%40gmail.com');
-  assert.equal(init.headers.Referer, 'https://www.finaltouchfencing.com/');
-  assert.equal(init.headers.Origin, 'https://www.finaltouchfencing.com');
+  assert.equal(init.headers.Referer, 'https://finaltouchfencing.com/');
+  assert.equal(init.headers.Origin, 'https://finaltouchfencing.com');
   assert.equal(body._captcha, 'false');
   assert.equal(body._template, 'table');
   assert.equal(body._replyto, 'jane@example.com');

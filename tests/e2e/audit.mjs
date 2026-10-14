@@ -5,7 +5,7 @@ import { AxeBuilder } from '@axe-core/playwright';
 import fs from 'node:fs';
 
 const BASE = process.env.BASE || 'http://localhost:4321';
-const SITE = 'https://www.finaltouchfencing.com';
+const SITE = 'https://finaltouchfencing.com';
 const sitemap = fs.readFileSync('dist/sitemap-0.xml', 'utf8');
 const paths = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].replace(SITE, ''));
 const issues = [];

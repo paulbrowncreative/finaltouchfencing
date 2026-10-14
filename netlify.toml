@@ -43,9 +43,9 @@
   to = "/blog/"
   status = 301
 
-# Canonical host: send the bare domain to www (enable once the domain is live)
-# [[redirects]]
-#   from = "https://finaltouchfencing.com/*"
-#   to = "https://www.finaltouchfencing.com/:splat"
-#   status = 301
-#   force = true
+# Canonical host is the bare domain: send www there in one hop, whatever the dashboard's primary domain.
+[[redirects]]
+  from = "https://www.finaltouchfencing.com/*"
+  to = "https://finaltouchfencing.com/:splat"
+  status = 301
+  force = true

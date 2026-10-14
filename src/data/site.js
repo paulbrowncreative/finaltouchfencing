@@ -5,7 +5,7 @@
 export const site = {
   name: 'Final Touch Fencing',
   legalName: 'Final Touch Fencing LLC',
-  url: 'https://www.finaltouchfencing.com', // CONFIRM: domain not yet registered
+  url: 'https://finaltouchfencing.com', // canonical host (Netlify primary domain); www redirects here
   phone: '(810) 614-4181',
   phoneHref: 'tel:+18106144181',
   phoneE164: '+18106144181',

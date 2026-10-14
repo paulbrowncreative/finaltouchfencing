@@ -2,8 +2,8 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import fs from 'node:fs';
 
-// CONFIRM: production domain (not yet registered). Also update public/robots.txt and src/data/site.js.
-const SITE = 'https://www.finaltouchfencing.com';
+// Canonical host. Keep in sync with public/robots.txt, src/data/site.js and the www redirect in netlify.toml.
+const SITE = 'https://finaltouchfencing.com';
 const EXCLUDE = ['/thank-you/', '/quote-error/', '/404/'];
 
 // <lastmod> for blog posts from front matter (`updated`, else `date`). Other pages omit it rather than
